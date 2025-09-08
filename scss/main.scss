@@ -1,0 +1,89 @@
+#hearo {
+  position: relative; /* 자식 요소의 absolute 기준점 */
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  position: relative; /* 텍스트 컨테이너의 absolute 기준점 */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.swiper-slide{
+  img {
+    width: 100%;
+    width: 100%;
+    object-fit: cover; /* 이미지가 슬라이드에 꽉 차도록 */
+  }
+} 
+
+.swiper-slide .innerText {
+  position: absolute;
+  top: 50%; /* 수직 가운데 정렬 (예시) */
+  left: 50%; /* 수평 가운데 정렬 (예시) */
+  transform: translate(-50%, -50%); /* 정확한 가운데 정렬 */
+  z-index: 2; /* 이미지를 텍스트 뒤로 보내기 */
+  color: #fff;
+  text-align: center;
+}
+
+/* Swiper 및 페이지네이션 기본 스타일 */
+.swiper-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 15px;
+}
+
+.swiper-pagination-bullet {
+  position: relative;
+  cursor: pointer;
+
+  background: #fff !important;  // 비활성 기본 흰색 원
+  border-radius: 50%;
+
+  // 기본 Swiper 파란 배경 제거
+  opacity: 1 !important;
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg); // 위쪽에서 시작
+    pointer-events: none; // 클릭 막지 않음
+  }
+
+  .bg {
+    fill: none;
+    stroke: #eee; // 기본 배경 라인 없음
+    stroke-width: 3;
+  }
+
+  .progress {
+    fill: none;
+    border: 1px solid #eee;
+    stroke: #d40000; // Ferrari Red
+    stroke-width: 3;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    transition: stroke-dashoffset linear;
+  }
+}
+
+// 활성화된 bullet
+.swiper-pagination-bullet-active {
+  background: inherit !important; 
+  width: 20px !important;
+  height: 20px !important;
+}
+

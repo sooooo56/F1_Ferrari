@@ -1,0 +1,81 @@
+@charset "UTF-8";
+#hearo {
+  position: relative; /* 자식 요소의 absolute 기준점 */
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  position: relative; /* 텍스트 컨테이너의 absolute 기준점 */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.swiper-slide img {
+  width: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover; /* 이미지가 슬라이드에 꽉 차도록 */
+}
+
+.swiper-slide .innerText {
+  position: absolute;
+  top: 50%; /* 수직 가운데 정렬 (예시) */
+  left: 50%; /* 수평 가운데 정렬 (예시) */
+  transform: translate(-50%, -50%); /* 정확한 가운데 정렬 */
+  z-index: 2; /* 이미지를 텍스트 뒤로 보내기 */
+  color: #fff;
+  text-align: center;
+}
+
+/* Swiper 및 페이지네이션 기본 스타일 */
+.swiper-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 15px;
+}
+
+.swiper-pagination-bullet {
+  position: relative;
+  cursor: pointer;
+  background: #fff !important;
+  border-radius: 50%;
+  opacity: 1 !important;
+}
+.swiper-pagination-bullet svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+.swiper-pagination-bullet .bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3;
+}
+.swiper-pagination-bullet .progress {
+  fill: none;
+  border: 1px solid #eee;
+  stroke: #d40000;
+  stroke-width: 3;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset linear;
+}
+
+.swiper-pagination-bullet-active {
+  background: inherit !important;
+  width: 20px !important;
+  height: 20px !important;
+}

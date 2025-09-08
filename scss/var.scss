@@ -1,0 +1,72 @@
+$black1: #181818;
+$black2: #303030;
+
+$white: #fff; 
+
+$gray: #aaa;
+
+// 포인트 컬러
+$point-color: #d40000; 
+
+// 마진 및 패딩
+$pc: 12rem; //120px
+$mo:8rem; //80px
+
+// 신규 팝업 타이틀 위 여백
+$pc-title: 24rem; //pc
+$margin-t80: 8rem; //mo
+
+// 네비게이션 여백
+$padding-t55: 5.5rem; //55px
+$padding-t165: 16.5rem;
+
+html {
+  font-size: 62.5%; // 1rem = 10px 설정
+  background-color: $black1;
+}
+
+body {
+  font-size: 1.6rem; // 기본 폰트 크기 16px
+  font-family: 'Gotham', sans-serif;
+  font-weight: normal;
+  margin: 0;
+  color: $white;
+
+  @media (min-width: 768px) and (max-width: 1023px){
+      font-size: 1.5rem;
+  }
+  @media all and (max-width: 767px){
+      font-size: 1.4rem;
+  }
+
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+//공통 컨텐츠 너비
+.container {
+  max-width: 1530px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  // 1439px ~ 1024px 범위에 적용
+  @media (max-width: 1439px) and (min-width: 1024px) {
+    padding: 0 4rem;
+  }
+
+  // 1023px ~ 768px 범위에 적용
+  @media (max-width: 1023px) {
+    padding: 0 3rem;
+  }
+
+  // 767px 이하에 적용
+  @media (max-width: 767px) {
+    padding: 0 2rem;
+  }
+
+}

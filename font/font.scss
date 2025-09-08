@@ -1,0 +1,16 @@
+/* Gotham Book */
+@font-face {
+    font-family: 'Gotham';
+    src: url('./Gotham-Book.woff2') format('woff2');
+    font-weight: normal; /* 'Book' 폰트 파일의 두께는 normal(400) */
+    font-style: normal;
+}
+
+/* Gotham Rounded Medium */
+@font-face {
+    font-family: 'Gotham';
+    src: url('./Gotham-Rounded-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+

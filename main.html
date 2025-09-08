@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferrari</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/navi.css">
+
+    <!-- font -->
+    <link rel="stylesheet" href="./font/font.scss">
+
+    <!-- js -->
+    <!-- <script src="./js/main.js"></script> -->
+
+    <!-- reset css -->
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+</head>
+<body>
+    <!-- navi -->
+    <nav id="nav">
+        <div class="navInner">
+            <div class="logo"><a href="#">logo</a></div>
+                <div><a href="#">Racing</a></div>
+                <div><a href="#">SF-25</a></div>
+                <div><a href="#">Team</a></div>
+                <div><a href="#">News</a></div>
+                <div><a href="#">Partners</a></div>
+        </div>
+    </nav>
+
+    <!-- Hearo -->
+<section id="hearo">
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+          <div class="innerText">
+            <div>SCUDERIA FERRARI</div>
+            <a href="#" class="btn">DISCOVER</a>
+          </div>
+        <img src="./img/main/main_01.jpg" alt="메인 비주얼 1">
+      </div>
+      <div class="swiper-slide"><img src="./img/main/main_02.jpg" alt="메인 비주얼 2"></div>
+      <!-- <div class="swiper-slide"><img src="./img/main/main_03.jpg" alt="메인 비주얼 3"></div> -->
+    </div>
+    <!-- pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+const swiper = new Swiper(".swiper", {
+  loop: true,
+  // autoplay: { delay: 7000 },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    renderBullet: function (index, className) {
+      return `
+        <span class="${className}">
+          <svg viewBox="0 0 36 36">
+            <circle class="bg" cx="18" cy="18" r="16"></circle>
+            <circle class="progress" cx="18" cy="18" r="16"></circle>
+          </svg>
+        </span>
+      `;
+    },
+  },
+});
+
+// 원형 애니메이션 실행 함수
+function runCircleAnimation() {
+  const delay = swiper.params.autoplay?.delay || 7000;
+
+  // 모든 bullet progress 초기화
+  document.querySelectorAll(".swiper-pagination .progress").forEach(el => {
+    el.style.transition = "none";
+    el.style.strokeDashoffset = 100;
+  });
+
+  // 활성화된 bullet만 채워지게
+  const active = document.querySelector(".swiper-pagination-bullet-active .progress");
+  if (active) {
+    void active.offsetWidth; // 강제 리플로우로 transition 초기화
+    active.style.transition = `stroke-dashoffset ${delay / 1000}s linear`;
+    active.style.strokeDashoffset = 0;
+  }
+}
+
+swiper.on("slideChange", runCircleAnimation);
+swiper.on("paginationUpdate", runCircleAnimation);
+
+// 초기 실행
+runCircleAnimation();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+@use 'var' as v;
+
+#nav{
+    background-color: v.$black2;
+    height: 40px;
+
+    
+    .navInner{
+        @extend .container;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 38px;
+
+        a{
+            padding: 10px;
+        }
+    }
+}
+
