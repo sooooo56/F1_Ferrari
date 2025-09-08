@@ -70,3 +70,12 @@ a{
   }
 
 }
+
+
+@mixin title(){
+  color: $white;
+  font-size: 50px;
+  font-family: 'Gotham';
+  font-weight: 350;
+  word-wrap: break-word
+}

@@ -1,4 +1,54 @@
 @charset "UTF-8";
+html {
+  font-size: 62.5%;
+  background-color: #181818;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Gotham", sans-serif;
+  font-weight: normal;
+  margin: 0;
+  color: #fff;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  body {
+    font-size: 1.5rem;
+  }
+}
+@media all and (max-width: 767px) {
+  body {
+    font-size: 1.4rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1530px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+@media (max-width: 1439px) and (min-width: 1024px) {
+  .container {
+    padding: 0 4rem;
+  }
+}
+@media (max-width: 1023px) {
+  .container {
+    padding: 0 3rem;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
 #hearo {
   position: relative; /* 자식 요소의 absolute 기준점 */
   width: 100%;
@@ -16,22 +66,40 @@
   height: 100%;
   overflow: hidden;
 }
-
 .swiper-slide img {
   width: 100%;
   width: 100%;
   -o-object-fit: cover;
-     object-fit: cover; /* 이미지가 슬라이드에 꽉 차도록 */
+     object-fit: cover;
 }
-
 .swiper-slide .innerText {
   position: absolute;
-  top: 50%; /* 수직 가운데 정렬 (예시) */
-  left: 50%; /* 수평 가운데 정렬 (예시) */
-  transform: translate(-50%, -50%); /* 정확한 가운데 정렬 */
-  z-index: 2; /* 이미지를 텍스트 뒤로 보내기 */
-  color: #fff;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
   text-align: center;
+}
+.swiper-slide .innerText h3 {
+  color: #fff;
+  font-size: 50px;
+  font-family: "Gotham";
+  font-weight: 350;
+  word-wrap: break-word;
+  margin-bottom: 25px;
+}
+.swiper-slide .innerText .btn {
+  padding: 10px;
+}
+.swiper-slide .innerText::after {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  position: relative;
+  border-radius: 50%;
+  border: 1.2px solid #aaa;
+  box-sizing: border-box;
+  height: 20px;
 }
 
 /* Swiper 및 페이지네이션 기본 스타일 */
