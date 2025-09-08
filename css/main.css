@@ -50,37 +50,36 @@ a {
 }
 
 #hearo {
-  position: relative; /* 자식 요소의 absolute 기준점 */
+  position: relative;
   width: 100%;
   height: 100vh;
 }
-
-.swiper {
+#hearo .swiper {
   width: 100%;
   height: 100%;
 }
-
-.swiper-slide {
-  position: relative; /* 텍스트 컨테이너의 absolute 기준점 */
+#hearo .swiper .swiper-slide {
+  position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
-.swiper-slide img {
+#hearo .swiper .swiper-slide img {
   width: 100%;
-  width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.swiper-slide .innerText {
+#hearo .swiper .swiper-slide .innerText {
   position: absolute;
   top: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
   text-align: center;
+  /* DISCOVER 버튼 */
 }
-.swiper-slide .innerText h3 {
+#hearo .swiper .swiper-slide .innerText h3 {
   color: #fff;
   font-size: 50px;
   font-family: "Gotham";
@@ -88,21 +87,52 @@ a {
   word-wrap: break-word;
   margin-bottom: 25px;
 }
-.swiper-slide .innerText .btn {
-  padding: 10px;
+#hearo .swiper .swiper-slide .innerText .discover-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
 }
-.swiper-slide .innerText::after {
-  content: "";
-  display: inline-block;
-  width: 20px;
+#hearo .swiper .swiper-slide .innerText .discover-btn .circle {
   position: relative;
-  border-radius: 50%;
-  border: 1.2px solid #aaa;
-  box-sizing: border-box;
-  height: 20px;
+  width: 36px;
+  height: 36px;
+}
+#hearo .swiper .swiper-slide .innerText .discover-btn .circle svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+#hearo .swiper .swiper-slide .innerText .discover-btn .circle .bg {
+  fill: none;
+  stroke: #aaa;
+  stroke-width: 2;
+}
+#hearo .swiper .swiper-slide .innerText .discover-btn .circle .progress {
+  fill: none;
+  stroke: #d40000;
+  stroke-width: 2;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.7s linear;
+}
+#hearo .swiper .swiper-slide .innerText .discover-btn .circle text {
+  transform: rotate(90deg);
+  font-size: 18px;
+  fill: #fff;
+  font-weight: 500;
+  pointer-events: none;
+}
+#hearo .swiper .swiper-slide .innerText .discover-btn:hover .progress {
+  stroke-dashoffset: 0;
 }
 
-/* Swiper 및 페이지네이션 기본 스타일 */
+/* Swiper 페이지네이션 */
 .swiper-pagination {
   display: flex;
   align-items: center;
@@ -110,15 +140,16 @@ a {
   gap: 5px;
   padding: 15px;
 }
-
-.swiper-pagination-bullet {
+.swiper-pagination .swiper-pagination-bullet {
   position: relative;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
-  background: #fff !important;
+  background: inherit;
   border-radius: 50%;
   opacity: 1 !important;
 }
-.swiper-pagination-bullet svg {
+.swiper-pagination .swiper-pagination-bullet svg {
   position: absolute;
   top: 0;
   left: 0;
@@ -127,23 +158,22 @@ a {
   transform: rotate(-90deg);
   pointer-events: none;
 }
-.swiper-pagination-bullet .bg {
+.swiper-pagination .swiper-pagination-bullet .bg {
   fill: none;
-  stroke: #eee;
+  stroke: #aaa;
   stroke-width: 3;
 }
-.swiper-pagination-bullet .progress {
+.swiper-pagination .swiper-pagination-bullet .progress {
   fill: none;
-  border: 1px solid #eee;
   stroke: #d40000;
   stroke-width: 3;
   stroke-dasharray: 100;
   stroke-dashoffset: 100;
   transition: stroke-dashoffset linear;
 }
-
-.swiper-pagination-bullet-active {
-  background: inherit !important;
-  width: 20px !important;
-  height: 20px !important;
+.swiper-pagination .swiper-pagination-bullet-active {
+  background: transparent !important;
+}
+.swiper-pagination .swiper-pagination-bullet-active .progress {
+  stroke-dashoffset: 0;
 }

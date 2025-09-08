@@ -1,7 +1,8 @@
 @use 'var' as v;
- 
+
+/* Hero 영역 */
 #hearo {
-  position: relative; /* 자식 요소의 absolute 기준점 */
+  position: relative;
   width: 100%;
   height: 100vh;
 }
@@ -12,15 +13,15 @@
 }
 
 .swiper-slide {
-  position: relative; /* 텍스트 컨테이너의 absolute 기준점 */
+  position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
 
   img {
     width: 100%;
-    width: 100%;
-    object-fit: cover
+    height: 100%;
+    object-fit: cover;
   }
 
   .innerText {
@@ -31,30 +32,52 @@
     z-index: 2;
     text-align: center;
 
-    h3{
-      @include v.title;
+    h3 {
+      font-size: 32px;
+      font-weight: 700;
       margin-bottom: 25px;
+      color: #fff;
     }
 
-    .btn{
-      padding:10px;
-    }
-    &::after{
-      content: "";
-      display: inline-block;
-      width: 20px;
-      position: relative;
-      border-radius: 50%;
-      border: 1.2px solid #aaa;
-      box-sizing: border-box;
-      height: 20px;
+    /* DISCOVER 버튼 */
+    .discover-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      background: transparent;
+      text-decoration: none;
+      cursor: pointer;
+
+      .circle {
+        position: relative;
+        @include circle-progress(36px, 2, #d40000, #aaa);
+
+        // + 아이콘
+        &::after {
+          content: "+";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: #fff;
+          font-size: 20px;
+          font-weight: 400;
+        }
+      }
+
+      // hover 효과
+      &:hover .progress {
+        stroke-dashoffset: 0;
+      }
     }
   }
+}
 
-
-} 
-
-/* Swiper 및 페이지네이션 기본 스타일 */
+/* Swiper 페이지네이션 */
 .swiper-pagination {
   display: flex;
   align-items: center;
@@ -66,11 +89,8 @@
 .swiper-pagination-bullet {
   position: relative;
   cursor: pointer;
-
-  background: #fff !important;  // 비활성 기본 흰색 원
+  background: #fff !important; // 비활성 흰색
   border-radius: 50%;
-
-  // 기본 Swiper 파란 배경 제거
   opacity: 1 !important;
 
   svg {
@@ -79,31 +99,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    transform: rotate(-90deg); // 위쪽에서 시작
-    pointer-events: none; // 클릭 막지 않음
+    pointer-events: none;
   }
 
-  .bg {
-    fill: none;
-    stroke: #eee; // 기본 배경 라인 없음
-    stroke-width: 3;
-  }
+  // 공통 원형 mixin 재사용
+  @include circle-progress(20px, 3, #d40000, #eee);
 
-  .progress {
-    fill: none;
-    border: 1px solid #eee;
-    stroke: #d40000; // Ferrari Red
-    stroke-width: 3;
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
-    transition: stroke-dashoffset linear;
+  &.swiper-pagination-bullet-active {
+    background: transparent !important;
   }
 }
-
-// 활성화된 bullet
-.swiper-pagination-bullet-active {
-  background: inherit !important; 
-  width: 20px !important;
-  height: 20px !important;
-}
-

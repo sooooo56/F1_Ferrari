@@ -79,3 +79,32 @@ a{
   font-weight: 350;
   word-wrap: break-word
 }
+
+// _circle.scss
+@mixin circle-progress($size: 36px, $stroke: 2, $color: #d40000, $bg: #aaa, $duration: 0.7s) {
+  width: $size;
+  height: $size;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg); // 위쪽에서 시작
+  }
+
+  .bg {
+    fill: none;
+    stroke: $bg;
+    stroke-width: $stroke;
+  }
+
+  .progress {
+    fill: none;
+    stroke: $color;
+    stroke-width: $stroke;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100; // 시작은 비어있음
+    transition: stroke-dashoffset $duration linear;
+  }
+}
+
+
