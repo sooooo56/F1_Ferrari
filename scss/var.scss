@@ -71,17 +71,30 @@ a{
 
 }
 
+@mixin max-title(){
+  font-size: 70px;
+  font-family: 'Gotham';
+  font-weight: 350;
+  word-wrap: break-word
+}
 
 @mixin title(){
-  color: $white;
   font-size: 50px;
   font-family: 'Gotham';
   font-weight: 350;
   word-wrap: break-word
 }
 
+@mixin m-body(){
+  font-size: 18px;
+  font-family: 'Gotham';
+  font-weight: 350;
+  word-wrap: break-word
+}
+
+
 // _circle.scss
-@mixin circle-progress($size: 36px, $stroke: 2, $color: #d40000, $bg: #aaa, $duration: 0.7s) {
+@mixin circle-progress($size: 36px, $stroke: 2, $color: $point-color, $bg: $gray, $duration: 0.7s) {
   width: $size;
   height: $size;
 
@@ -106,5 +119,3 @@ a{
     transition: stroke-dashoffset $duration linear;
   }
 }
-
-

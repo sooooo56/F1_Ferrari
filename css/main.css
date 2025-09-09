@@ -49,71 +49,81 @@ a {
   }
 }
 
+/* Hero 영역 */
 #hearo {
   position: relative;
   width: 100%;
   height: 100vh;
 }
-#hearo .swiper {
+
+.swiper {
   width: 100%;
   height: 100%;
 }
-#hearo .swiper .swiper-slide {
+
+.swiper-slide {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
-#hearo .swiper .swiper-slide img {
+.swiper-slide img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-#hearo .swiper .swiper-slide .innerText {
+.swiper-slide video {
+  transform: rotate(90deg);
+  transform-origin: center center; /* 회전 기준점 */
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.swiper-slide .innerText {
   position: absolute;
   top: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
   text-align: center;
+  width: 100%;
   /* DISCOVER 버튼 */
 }
-#hearo .swiper .swiper-slide .innerText h3 {
-  color: #fff;
+.swiper-slide .innerText h3 {
   font-size: 50px;
   font-family: "Gotham";
   font-weight: 350;
   word-wrap: break-word;
   margin-bottom: 25px;
 }
-#hearo .swiper .swiper-slide .innerText .discover-btn {
+.swiper-slide .innerText .discover-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  padding: 12px 20px;
   font-size: 18px;
-  font-weight: 700;
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
+  font-family: "Gotham";
+  font-weight: 350;
+  word-wrap: break-word;
 }
-#hearo .swiper .swiper-slide .innerText .discover-btn .circle {
+.swiper-slide .innerText .discover-btn .circle {
   position: relative;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
 }
-#hearo .swiper .swiper-slide .innerText .discover-btn .circle svg {
+.swiper-slide .innerText .discover-btn .circle svg {
   width: 100%;
   height: 100%;
   transform: rotate(-90deg);
 }
-#hearo .swiper .swiper-slide .innerText .discover-btn .circle .bg {
+.swiper-slide .innerText .discover-btn .circle .bg {
   fill: none;
   stroke: #aaa;
   stroke-width: 2;
 }
-#hearo .swiper .swiper-slide .innerText .discover-btn .circle .progress {
+.swiper-slide .innerText .discover-btn .circle .progress {
   fill: none;
   stroke: #d40000;
   stroke-width: 2;
@@ -121,14 +131,17 @@ a {
   stroke-dashoffset: 100;
   transition: stroke-dashoffset 0.7s linear;
 }
-#hearo .swiper .swiper-slide .innerText .discover-btn .circle text {
-  transform: rotate(90deg);
-  font-size: 18px;
-  fill: #fff;
-  font-weight: 500;
-  pointer-events: none;
+.swiper-slide .innerText .discover-btn .circle::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
 }
-#hearo .swiper .swiper-slide .innerText .discover-btn:hover .progress {
+.swiper-slide .innerText .discover-btn:hover .progress {
   stroke-dashoffset: 0;
 }
 
@@ -140,40 +153,87 @@ a {
   gap: 5px;
   padding: 15px;
 }
-.swiper-pagination .swiper-pagination-bullet {
+
+.swiper-pagination-clickable .swiper-pagination-bullet {
   position: relative;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  background: inherit;
-  border-radius: 50%;
+  background: #fff !important;
   opacity: 1 !important;
+  width: 100%;
+  width: 10px;
+  height: 10px;
 }
-.swiper-pagination .swiper-pagination-bullet svg {
+.swiper-pagination-clickable .swiper-pagination-bullet svg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  transform: rotate(-90deg);
   pointer-events: none;
 }
-.swiper-pagination .swiper-pagination-bullet .bg {
+.swiper-pagination-clickable .swiper-pagination-bullet svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+.swiper-pagination-clickable .swiper-pagination-bullet .bg {
   fill: none;
   stroke: #aaa;
   stroke-width: 3;
 }
-.swiper-pagination .swiper-pagination-bullet .progress {
+.swiper-pagination-clickable .swiper-pagination-bullet .progress {
   fill: none;
   stroke: #d40000;
   stroke-width: 3;
   stroke-dasharray: 100;
   stroke-dashoffset: 100;
-  transition: stroke-dashoffset linear;
+  transition: stroke-dashoffset 0.7s linear;
 }
-.swiper-pagination .swiper-pagination-bullet-active {
+.swiper-pagination-clickable .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background: transparent !important;
+  width: 22px;
+  height: 22px;
 }
-.swiper-pagination .swiper-pagination-bullet-active .progress {
-  stroke-dashoffset: 0;
+.swiper-pagination-clickable .swiper-pagination-bullet.swiper-pagination-bullet-active svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+.swiper-pagination-clickable .swiper-pagination-bullet.swiper-pagination-bullet-active .bg {
+  fill: none;
+  stroke: #aaa;
+  stroke-width: 3;
+}
+.swiper-pagination-clickable .swiper-pagination-bullet.swiper-pagination-bullet-active .progress {
+  fill: none;
+  stroke: #d40000;
+  stroke-width: 3;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.7s linear;
+}
+
+#full {
+  width: 100%;
+  height: 100vh;
+}
+#full .fullInner {
+  position: relative;
+}
+#full .fullInner .fullTitle {
+  font-size: 70px;
+  font-family: "Gotham";
+  font-weight: 350;
+  word-wrap: break-word;
+  position: absolute;
+  top: 20%;
+  left: 25%;
+}
+#full .fullInner .fullTitle:last-child {
+  right: 20%;
+}
+#full .fullInner img {
+  width: 100%;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
 }

@@ -24,6 +24,14 @@
     object-fit: cover;
   }
 
+  video {
+    transform: rotate(90deg);
+    transform-origin: center center; /* 회전 기준점 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .innerText {
     position: absolute;
     top: 85%;
@@ -31,30 +39,24 @@
     transform: translate(-50%, -50%);
     z-index: 2;
     text-align: center;
+    width: 100%;
 
     h3 {
-      font-size: 32px;
-      font-weight: 700;
+      @include v.title();
       margin-bottom: 25px;
-      color: #fff;
     }
 
     /* DISCOVER 버튼 */
     .discover-btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      padding: 12px 20px;
-      font-size: 18px;
-      font-weight: 700;
-      color: #fff;
-      background: transparent;
-      text-decoration: none;
-      cursor: pointer;
+      @include v.m-body;
 
       .circle {
         position: relative;
-        @include circle-progress(36px, 2, #d40000, #aaa);
+        @include v.circle-progress(40px, 2);
 
         // + 아이콘
         &::after {
@@ -86,12 +88,14 @@
   padding: 15px;
 }
 
-.swiper-pagination-bullet {
+.swiper-pagination-clickable{
+
+  .swiper-pagination-bullet {
   position: relative;
-  cursor: pointer;
   background: #fff !important; // 비활성 흰색
-  border-radius: 50%;
   opacity: 1 !important;
+  width: 100%;
+
 
   svg {
     position: absolute;
@@ -103,9 +107,41 @@
   }
 
   // 공통 원형 mixin 재사용
-  @include circle-progress(20px, 3, #d40000, #eee);
+  @include v.circle-progress(10px, 3);
 
-  &.swiper-pagination-bullet-active {
-    background: transparent !important;
+    &.swiper-pagination-bullet-active {
+      background: transparent !important;
+      @include v.circle-progress(22px, 3);
+    }
   }
+}
+
+
+// full
+#full{
+  width: 100%;
+  height: 100vh;
+  
+
+  .fullInner{
+    position: relative;
+
+    .fullTitle{
+      @include v.max-title();
+      position: absolute;
+      top: 20%;
+      left: 25%;
+
+      &:last-child{
+        right: 20%;
+      }
+    }
+
+    img{
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+    }
+  }
+  
 }

@@ -53,7 +53,6 @@
                 <svg viewBox="0 0 36 36">
                   <circle class="bg" cx="18" cy="18" r="16"></circle>
                   <circle class="progress" cx="18" cy="18" r="16"></circle>
-                  <text x="50%" y="50%" text-anchor="middle" dy=".35em">+</text>
                 </svg>
               </span>
             </a>
@@ -61,15 +60,67 @@
           </div>
         <img src="./img/main/main_01.jpg" alt="메인 비주얼 1">
       </div>
-      <div class="swiper-slide"><img src="./img/main/main_02.jpg" alt="메인 비주얼 2"></div>
-      <!-- <div class="swiper-slide"><img src="./img/main/main_03.jpg" alt="메인 비주얼 3"></div> -->
+
+      <div class="swiper-slide">
+          <div class="innerText">
+            
+            <h3>BORN TO RACE. BUILT TO WIN.</h3>
+
+            <a href="#" class="discover-btn">
+              DISCOVER
+              <span class="circle">
+                <svg viewBox="0 0 36 36">
+                  <circle class="bg" cx="18" cy="18" r="16"></circle>
+                  <circle class="progress" cx="18" cy="18" r="16"></circle>
+                  <!-- <text x="50%" y="50%" text-anchor="middle" dy=".35em">+</text> -->
+                </svg>
+              </span>
+            </a>
+
+          </div>
+        <img src="./img/main/main_02.jpg" alt="메인 비주얼 2">
+      </div>
+
+      <div class="swiper-slide">
+          <div class="innerText">
+            
+            <h3>DRIVEN BY PASSION. DEFINED BY LEGACY</h3>
+
+            <a href="#" class="discover-btn">
+              DISCOVER
+              <span class="circle">
+                <svg viewBox="0 0 36 36">
+                  <circle class="bg" cx="18" cy="18" r="16"></circle>
+                  <circle class="progress" cx="18" cy="18" r="16"></circle>
+                  <!-- <text x="50%" y="50%" text-anchor="middle" dy=".35em">+</text> -->
+                </svg>
+              </span>
+            </a>
+
+          </div>
+          <video src="./img/main/main_03.mp4" autoplay loop muted></video>
+      </div>
+
+
     </div>
     <!-- pagination -->
     <div class="swiper-pagination"></div>
   </div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<section id="full">
+  <div class="fullInner">
+    <p class="fullTitle">SPEED. INNOVATION. EXCELLENCE.</p>
+    <img src="./img/main/full_1.jpg" alt="full 1">
+  </div>
+
+  <div class="fullInner">
+    <p class="fullTitle">MOMENTS THAT DEFINE CHAMPIONS.</p>
+    <img src="./img/main/full_2.jpg" alt="full 2">
+  </div>
+</section>
+
+<!-- swiper -->
 <script>
 const swiper = new Swiper(".swiper", {
   loop: true,
