@@ -85,6 +85,13 @@ a{
   word-wrap: break-word
 }
 
+@mixin sub-title(){
+  font-size: 36px;
+  font-family: 'Gotham';
+  font-weight: 350;
+  word-wrap: break-word
+}
+
 @mixin m-body(){
   font-size: 18px;
   font-family: 'Gotham';
@@ -118,4 +125,5 @@ a{
     stroke-dashoffset: 100; // 시작은 비어있음
     transition: stroke-dashoffset $duration linear;
   }
+  
 }

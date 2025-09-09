@@ -49,6 +49,68 @@ a {
   }
 }
 
+.title {
+  font-size: 50px;
+  font-family: "Gotham";
+  font-weight: 350;
+  word-wrap: break-word;
+}
+
+.subTitle {
+  font-size: 36px;
+  font-family: "Gotham";
+  font-weight: 350;
+  word-wrap: break-word;
+}
+
+/* DISCOVER 버튼 */
+.discover-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 18px;
+  font-family: "Gotham";
+  font-weight: 350;
+  word-wrap: break-word;
+}
+.discover-btn .circle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+.discover-btn .circle svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+.discover-btn .circle .bg {
+  fill: none;
+  stroke: #aaa;
+  stroke-width: 2;
+}
+.discover-btn .circle .progress {
+  fill: none;
+  stroke: #d40000;
+  stroke-width: 2;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.7s linear;
+}
+.discover-btn .circle::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+}
+.discover-btn:hover .progress {
+  stroke-dashoffset: 0;
+}
+
 /* Hero 영역 */
 #hearo {
   position: relative;
@@ -89,60 +151,9 @@ a {
   z-index: 2;
   text-align: center;
   width: 100%;
-  /* DISCOVER 버튼 */
 }
 .swiper-slide .innerText h3 {
-  font-size: 50px;
-  font-family: "Gotham";
-  font-weight: 350;
-  word-wrap: break-word;
   margin-bottom: 25px;
-}
-.swiper-slide .innerText .discover-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 18px;
-  font-family: "Gotham";
-  font-weight: 350;
-  word-wrap: break-word;
-}
-.swiper-slide .innerText .discover-btn .circle {
-  position: relative;
-  width: 40px;
-  height: 40px;
-}
-.swiper-slide .innerText .discover-btn .circle svg {
-  width: 100%;
-  height: 100%;
-  transform: rotate(-90deg);
-}
-.swiper-slide .innerText .discover-btn .circle .bg {
-  fill: none;
-  stroke: #aaa;
-  stroke-width: 2;
-}
-.swiper-slide .innerText .discover-btn .circle .progress {
-  fill: none;
-  stroke: #d40000;
-  stroke-width: 2;
-  stroke-dasharray: 100;
-  stroke-dashoffset: 100;
-  transition: stroke-dashoffset 0.7s linear;
-}
-.swiper-slide .innerText .discover-btn .circle::after {
-  content: "+";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  font-size: 20px;
-  font-weight: 400;
-}
-.swiper-slide .innerText .discover-btn:hover .progress {
-  stroke-dashoffset: 0;
 }
 
 /* Swiper 페이지네이션 */
@@ -151,7 +162,7 @@ a {
   align-items: center;
   justify-content: center;
   gap: 5px;
-  padding: 15px;
+  padding: 25px 0;
 }
 
 .swiper-pagination-clickable .swiper-pagination-bullet {
@@ -214,7 +225,7 @@ a {
 
 #full {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 #full .fullInner {
   position: relative;
@@ -228,12 +239,47 @@ a {
   top: 20%;
   left: 25%;
 }
-#full .fullInner .fullTitle:last-child {
-  right: 20%;
+#full .fullInner .right {
+  left: 10%;
 }
 #full .fullInner img {
   width: 100%;
   height: 100vh;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.title {
+  margin-bottom: 30px;
+}
+
+.driver {
+  display: flex;
+}
+.driver .driverCard {
+  position: relative;
+  flex: 1;
+  height: 650px;
+  background: linear-gradient(180deg, #8C0000 0%, #070707 100%);
+  overflow: hidden;
+}
+.driver .driverCard:last-child {
+  background: linear-gradient(180deg, #770000 0%, #070707 100%);
+}
+.driver .driverCard img {
+  position: absolute;
+  top: 7%;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.driver .driverCard .driverInfo {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+}
+.driver .driverCard .driverInfo .subTitle {
+  padding-bottom: 16px;
 }

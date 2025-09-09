@@ -1,52 +1,257 @@
-.swiper{
+@use 'var' as v;
 
-  img{
-  width: 100%;
-  height: 100vh;
+// 공통 타이틀 스타일
+.title{
+  @include v.title();
+}
+
+.subTitle{
+  @include v.sub-title();
+}
+
+/* DISCOVER 버튼 */
+  .discover-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    @include v.m-body;
+
+    .circle {
+      position: relative;
+      @include v.circle-progress(40px, 2);
+
+      // + 아이콘
+      &::after {
+        content: "+";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 20px;
+        font-weight: 400;
+      }
+    }
+
+    // hover 효과
+    &:hover .progress {
+      stroke-dashoffset: 0;
+    }
   }
 
-}
 
-/* pagination.css 파일 */
-.swiper-pagination-bullet {
+/* Hero 영역 */
+#hearo {
   position: relative;
-  width: 12px;
-  height: 12px;
-  margin: 0 8px;
-  border-radius: 50%;
-  cursor: pointer;
-  background-color: #fff;
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  video {
+    transform: rotate(90deg);
+    transform-origin: center center; /* 회전 기준점 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .innerText {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+
+    h3 {
+      margin-bottom: 25px;
+    }
+
+    
+  }
+}
+
+
+
+/* Swiper 페이지네이션 */
+.swiper-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 25px 0;
+}
+
+.swiper-pagination-clickable{
+
+  .swiper-pagination-bullet {
+  position: relative;
+  background: #fff !important; // 비활성 흰색
   opacity: 1 !important;
-  transition: all 0.3s ease;
+  width: 100%;
+
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  // 공통 원형 mixin 재사용
+  @include v.circle-progress(10px, 3);
+
+    &.swiper-pagination-bullet-active {
+      background: transparent !important;
+      @include v.circle-progress(22px, 3);
+    }
+  }
 }
 
-.swiper-pagination-bullet-active {
-  width: 16px;
-  height: 16px;
-  background-color: transparent;
+
+// full
+#full{
+  width: 100%;
+  height: 100%;
+
+  .fullInner{
+    position: relative;
+
+    .fullTitle{
+      @include v.max-title();
+      position: absolute;
+      top: 20%;
+      left: 25%;
+    }
+    .right{
+      left: 10%;
+    }
+    
+    img{
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+    }
+  }
+  
 }
 
-.swiper-pagination-bullet svg {
+// 드라이버 소개
+.title {
+  margin-bottom: 30px;
+}
+
+.driver {
+  display: flex;
+
+  .driverCard {
+    position: relative;
+    flex: 1;
+    height: 650px;
+    background: linear-gradient(180deg, #8C0000 0%, #070707 100%);
+    overflow: hidden;
+
+    &:last-child {  // 두 번째(마지막) 카드만 적용
+      background: linear-gradient(180deg, #770000 0%, #070707 100%);
+    }
+    
+    img {
+      position: absolute;
+      top: 7%;
+      width: 80%;
+      left: 50%;
+      transform: translateX(-50%);
+      object-fit: cover;
+    }
+
+    .driverInfo {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+
+      .subTitle{
+        padding-bottom: 16px;
+      }
+    }
+  }
+}
+
+// SF-25 풀 컨텐츠
+#SF-25 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  .sfText {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 100px 0;
+    gap: 35px;
+    width: 1520px;
+    align-items: flex-end;
+    margin: 0 auto;
+
+    p {
+      position: relative;
+      cursor: pointer;
+      width: fit-content;
+      font-size: 25px;
+
+      // 밑줄 애니메이션
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 0%;
+        height: 2px;
+        background: #ff0000; // 포인트 컬러
+        transition: width 0.4s ease;
+      }
+
+      &:hover {
+        color: #ff0000;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+.sfImage {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-90deg);
-  width: 24px;
-  height: 24px;
-  pointer-events: none;
-  fill: none;
-  overflow: visible;
+  inset: 0;
+  background: url("../img/SF-25/1.jpg") center/cover no-repeat;
+  transition: background-image 0.6s ease-in-out;
+  z-index: 1;
+}
 }
 
-.swiper-pagination-bullet svg .bg {
-  stroke: #ccc;
-  stroke-width: 2;
-}
 
-.swiper-pagination-bullet svg .progress {
-  stroke: #d40000;
-  stroke-width: 2;
-  stroke-dasharray: 100;
-  stroke-dashoffset: 100;
-  transition: none; /* JS에서 제어 */
-}
+

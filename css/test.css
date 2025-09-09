@@ -1,49 +1,334 @@
 @charset "UTF-8";
-.swiper img {
+html {
+  font-size: 62.5%;
+  background-color: #181818;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Gotham", sans-serif;
+  font-weight: normal;
+  margin: 0;
+  color: #fff;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  body {
+    font-size: 1.5rem;
+  }
+}
+@media all and (max-width: 767px) {
+  body {
+    font-size: 1.4rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1530px;
   width: 100%;
-  height: 100vh;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+@media (max-width: 1439px) and (min-width: 1024px) {
+  .container {
+    padding: 0 4rem;
+  }
+}
+@media (max-width: 1023px) {
+  .container {
+    padding: 0 3rem;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    padding: 0 2rem;
+  }
 }
 
-/* pagination.css 파일 */
-.swiper-pagination-bullet {
+.title {
+  font-size: 50px;
+  font-family: "Gotham";
+  font-weight: 350;
+  word-wrap: break-word;
+}
+
+.subTitle {
+  font-size: 36px;
+  font-family: "Gotham";
+  font-weight: 350;
+  word-wrap: break-word;
+}
+
+/* DISCOVER 버튼 */
+.discover-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 18px;
+  font-family: "Gotham";
+  font-weight: 350;
+  word-wrap: break-word;
+}
+.discover-btn .circle {
   position: relative;
-  width: 12px;
-  height: 12px;
-  margin: 0 8px;
-  border-radius: 50%;
-  cursor: pointer;
-  background-color: #fff;
-  opacity: 1 !important;
-  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
 }
-
-.swiper-pagination-bullet-active {
-  width: 16px;
-  height: 16px;
-  background-color: transparent;
+.discover-btn .circle svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
 }
-
-.swiper-pagination-bullet svg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-90deg);
-  width: 24px;
-  height: 24px;
-  pointer-events: none;
+.discover-btn .circle .bg {
   fill: none;
-  overflow: visible;
-}
-
-.swiper-pagination-bullet svg .bg {
-  stroke: #ccc;
+  stroke: #aaa;
   stroke-width: 2;
 }
-
-.swiper-pagination-bullet svg .progress {
+.discover-btn .circle .progress {
+  fill: none;
   stroke: #d40000;
   stroke-width: 2;
   stroke-dasharray: 100;
   stroke-dashoffset: 100;
-  transition: none; /* JS에서 제어 */
+  transition: stroke-dashoffset 0.7s linear;
+}
+.discover-btn .circle::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+}
+.discover-btn:hover .progress {
+  stroke-dashoffset: 0;
+}
+
+/* Hero 영역 */
+#hearo {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.swiper-slide video {
+  transform: rotate(90deg);
+  transform-origin: center center; /* 회전 기준점 */
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.swiper-slide .innerText {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+}
+.swiper-slide .innerText h3 {
+  margin-bottom: 25px;
+}
+
+/* Swiper 페이지네이션 */
+.swiper-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 25px 0;
+}
+
+.swiper-pagination-clickable .swiper-pagination-bullet {
+  position: relative;
+  background: #fff !important;
+  opacity: 1 !important;
+  width: 100%;
+  width: 10px;
+  height: 10px;
+}
+.swiper-pagination-clickable .swiper-pagination-bullet svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.swiper-pagination-clickable .swiper-pagination-bullet svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+.swiper-pagination-clickable .swiper-pagination-bullet .bg {
+  fill: none;
+  stroke: #aaa;
+  stroke-width: 3;
+}
+.swiper-pagination-clickable .swiper-pagination-bullet .progress {
+  fill: none;
+  stroke: #d40000;
+  stroke-width: 3;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.7s linear;
+}
+.swiper-pagination-clickable .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: transparent !important;
+  width: 22px;
+  height: 22px;
+}
+.swiper-pagination-clickable .swiper-pagination-bullet.swiper-pagination-bullet-active svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+.swiper-pagination-clickable .swiper-pagination-bullet.swiper-pagination-bullet-active .bg {
+  fill: none;
+  stroke: #aaa;
+  stroke-width: 3;
+}
+.swiper-pagination-clickable .swiper-pagination-bullet.swiper-pagination-bullet-active .progress {
+  fill: none;
+  stroke: #d40000;
+  stroke-width: 3;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.7s linear;
+}
+
+#full {
+  width: 100%;
+  height: 100%;
+}
+#full .fullInner {
+  position: relative;
+}
+#full .fullInner .fullTitle {
+  font-size: 70px;
+  font-family: "Gotham";
+  font-weight: 350;
+  word-wrap: break-word;
+  position: absolute;
+  top: 20%;
+  left: 25%;
+}
+#full .fullInner .right {
+  left: 10%;
+}
+#full .fullInner img {
+  width: 100%;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.title {
+  margin-bottom: 30px;
+}
+
+.driver {
+  display: flex;
+}
+.driver .driverCard {
+  position: relative;
+  flex: 1;
+  height: 650px;
+  background: linear-gradient(180deg, #8C0000 0%, #070707 100%);
+  overflow: hidden;
+}
+.driver .driverCard:last-child {
+  background: linear-gradient(180deg, #770000 0%, #070707 100%);
+}
+.driver .driverCard img {
+  position: absolute;
+  top: 7%;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.driver .driverCard .driverInfo {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+}
+.driver .driverCard .driverInfo .subTitle {
+  padding-bottom: 16px;
+}
+
+#SF-25 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+#SF-25 .sfText {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 0;
+  gap: 35px;
+  width: 1520px;
+  align-items: flex-end;
+  margin: 0 auto;
+}
+#SF-25 .sfText p {
+  position: relative;
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 25px;
+}
+#SF-25 .sfText p::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: #ff0000;
+  transition: width 0.4s ease;
+}
+#SF-25 .sfText p:hover {
+  color: #ff0000;
+}
+#SF-25 .sfText p:hover::after {
+  width: 100%;
+}
+#SF-25 .sfImage {
+  position: absolute;
+  inset: 0;
+  background: url("../img/SF-25/1.jpg") center/cover no-repeat;
+  transition: background-image 0.6s ease-in-out;
+  z-index: 1;
 }

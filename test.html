@@ -6,8 +6,9 @@
     <title>Ferrari</title>
 
     <!-- css -->
-    <link rel="stylesheet" href="./css/test.css">
+    <!-- <link rel="stylesheet" href="./css/main.css"> -->
     <link rel="stylesheet" href="./css/navi.css">
+    <link rel="stylesheet" href="./css/test.css">
 
     <!-- font -->
     <link rel="stylesheet" href="./font/font.scss">
@@ -29,12 +30,12 @@
     <!-- navi -->
     <nav id="nav">
         <div class="navInner">
-            <div class="logo"><a href="#">logo</a></div>
-                <div><a href="#">Racing</a></div>
-                <div><a href="#">SF-25</a></div>
-                <div><a href="#">Team</a></div>
-                <div><a href="#">News</a></div>
-                <div><a href="#">Partners</a></div>
+            <div class="logo"><a href="#"></a></div>
+            <div><a href="#">Racing</a></div>
+            <div><a href="#">SF-25</a></div>
+            <div><a href="#">Team</a></div>
+            <div><a href="#">News</a></div>
+            <div><a href="#">Partners</a></div>
         </div>
     </nav>
 
@@ -42,36 +43,140 @@
 <section id="hearo">
   <div class="swiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="./img/main/main_01.jpg" alt="메인 비주얼 1"></div>
-      <div class="swiper-slide"><img src="./img/main/main_02.jpg" alt="메인 비주얼 2"></div>
-      <!-- <div class="swiper-slide"><img src="./img/main/main_03.jpg" alt="메인 비주얼 3"></div> -->
+      <div class="swiper-slide">
+          <div class="innerText">
+            
+            <h3 class="title">SCUDERIA FERRARI</h3>
+
+            <a href="#" class="discover-btn">
+              DISCOVER
+              <span class="circle">
+                <svg viewBox="0 0 36 36">
+                  <circle class="bg" cx="18" cy="18" r="16"></circle>
+                  <circle class="progress" cx="18" cy="18" r="16"></circle>
+                </svg>
+              </span>
+            </a>
+
+          </div>
+        <img src="./img/main/main_01.jpg" alt="메인 비주얼 1">
+      </div>
+
+      <div class="swiper-slide">
+          <div class="innerText">
+            
+            <h3 class="title">BORN TO RACE. BUILT TO WIN.</h3>
+
+            <a href="#" class="discover-btn">
+              DISCOVER
+              <span class="circle">
+                <svg viewBox="0 0 36 36">
+                  <circle class="bg" cx="18" cy="18" r="16"></circle>
+                  <circle class="progress" cx="18" cy="18" r="16"></circle>
+                </svg>
+              </span>
+            </a>
+
+          </div>
+        <img src="./img/main/main_02.jpg" alt="메인 비주얼 2">
+      </div>
+
+      <div class="swiper-slide">
+          <div class="innerText">
+            
+            <h3 class="title">DRIVEN BY PASSION. DEFINED BY LEGACY</h3>
+
+            <a href="#" class="discover-btn">
+              DISCOVER
+              <span class="circle">
+                <svg viewBox="0 0 36 36">
+                  <circle class="bg" cx="18" cy="18" r="16"></circle>
+                  <circle class="progress" cx="18" cy="18" r="16"></circle>
+                </svg>
+              </span>
+            </a>
+
+          </div>
+          <video src="./img/main/main_03.mp4" autoplay loop muted></video>
+      </div>
+
+
     </div>
     <!-- pagination -->
     <div class="swiper-pagination"></div>
   </div>
 </section>
 
-    <div>SCUDERIA FERRARI</div>
-    <div class="btn">DISCOVER</div>
+<section id="full">
+  <div class="fullInner">
+    <p class="fullTitle">SPEED. INNOVATION. EXCELLENCE.</p>
+    <img src="./img/main/full_1.jpg" alt="full 1">
+  </div>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <div class="fullInner">
+    <p class="fullTitle right">MOMENTS THAT DEFINE CHAMPIONS.</p>
+    <img src="./img/main/full_2.jpg" alt="full 2">
+  </div>
+</section>
 
+<!-- 드라이버 소개 -->
+<section id="driverContainer" class="container">
+  <h3 class="title">DRIVER</h3>
+
+  <div class="driver">
+  <div class="driverCard">
+    <img src="./img/driver/leclerc.png" alt="leclerc">
+    <div class="driverInfo">
+      <p class="subTitle">Charles Leclerc</p>
+      <a href="#" class="discover-btn">
+            VIEW MORE
+            <span class="circle">
+              <svg viewBox="0 0 36 36">
+                <circle class="bg" cx="18" cy="18" r="16"></circle>
+                <circle class="progress" cx="18" cy="18" r="16"></circle>
+              </svg>
+            </span>
+          </a>
+    </div>
+  </div>
+
+    <div class="driverCard">
+    <img src="./img/driver/lewis.png" alt="lewis">
+    <div class="driverInfo">
+      <p class="subTitle">Lewis Hamilton</p>
+      <a href="#" class="discover-btn">
+            VIEW MORE
+            <span class="circle">
+              <svg viewBox="0 0 36 36">
+                <circle class="bg" cx="18" cy="18" r="16"></circle>
+                <circle class="progress" cx="18" cy="18" r="16"></circle>
+              </svg>
+            </span>
+          </a>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<section id="SF-25">
+  <div class="sfText">
+    <p data-img="./img/SF-25/1.jpg">The Icon in Motion</p>
+    <p data-img="./img/SF-25/3.jpg">Pure Power</p>
+    <p data-img="./img/SF-25/4.jpg">Sculpted for Speed</p>
+    <p data-img="./img/SF-25/7.jpg">Unleash the Power</p>
+  </div>
+
+  <div class="sfImage"></div>
+</section>
+
+<!-- swiper -->
 <script>
-  var swiper = new Swiper('.swiper', {
-  slidesPerView: 1,
+const swiper = new Swiper(".swiper", {
   loop: true,
-  effect: 'fade',
-  speed: 1000,
-  
-  // 자동 재생 설정
-  autoplay: {
-    delay: 5000,
-    disableOnInteraction: false,
-  },
-  
-  // 페이지네이션 설정
+  // autoplay: { delay: 7000 },
   pagination: {
-    el: '.swiper-pagination',
+    el: ".swiper-pagination",
     clickable: true,
     renderBullet: function (index, className) {
       return `
@@ -84,43 +189,41 @@
       `;
     },
   },
+});
 
-  on: {
-    autoplayTimeLeft: function (s, timeLeft, percentage) {
-      const progressValue = 100 * (1 - percentage);
-      const activeBullet = document.querySelector('.swiper-pagination-bullet-active .progress');
-      if (activeBullet) {
-        activeBullet.style.strokeDashoffset = progressValue;
-      }
-    },
-    
-    // 사용자가 페이지네이션 dot을 클릭했을 때
-    paginationUpdate: function (swiper, paginationEl) {
-      // 모든 불릿의 애니메이션 초기화
-      paginationEl.querySelectorAll('.swiper-pagination-bullet .progress').forEach(el => {
-        el.style.transition = 'none';
-        el.style.strokeDashoffset = 100;
-      });
-      
-      // 클릭된(새롭게 활성화된) 불릿의 애니메이션 재시작
-      const activeBullet = paginationEl.querySelector('.swiper-pagination-bullet-active .progress');
-      if (activeBullet) {
-        // 다음 프레임에서 트랜지션 적용
-        requestAnimationFrame(() => {
-          activeBullet.style.transition = `stroke-dashoffset ${swiper.params.autoplay.delay / 1000}s linear`;
-          activeBullet.style.strokeDashoffset = 0;
-        });
-      }
-    },
-    
-    // 슬라이드 전환 시작 시 초기화
-    slideChangeTransitionStart: function () {
-      document.querySelectorAll('.swiper-pagination-bullet .progress').forEach(el => {
-        el.style.transition = 'none';
-        el.style.strokeDashoffset = 100;
-      });
-    }
+// 원형 애니메이션 실행 함수
+function runCircleAnimation() {
+  const delay = swiper.params.autoplay?.delay || 7000;
+
+  // 모든 bullet progress 초기화
+  document.querySelectorAll(".swiper-pagination .progress").forEach(el => {
+    el.style.transition = "none";
+    el.style.strokeDashoffset = 100;
+  });
+
+  // 활성화된 bullet만 채워지게
+  const active = document.querySelector(".swiper-pagination-bullet-active .progress");
+  if (active) {
+    void active.offsetWidth; // 강제 리플로우로 transition 초기화
+    active.style.transition = `stroke-dashoffset ${delay / 1000}s linear`;
+    active.style.strokeDashoffset = 0;
   }
+}
+
+swiper.on("slideChange", runCircleAnimation);
+swiper.on("paginationUpdate", runCircleAnimation);
+
+// 초기 실행
+runCircleAnimation();
+
+</script>
+
+<script>
+  document.querySelectorAll("#SF-25 .sfText p").forEach(p => {
+  p.addEventListener("mouseenter", () => {
+    const imgUrl = p.dataset.img;
+    document.querySelector("#SF-25 .sfImage").style.backgroundImage = `url(${imgUrl})`;
+  });
 });
 </script>
 
