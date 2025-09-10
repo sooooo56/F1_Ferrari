@@ -7,7 +7,7 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Gotham", sans-serif;
-  font-weight: 500;
+  font-weight: 350;
   margin: 0;
   color: #fff;
 }
@@ -33,42 +33,15 @@ a {
   margin: 0 auto;
   box-sizing: border-box;
 }
-@media (max-width: 1439px) and (min-width: 1024px) {
-  .container {
-    padding: 0 4rem;
-  }
-}
-@media (max-width: 1023px) {
-  .container {
-    padding: 0 3rem;
-  }
-}
-@media (max-width: 767px) {
-  .container {
-    padding: 0 2rem;
-  }
-}
 
-@keyframes fade-up {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 .title {
-  font-size: 50px;
-  font-family: "Gotham";
+  font-size: 5rem;
   font-weight: 350;
   word-wrap: break-word;
 }
 
 .subTitle {
-  font-size: 36px;
-  font-family: "Gotham";
+  font-size: 3.6rem;
   font-weight: 350;
   word-wrap: break-word;
 }
@@ -78,9 +51,8 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  font-size: 18px;
-  font-family: "Gotham";
+  gap: 1rem;
+  font-size: 1.8rem;
   font-weight: 350;
   word-wrap: break-word;
 }
@@ -114,7 +86,7 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fff;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 400;
 }
 .discover-btn:hover .progress {
@@ -128,7 +100,7 @@ a {
   height: 100vh;
 }
 
-.swiper {
+.heroSwiper {
   width: 100%;
   height: 100%;
 }
@@ -146,10 +118,14 @@ a {
      object-fit: cover;
 }
 .swiper-slide video {
-  transform: rotate(90deg);
-  transform-origin: center center; /* 회전 기준점 */
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 세로 영상 → 가로화면 채우기 */
+  width: 100vh;
+  height: 100vw;
+  transform: translate(-50%, -50%) rotate(90deg);
+  transform-origin: center center;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -164,14 +140,14 @@ a {
   transition: all 0.8s ease;
 }
 .swiper-slide .innerText h3 {
-  margin-bottom: 25px;
+  margin-bottom: 2.5rem;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(2rem);
   transition: all 0.8s ease;
 }
 .swiper-slide .innerText .discover-btn {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(2rem);
   transition: all 0.8s ease 0.3s;
 }
 .swiper-slide .innerText.animate {
@@ -192,8 +168,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  padding: 25px 0;
+  gap: 0.5rem;
+  padding: 2.5rem 0;
 }
 
 .swiper-pagination-clickable .swiper-pagination-bullet {
@@ -201,8 +177,8 @@ a {
   background: #fff !important;
   opacity: 1 !important;
   width: 100%;
-  width: 10px;
-  height: 10px;
+  width: 1rem;
+  height: 1rem;
 }
 .swiper-pagination-clickable .swiper-pagination-bullet svg {
   position: absolute;
@@ -232,8 +208,8 @@ a {
 }
 .swiper-pagination-clickable .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background: transparent !important;
-  width: 22px;
-  height: 22px;
+  width: 2.2rem;
+  height: 2.2rem;
 }
 .swiper-pagination-clickable .swiper-pagination-bullet.swiper-pagination-bullet-active svg {
   width: 100%;
@@ -262,12 +238,11 @@ a {
   position: relative;
 }
 #full .fullInner .fullTitle {
-  font-size: 70px;
-  font-family: "Gotham";
+  font-size: 7rem;
   font-weight: 350;
   word-wrap: break-word;
   position: absolute;
-  top: 20%;
+  top: 15%;
   left: 25%;
 }
 #full .fullInner .right {
@@ -280,8 +255,11 @@ a {
      object-fit: cover;
 }
 
-.title {
-  margin-bottom: 30px;
+#driverContainer {
+  margin: 250px auto;
+}
+#driverContainer .title {
+  margin-bottom: 48px;
 }
 
 .driver {
@@ -290,7 +268,7 @@ a {
 .driver .driverCard {
   position: relative;
   flex: 1;
-  height: 650px;
+  height: 65rem;
   background: linear-gradient(180deg, #8C0000 0%, #070707 100%);
   overflow: hidden;
 }
@@ -308,11 +286,11 @@ a {
 }
 .driver .driverCard .driverInfo {
   position: absolute;
-  bottom: 40px;
-  left: 40px;
+  bottom: 4rem;
+  left: 4rem;
 }
 .driver .driverCard .driverInfo .subTitle {
-  padding-bottom: 16px;
+  padding-bottom: 1.6rem;
 }
 
 #SF-25 {
@@ -327,8 +305,8 @@ a {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  padding: 100px 0;
-  gap: 35px;
+  padding: 10rem 0;
+  gap: 3.5rem;
   width: 1520px;
   align-items: flex-end;
   margin: 0 auto;
@@ -336,7 +314,9 @@ a {
 #SF-25 .sfText p {
   position: relative;
   cursor: pointer;
-  font-size: 25px;
+  font-size: 2.5rem;
+  font-weight: 350;
+  word-wrap: break-word;
 }
 #SF-25 .sfText p::after {
   content: "";
@@ -345,11 +325,11 @@ a {
   bottom: -5px;
   width: 0%;
   height: 2px;
-  background: #ff0000;
+  background: #d40000;
   transition: width 0.4s ease;
 }
 #SF-25 .sfText p:hover, #SF-25 .sfText p.active {
-  color: #ff0000;
+  color: #d40000;
 }
 #SF-25 .sfText p:hover::after, #SF-25 .sfText p.active::after {
   width: 100%;
@@ -363,10 +343,10 @@ a {
 }
 
 #race {
-  padding: 50px 0;
+  margin: 250px auto;
 }
-#race h3 {
-  margin-bottom: 30px;
+#race .title {
+  margin-bottom: 48px;
 }
 #race .raceSwiper {
   overflow: hidden;
@@ -377,7 +357,7 @@ a {
 }
 #race .race-card img {
   width: 100%;
-  height: 445px;
+  height: 44.5rem;
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
@@ -391,25 +371,26 @@ a {
 }
 #race .race-card .race-info {
   position: absolute;
-  bottom: 30px;
-  left: 30px;
-  font-size: 14px;
+  bottom: 3rem;
+  left: 3rem;
+  font-size: 1.4rem;
   z-index: 2;
 }
 #race .race-card .race-info .country {
-  font-weight: 600;
-  font-size: 30px;
+  font-size: 3rem;
+  font-weight: 350;
+  word-wrap: break-word;
   padding-bottom: 8px;
 }
 #race .race-card .race-info .date {
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 footer {
   background-color: #303030;
 }
 footer .footerInner {
-  padding: 49px 0;
+  padding: 4.9rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -423,31 +404,31 @@ footer .footerInner .ftLogo {
 }
 footer .footerInner .ftLogo .line {
   width: 1px;
-  height: 20px;
+  height: 2rem;
   background: #fff;
 }
 footer .footerInner .ftLogo img {
-  width: 30px;
+  width: 3rem;
   height: 100%;
 }
 footer .footerInner .snsLogo {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 80px;
+  gap: 8rem;
 }
 footer .footerInner .snsLogo img {
-  width: 24px;
+  width: 2.4rem;
   height: 100%;
 }
 footer .footerInner .ftText {
   text-align: center;
   color: #aaa;
-  font-size: 12px;
+  font-size: 1.2rem;
   font-weight: 325;
   color: #aaa;
   line-height: 1.3rem;
 }
 footer .footerInner .ftText p {
-  padding-top: 12px;
+  padding-top: 1.2rem;
 }

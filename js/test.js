@@ -1,7 +1,10 @@
 // main swiper (히어로)
-const mainSwiper = new Swiper(".swiper", {
+const mainSwiper = new Swiper(".heroSwiper", {
   loop: true,
-  // autoplay: { delay: 7000 },
+  // autoplay: {
+  //   delay: 7000,
+  //   disableOnInteraction: false,
+  // },
   
   pagination: {
     el: ".swiper-pagination",
@@ -46,31 +49,40 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // 원형 애니메이션
-function runCircleAnimation() {
+function runCircleAnimation(isInit = false) {
   const delay = mainSwiper.params.autoplay?.delay || 7000;
 
   document.querySelectorAll(".swiper-pagination .progress").forEach(el => {
     el.style.transition = "none";
-    el.style.strokeDashoffset = 100;
+    el.style.strokeDashoffset = 100; // 다 비워놓기
   });
 
   const active = document.querySelector(".swiper-pagination-bullet-active .progress");
   if (active) {
+    // reflow 강제 → transition 적용을 위해
     void active.offsetWidth;
+
+    // 초기 실행일 경우에도 애니메이션 시작하도록 처리
     active.style.transition = `stroke-dashoffset ${delay / 1000}s linear`;
     active.style.strokeDashoffset = 0;
   }
 }
-mainSwiper.on("slideChange", runCircleAnimation);
-mainSwiper.on("paginationUpdate", runCircleAnimation);
-runCircleAnimation();
+
+// Swiper 이벤트 등록
+mainSwiper.on("slideChange", () => runCircleAnimation());
+mainSwiper.on("paginationUpdate", () => runCircleAnimation());
+
+// 초기 실행
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => runCircleAnimation(true), 50); // 살짝 지연 후 실행
+});
 
 ///////////////
 
 // full 섹션 텍스트 애니메이션 (스크롤 감지)
   AOS.init({
     duration: 1000, // 애니메이션 시간 (ms)
-    once: false,     // 스크롤할 때 1번만 실행
+    once: false,
   });
 
 
@@ -103,6 +115,5 @@ const raceSwiper = new Swiper(".raceSwiper", {
   slidesPerView: 2.5,
   spaceBetween: 30,
   loop: true,
-  // centeredSlides: true,
-  // autoplay: { delay: 3000, disableOnInteraction: false },
+
 });

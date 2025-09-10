@@ -1,27 +1,94 @@
 @use 'var' as v;
 
-#nav{
-    background-color: v.$black2;
-    height: 40px;
-    position: fixed;
-    width: 100%;
-    z-index: 999;
+#nav {
+  background-color: v.$black2;
+  height: 4rem;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
 
-    .logo{
-        background: url('../img/logo-w.svg') no-repeat center center;
-        width: 18px;
-        height: 100%
+  .navInner {
+    @extend .container;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap:3rem;
+  }
+
+  .logo {
+    background: url('../img/logo-w.svg') no-repeat center center;
+    width: 18px;
+    height: 100%;
+  }
+
+  .menuList {
+    display: flex;
+    gap: 3rem;
+
+    a {
+      padding: 1rem;
+      text-decoration: none;
     }
-    .navInner{
-        @extend .container;
-        height: 100%;
+  }
+
+  .menu-btn {
+    cursor: pointer;
+    display: none; // PC에서는 안 보임
+  }
+
+  // 모바일 오버레이 메뉴
+  .mobileMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: v.$black2;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    padding: 2rem;
+    &.active {
+      transform: translateX(0);
+    }
+
+    .menuInner{
         display: flex;
         align-items: center;
-        gap: 38px;
 
-        a{
-            padding: 10px;
+        .logo{
+            width: 25px;
+            height: 25px;
         }
     }
+
+    .close-btn {
+        width: 24px;
+        height: 24px;
+        background: url('../img/main/close-btn.svg') no-repeat center center / contain;
+        cursor: pointer;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 3rem;
+
+      li {
+        margin: 1.5rem 0;
+
+      }
+    }
+  }
 }
 
+// 반응형
+@media (max-width: 768px) {
+  #nav {
+    .menuList {
+      display: none; // 모바일에서는 숨김
+    }
+    .menu-btn {
+      display: block; // 모바일에서 보이게
+    }
+  }
+}

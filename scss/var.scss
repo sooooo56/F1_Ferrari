@@ -2,7 +2,6 @@ $black1: #181818;
 $black2: #303030;
 
 $white: #fff; 
-
 $gray: #aaa;
 
 // 포인트 컬러
@@ -17,7 +16,7 @@ html {
 body {
   font-size: 1.6rem; // 기본 폰트 크기 16px
   font-family: 'Gotham', sans-serif;
-  font-weight: 500;
+  font-weight: 350;
   margin: 0;
   color: $white;
 
@@ -35,6 +34,15 @@ a{
     color: inherit;
 }
 
+// 컨테이너 사이(위아래) 마진
+@mixin pc-m(){
+  margin: 250px auto;
+}
+
+// 타이틀, 컨텐츠 사이 여백
+@mixin title-mb(){
+  margin-bottom: 48px;
+}
 
 //공통 컨텐츠 너비
 .container {
@@ -43,10 +51,10 @@ a{
   margin: 0 auto;
   box-sizing: border-box;
 
-  // 1439px ~ 1024px 범위에 적용
-  @media (max-width: 1439px) and (min-width: 1024px) {
-    padding: 0 4rem;
-  }
+  // // 1439px ~ 1024px 범위에 적용
+  // @media (max-width: 1439px) and (min-width: 1024px) {
+  //   padding: 0 4rem;
+  // }
 
   // 1023px ~ 768px 범위에 적용
   @media (max-width: 1023px) {
@@ -60,32 +68,41 @@ a{
 
 }
 
+// 타이틀 , 텍스트
 @mixin max-title(){
-  font-size: 70px;
-  font-family: 'Gotham';
+  font-size: 7rem;
   font-weight: 350;
-  word-wrap: break-word
+  word-wrap: break-word;
 }
 
 @mixin title(){
-  font-size: 50px;
-  font-family: 'Gotham';
+  font-size: 5rem;
   font-weight: 350;
-  word-wrap: break-word
+  word-wrap: break-word;
 }
 
-@mixin sub-title(){
-  font-size: 36px;
-  font-family: 'Gotham';
+@mixin sub-title-36(){
+  font-size: 3.6rem;
   font-weight: 350;
-  word-wrap: break-word
+  word-wrap: break-word;
+}
+
+@mixin sub-title-25(){
+  font-size: 2.5rem;
+  font-weight: 350;
+  word-wrap: break-word;
+}
+
+@mixin sub-title-30(){
+  font-size: 3rem;
+  font-weight: 350;
+  word-wrap: break-word;
 }
 
 @mixin m-body(){
-  font-size: 18px;
-  font-family: 'Gotham';
+  font-size: 1.8rem;
   font-weight: 350;
-  word-wrap: break-word
+  word-wrap: break-word;
 }
 
 
@@ -117,27 +134,5 @@ a{
   
 }
 
-// 애니메이션
-// 애니메이션 지속 시간
-$animation-duration: 1s;
-$animation-delay: 0.2s;
-$animation-ease: cubic-bezier(0.25, 1, 0.5, 1);
 
-// fade-up 애니메이션
-@keyframes fade-up {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-// 공통 믹스인
-@mixin animate-fade-up($duration: $animation-duration, $delay: 0s) {
-  animation: fade-up $duration $animation-ease forwards;
-  animation-delay: $delay;
-  opacity: 0; // 초기 상태
-}
