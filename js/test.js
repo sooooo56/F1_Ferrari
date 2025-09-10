@@ -70,7 +70,7 @@ runCircleAnimation();
 // full 섹션 텍스트 애니메이션 (스크롤 감지)
   AOS.init({
     duration: 1000, // 애니메이션 시간 (ms)
-    once: true,     // 스크롤할 때 1번만 실행
+    once: false,     // 스크롤할 때 1번만 실행
   });
 
 

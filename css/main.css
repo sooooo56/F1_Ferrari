@@ -7,7 +7,7 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Gotham", sans-serif;
-  font-weight: normal;
+  font-weight: 500;
   margin: 0;
   color: #fff;
 }
@@ -49,6 +49,16 @@ a {
   }
 }
 
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .title {
   font-size: 50px;
   font-family: "Gotham";
@@ -145,15 +155,36 @@ a {
 }
 .swiper-slide .innerText {
   position: absolute;
-  top: 85%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 80%;
   z-index: 2;
   text-align: center;
   width: 100%;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
 }
 .swiper-slide .innerText h3 {
   margin-bottom: 25px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+.swiper-slide .innerText .discover-btn {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease 0.3s;
+}
+.swiper-slide .innerText.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+.swiper-slide .innerText.animate h3 {
+  opacity: 1;
+  transform: translateY(0);
+}
+.swiper-slide .innerText.animate .discover-btn {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Swiper 페이지네이션 */
@@ -282,4 +313,141 @@ a {
 }
 .driver .driverCard .driverInfo .subTitle {
   padding-bottom: 16px;
+}
+
+#SF-25 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+#SF-25 .sfText {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 0;
+  gap: 35px;
+  width: 1520px;
+  align-items: flex-end;
+  margin: 0 auto;
+}
+#SF-25 .sfText p {
+  position: relative;
+  cursor: pointer;
+  font-size: 25px;
+}
+#SF-25 .sfText p::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: #ff0000;
+  transition: width 0.4s ease;
+}
+#SF-25 .sfText p:hover, #SF-25 .sfText p.active {
+  color: #ff0000;
+}
+#SF-25 .sfText p:hover::after, #SF-25 .sfText p.active::after {
+  width: 100%;
+}
+#SF-25 .sfImage {
+  position: absolute;
+  inset: 0;
+  background: url("../img/SF-25/1.jpg") center/cover no-repeat;
+  transition: background-image 0.6s ease-in-out;
+  z-index: 1;
+}
+
+#race {
+  padding: 50px 0;
+}
+#race h3 {
+  margin-bottom: 30px;
+}
+#race .raceSwiper {
+  overflow: hidden;
+}
+#race .race-card {
+  position: relative;
+  overflow: hidden;
+}
+#race .race-card img {
+  width: 100%;
+  height: 445px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+#race .race-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%);
+  z-index: 1;
+}
+#race .race-card .race-info {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  font-size: 14px;
+  z-index: 2;
+}
+#race .race-card .race-info .country {
+  font-weight: 600;
+  font-size: 30px;
+  padding-bottom: 8px;
+}
+#race .race-card .race-info .date {
+  font-size: 20px;
+}
+
+footer {
+  background-color: #303030;
+}
+footer .footerInner {
+  padding: 49px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+footer .footerInner .ftLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+footer .footerInner .ftLogo .line {
+  width: 1px;
+  height: 20px;
+  background: #fff;
+}
+footer .footerInner .ftLogo img {
+  width: 30px;
+  height: 100%;
+}
+footer .footerInner .snsLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+}
+footer .footerInner .snsLogo img {
+  width: 24px;
+  height: 100%;
+}
+footer .footerInner .ftText {
+  text-align: center;
+  color: #aaa;
+  font-size: 12px;
+  font-weight: 325;
+  color: #aaa;
+  line-height: 1.3rem;
+}
+footer .footerInner .ftText p {
+  padding-top: 12px;
 }

@@ -13,17 +13,19 @@
     <!-- font -->
     <link rel="stylesheet" href="./font/font.scss">
 
-    <!-- js -->
-    <!-- <script src="./js/main.js"></script> -->
-
     <!-- reset css -->
     <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
-
-    <!-- Swiper CSS -->
+    
+    <!-- Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-    <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- AOS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- js -->
+    <script src="./js/test.js" defer></script>
 
 </head>
 <body>
@@ -109,107 +111,146 @@
 
 <section id="full">
   <div class="fullInner">
-    <p class="fullTitle">SPEED. INNOVATION. EXCELLENCE.</p>
+    <p class="fullTitle" data-aos="fade-up">SPEED. INNOVATION. EXCELLENCE.</p>
     <img src="./img/main/full_1.jpg" alt="full 1">
   </div>
 
   <div class="fullInner">
-    <p class="fullTitle right">MOMENTS THAT DEFINE CHAMPIONS.</p>
+    <p class="fullTitle right" data-aos="fade-up" data-aos-delay="200">
+      MOMENTS THAT DEFINE CHAMPIONS.
+    </p>
     <img src="./img/main/full_2.jpg" alt="full 2">
   </div>
 </section>
 
 <!-- 드라이버 소개 -->
 <section id="driverContainer" class="container">
-  <h3 class="title">DRIVER</h3>
+  <h3 class="title" data-aos="fade-up">DRIVER</h3>
 
   <div class="driver">
-  <div class="driverCard">
-    <img src="./img/driver/leclerc.png" alt="leclerc">
-    <div class="driverInfo">
-      <p class="subTitle">Charles Leclerc</p>
-      <a href="#" class="discover-btn">
-            VIEW MORE
-            <span class="circle">
-              <svg viewBox="0 0 36 36">
-                <circle class="bg" cx="18" cy="18" r="16"></circle>
-                <circle class="progress" cx="18" cy="18" r="16"></circle>
-              </svg>
-            </span>
-          </a>
+    <div class="driverCard" data-aos="fade-up" data-aos-delay="0">
+      <img src="./img/driver/leclerc.png" alt="leclerc">
+      <div class="driverInfo">
+        <p class="subTitle">Charles Leclerc</p>
+        <a href="#" class="discover-btn">VIEW MORE</a>
+      </div>
+    </div>
+
+    <div class="driverCard" data-aos="fade-up" data-aos-delay="200">
+      <img src="./img/driver/lewis.png" alt="lewis">
+      <div class="driverInfo">
+        <p class="subTitle">Lewis Hamilton</p>
+        <a href="#" class="discover-btn">VIEW MORE</a>
+      </div>
     </div>
   </div>
-
-    <div class="driverCard">
-    <img src="./img/driver/lewis.png" alt="lewis">
-    <div class="driverInfo">
-      <p class="subTitle">Lewis Hamilton</p>
-      <a href="#" class="discover-btn">
-            VIEW MORE
-            <span class="circle">
-              <svg viewBox="0 0 36 36">
-                <circle class="bg" cx="18" cy="18" r="16"></circle>
-                <circle class="progress" cx="18" cy="18" r="16"></circle>
-              </svg>
-            </span>
-          </a>
-    </div>
-  </div>
-
-</div>
 </section>
 
 
+<!-- SF-25 머신 소개 -->
+<section id="SF-25" data-aos="fade-up data-aos-delay="0">
+  <div class="sfText">
+    <p data-img="./img/SF-25/1.jpg">The Icon in Motion</p>
+    <p data-img="./img/SF-25/3.jpg">Pure Power</p>
+    <p data-img="./img/SF-25/4.jpg">Sculpted for Speed</p>
+    <p data-img="./img/SF-25/7.jpg">Unleash the Power</p>
+  </div>
 
-<!-- swiper -->
-<script>
-const swiper = new Swiper(".swiper", {
-  loop: true,
-  // autoplay: { delay: 7000 },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-    renderBullet: function (index, className) {
-      return `
-        <span class="${className}">
-          <svg viewBox="0 0 36 36">
-            <circle class="bg" cx="18" cy="18" r="16"></circle>
-            <circle class="progress" cx="18" cy="18" r="16"></circle>
-          </svg>
-        </span>
-      `;
-    },
-  },
-});
+  <div class="sfImage"></div>
+</section>
 
-// 원형 애니메이션 실행 함수
-function runCircleAnimation() {
-  const delay = swiper.params.autoplay?.delay || 7000;
+<!-- 레이스 일정 -->
+<section id="race" class="container">
+  <h3 class="title" data-aos="fade-up">2025 RACE CALENDAR</h3>
+  <div class="raceSwiper">
+    <div class="swiper-wrapper">
 
-  // 모든 bullet progress 초기화
-  document.querySelectorAll(".swiper-pagination .progress").forEach(el => {
-    el.style.transition = "none";
-    el.style.strokeDashoffset = 100;
-  });
+      <!-- 1번째 슬라이드 -->
+      <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="0">
+        <div class="race-card">
+          <img src="./img/main/race/race_1.jpg" alt="Netherlands">
+          <div class="race-info">
+            <p class="country">Netherlands</p>
+            <p class="date">29 - 31 AUG</p>
+          </div>
+        </div>
+      </div>
 
-  // 활성화된 bullet만 채워지게
-  const active = document.querySelector(".swiper-pagination-bullet-active .progress");
-  if (active) {
-    void active.offsetWidth; // 강제 리플로우로 transition 초기화
-    active.style.transition = `stroke-dashoffset ${delay / 1000}s linear`;
-    active.style.strokeDashoffset = 0;
-  }
-}
+      <!-- 2번째 슬라이드 -->
+      <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="150">
+        <div class="race-card">
+          <img src="./img/main/race/race_2.jpg" alt="Italy">
+          <div class="race-info">
+            <p class="country">Italy</p>
+            <p class="date">05 - 07 SEP</p>
+          </div>
+        </div>
+      </div>
 
-swiper.on("slideChange", runCircleAnimation);
-swiper.on("paginationUpdate", runCircleAnimation);
+      <!-- 3번째 슬라이드 -->
+      <div class="swiper-slide" data-aos="zoom-in" data-aos-delay="300">
+        <div class="race-card">
+          <img src="./img/main/race/race_3.jpg" alt="Azerbaijan">
+          <div class="race-info">
+            <p class="country">Azerbaijan</p>
+            <p class="date">19 - 21 SEP</p>
+          </div>
+        </div>
+      </div>
 
-// 초기 실행
-runCircleAnimation();
+      <div class="swiper-slide">
+        <div class="race-card">
+          <img src="./img/main/race/race_4.jpg" alt="Singapore">
+          <div class="race-info">
+            <p class="country">Singapore</p>
+            <p class="date">03 - 05 OCT</p>
+          </div>
+        </div>
+      </div>
 
-</script>
+      <div class="swiper-slide">
+        <div class="race-card">
+          <img src="./img/main/race/race_3.jpg" alt="United States">
+          <div class="race-info">
+            <p class="country">United States</p>
+            <p class="date">17 - 19 OCTP</p>
+          </div>
+        </div>
+      </div>
 
+    </div>
+  </div>
+</section>
 
+<footer>
+  <div class="container footerInner">
+    <div class="ftLogo">
+      <img src="./img/perrari-logo.svg" alt="Ferrari logo">
+      <div class="line"></div>
+      <img src="./img/hp-logo.svg" alt="hp logo">
+    </div>
+  
+    <div class="snsLogo">
+      <a href="#"><img src="./img/main/icon_YouTube.svg" alt="icon_YouTube"></a>
+      <a href="#"><img src="./img/main/icon_Instagram.svg" alt="icon_Instagram"></a>
+      <a href="#"><img src="./img/main/icon_Facebook.svg" alt="icon_Facebook"></a>
+      <a href="#"><img src="./img/main/icon_X.svg" alt="icon_X"></a>
+    </div>
+  
+    <div class="ftText">
+      <p>Ferrari N.V. - Holding company - A company under Dutch law, having its official seat in Amsterdam, the Netherlands and its corporate address at <br>
+        Via Abetone Inferiore No. 4, I-41053 Maranello (MO), Italy, registered with the Dutch trade register under number 64060977
+      </p>
+    
+      <p>Ferrari S.p.A. - A company under Italian law, having its registered office at Via Emilia Est No. 1163, Modena, Italy, Companies’ Register of Modena,<br>
+        VAT and Tax number 00159560366 and share capital of Euro 20,260,000
+      </p>
+    
+      <p>Copyright 2025 - All rights reserved</p>
+    </div>
+  </div>
+
+</footer>
 
 </body>
 </html>

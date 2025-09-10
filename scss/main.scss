@@ -1,4 +1,4 @@
-@use 'var' as v;
+@use "./var.scss" as v;
 
 // 공통 타이틀 스타일
 .title{
@@ -75,22 +75,44 @@
 
   .innerText {
     position: absolute;
-    top: 85%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 80%;
     z-index: 2;
     text-align: center;
     width: 100%;
 
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+
     h3 {
       margin-bottom: 25px;
+
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+    .discover-btn {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease 0.3s; // 버튼은 약간 지연
     }
 
-    
+    &.animate {
+    opacity: 1;
+    transform: translateY(0);
+
+      h3 {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .discover-btn {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   }
 }
-
-
 
 /* Swiper 페이지네이션 */
 .swiper-pagination {
@@ -143,7 +165,9 @@
       position: absolute;
       top: 20%;
       left: 25%;
+
     }
+
     .right{
       left: 10%;
     }
@@ -197,5 +221,168 @@
   }
 }
 
+// SF-25 풀 컨텐츠
+#SF-25 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 
+  .sfText {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 100px 0;
+    gap: 35px;
+    width: 1520px;
+    align-items: flex-end;
+    margin: 0 auto;
+
+    p {
+      position: relative;
+      cursor: pointer;
+      // width: fit-content;
+      font-size: 25px;
+
+      // 밑줄 애니메이션
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 0%;
+        height: 2px;
+        background: #ff0000; // 포인트 컬러
+        transition: width 0.4s ease;
+      }
+
+      &:hover, &.active {
+        color: #ff0000;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+.sfImage {
+  position: absolute;
+  inset: 0;
+  background: url("../img/SF-25/1.jpg") center/cover no-repeat;
+  transition: background-image 0.6s ease-in-out;
+  z-index: 1;
+}
+}
+
+// 레이스 일정
+#race {
+  padding: 50px 0;
+
+  h3 {
+    margin-bottom: 30px;
+  }
+
+  .raceSwiper {
+    overflow: hidden;
+  }
+
+  .race-card {
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 445px;
+      object-fit: cover;
+      display: block;
+    }
+
+      &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top, 
+        rgba(0, 0, 0, 0.6) 0%,  /* 하단은 진한 검정 */
+        rgba(0, 0, 0, 0) 40%    /* 위로 갈수록 투명 */
+      );
+      z-index: 1;
+    }
+
+    .race-info {
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      font-size: 14px;
+      z-index: 2;
+
+      .country {
+        font-weight: 600;
+        font-size: 30px;
+        padding-bottom: 8px;
+      }
+      .date {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+// footer
+footer{
+  background-color: v.$black2;
+  
+  .footerInner{
+    padding: 49px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+
+    .ftLogo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    .line{
+      width: 1px;
+      height: 20px;
+      background: v.$white;
+    }
+    
+    img{
+      width: 30px;
+      height: 100%;
+    }
+  }
+
+  .snsLogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    img{
+      width: 24px;
+      height: 100%;
+    }
+  }
+
+    .ftText{
+      text-align: center;
+      color: v.$gray;
+      font-size: 12px;
+      font-weight: 325;
+      color: v.$gray;
+      line-height: 1.3rem;
+
+      p{
+        padding-top: 12px;
+      }
+    }
+  }
+}
 

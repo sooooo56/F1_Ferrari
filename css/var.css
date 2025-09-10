@@ -6,7 +6,7 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Gotham", sans-serif;
-  font-weight: normal;
+  font-weight: 500;
   margin: 0;
   color: #fff;
 }
@@ -45,5 +45,16 @@ a {
 @media (max-width: 767px) {
   .container {
     padding: 0 2rem;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -8,17 +8,6 @@ $gray: #aaa;
 // 포인트 컬러
 $point-color: #d40000; 
 
-// 마진 및 패딩
-$pc: 12rem; //120px
-$mo:8rem; //80px
-
-// 신규 팝업 타이틀 위 여백
-$pc-title: 24rem; //pc
-$margin-t80: 8rem; //mo
-
-// 네비게이션 여백
-$padding-t55: 5.5rem; //55px
-$padding-t165: 16.5rem;
 
 html {
   font-size: 62.5%; // 1rem = 10px 설정
@@ -28,7 +17,7 @@ html {
 body {
   font-size: 1.6rem; // 기본 폰트 크기 16px
   font-family: 'Gotham', sans-serif;
-  font-weight: normal;
+  font-weight: 500;
   margin: 0;
   color: $white;
 
@@ -126,4 +115,29 @@ a{
     transition: stroke-dashoffset $duration linear;
   }
   
+}
+
+// 애니메이션
+// 애니메이션 지속 시간
+$animation-duration: 1s;
+$animation-delay: 0.2s;
+$animation-ease: cubic-bezier(0.25, 1, 0.5, 1);
+
+// fade-up 애니메이션
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 공통 믹스인
+@mixin animate-fade-up($duration: $animation-duration, $delay: 0s) {
+  animation: fade-up $duration $animation-ease forwards;
+  animation-delay: $delay;
+  opacity: 0; // 초기 상태
 }
