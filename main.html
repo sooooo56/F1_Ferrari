@@ -5,16 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ferrari</title>
 
-    <!-- css -->
-    <!-- <link rel="stylesheet" href="./css/main.css"> -->
-    <link rel="stylesheet" href="./css/navi.css">
-    <link rel="stylesheet" href="./css/test.css">
+    <!-- reset css -->
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
 
     <!-- font -->
     <link rel="stylesheet" href="./font/font.scss">
 
-    <!-- reset css -->
-    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/navi.css">
     
     <!-- Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -25,25 +24,51 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
     <!-- js -->
-    <script src="./js/test.js" defer></script>
+    <script src="./js/main.js" defer></script>
+    <script src="./js/navi.js" defer></script>
 
 </head>
 <body>
-    <!-- navi -->
-    <nav id="nav">
-        <div class="navInner">
-            <div class="logo"><a href="#"></a></div>
-            <div><a href="#">Racing</a></div>
-            <div><a href="#">SF-25</a></div>
-            <div><a href="#">Team</a></div>
-            <div><a href="#">News</a></div>
-            <div><a href="#">Partners</a></div>
-        </div>
-    </nav>
+<!-- navi -->
+  <nav id="nav">
+    <div class="navInner container">
+      <!-- 로고 -->
+      <div class="logo"><a href="#"></a></div>
+
+      <!-- PC 메뉴 리스트 -->
+      <ul class="menuList">
+        <li><a href="#">Racing</a></li>
+        <li><a href="#">SF-25</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Partners</a></li>
+      </ul>
+
+      <!-- 모바일 햄버거 버튼 -->
+      <div class="menu-btn">MENU</div>
+    </div>
+
+    <!-- 모바일 오버레이 메뉴 -->
+    <div class="mobileMenu">
+      <div class="menuInner">
+        <!-- <div></div> -->
+        <div class="logo"><a href="#"></a></div>
+        <div class="close-btn"></div>
+      </div>
+      <ul>
+        <li><a href="#">Racing</a></li>
+        <li><a href="#">SF-25</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Partners</a></li>
+      </ul>
+    </div>
+  </nav>
+
 
     <!-- Hearo -->
 <section id="hearo">
-  <div class="swiper">
+  <div class="swiper heroSwiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
           <div class="innerText">
@@ -67,7 +92,7 @@
       <div class="swiper-slide">
           <div class="innerText">
             
-            <h3 class="title">BORN TO RACE. BUILT TO WIN.</h3>
+            <h3 class="title">BORN TO RACE.<br class="mobile-br" /> BUILT TO WIN.</h3>
 
             <a href="#" class="discover-btn">
               DISCOVER
@@ -86,7 +111,7 @@
       <div class="swiper-slide">
           <div class="innerText">
             
-            <h3 class="title">DRIVEN BY PASSION. DEFINED BY LEGACY</h3>
+            <h3 class="title">DRIVEN BY PASSION. <br class="tablet-br" />DEFINED BY LEGACY</h3>
 
             <a href="#" class="discover-btn">
               DISCOVER
@@ -111,13 +136,13 @@
 
 <section id="full">
   <div class="fullInner">
-    <p class="fullTitle" data-aos="fade-up">SPEED. INNOVATION. EXCELLENCE.</p>
-    <img src="./img/main/full_1.jpg" alt="full 1">
+    <p class="fullTitle" data-aos="fade-up">SPEED. <br class="tablet-br" />INNOVATION. <br class="tablet-br" />EXCELLENCE.</p>
+    <img src="./img/main/full_1.jpg" class="img-position"alt="full 1">
   </div>
 
   <div class="fullInner">
     <p class="fullTitle right" data-aos="fade-up" data-aos-delay="200">
-      MOMENTS THAT DEFINE CHAMPIONS.
+      MOMENTS <br class="tablet-br" />THAT DEFINE <br class="tablet-br" />CHAMPIONS.
     </p>
     <img src="./img/main/full_2.jpg" alt="full 2">
   </div>
@@ -132,7 +157,15 @@
       <img src="./img/driver/leclerc.png" alt="leclerc">
       <div class="driverInfo">
         <p class="subTitle">Charles Leclerc</p>
-        <a href="#" class="discover-btn">VIEW MORE</a>
+        <a href="#" class="discover-btn">
+              VIEW MORE
+              <span class="circle">
+                <svg viewBox="0 0 36 36">
+                  <circle class="bg" cx="18" cy="18" r="16"></circle>
+                  <circle class="progress" cx="18" cy="18" r="16"></circle>
+                </svg>
+              </span>
+            </a>
       </div>
     </div>
 
@@ -140,7 +173,15 @@
       <img src="./img/driver/lewis.png" alt="lewis">
       <div class="driverInfo">
         <p class="subTitle">Lewis Hamilton</p>
-        <a href="#" class="discover-btn">VIEW MORE</a>
+        <a href="#" class="discover-btn">
+              VIEW MORE
+              <span class="circle">
+                <svg viewBox="0 0 36 36">
+                  <circle class="bg" cx="18" cy="18" r="16"></circle>
+                  <circle class="progress" cx="18" cy="18" r="16"></circle>
+                </svg>
+              </span>
+            </a>
       </div>
     </div>
   </div>
@@ -210,7 +251,7 @@
 
       <div class="swiper-slide">
         <div class="race-card">
-          <img src="./img/main/race/race_3.jpg" alt="United States">
+          <img src="./img/main/race/race_5.jpg" alt="United States">
           <div class="race-info">
             <p class="country">United States</p>
             <p class="date">17 - 19 OCTP</p>

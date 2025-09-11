@@ -2,16 +2,6 @@ html {
   font-size: 62.5%;
   background-color: #181818;
 }
-@media (max-width: 1440px) {
-  html {
-    font-size: 58%;
-  }
-}
-@media (max-width: 767px) {
-  html {
-    font-size: 37.5%;
-  }
-}
 
 body {
   font-size: 1.6rem;
@@ -42,7 +32,12 @@ a {
   margin: 0 auto;
   box-sizing: border-box;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1520px) and (min-width: 1260px) {
+  .container {
+    padding: 0 4rem;
+  }
+}
+@media (max-width: 1250px) {
   .container {
     max-width: 1440px;
     padding: 0 3rem;

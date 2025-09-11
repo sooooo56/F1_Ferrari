@@ -12,13 +12,13 @@ html {
   font-size: 62.5%; // 1rem = 10px 설정
   background-color: $black1;
 
-  @media (max-width: 1440px) {
-    font-size: 58%; // 1rem = 9.3px 정도
-  }
+  // @media (max-width: 1440px) {
+  //   font-size: 58%; // 1rem = 9.3px 정도
+  // }
 
-  @media (max-width: 767px) {
-    font-size: 37.5%; // 1rem = 6px
-  }
+  // @media (max-width: 767px) {
+  //   font-size: 37.5%; // 1rem = 6px
+  // }
 }
 
 body {
@@ -73,13 +73,13 @@ a{
   margin: 0 auto;
   box-sizing: border-box;
 
-  // // 1439px ~ 1024px 범위에 적용
-  // @media (max-width: 1439px) and (min-width: 1024px) {
-  //   padding: 0 4rem;
-  // }
+  // 1439px ~ 1260px 범위에 적용
+  @media (max-width: 1520px) and (min-width: 1260px) {
+    padding: 0 4rem;
+  }
 
-  // 1440px ~ 768px 범위에 적용
-  @media (max-width: 1440px) {
+  // 1250px ~ 768px 범위에 적용
+  @media (max-width: 1250px) {
     max-width: 1440px;
     padding: 0 3rem;
   }
@@ -97,24 +97,39 @@ a{
   font-size: 7rem;
   font-weight: 350;
   word-wrap: break-word;
+
+  @media (min-width: 768px) and (max-width: 1023px){
+    font-size: 5rem;
+  }
+  @media all and (max-width: 767px){
+    font-size: 3.6rem;
+  }
 }
 
 @mixin title(){
   font-size: 5rem;
   font-weight: 350;
   word-wrap: break-word;
+
+  @media (min-width: 768px) and (max-width: 1023px){
+    font-size: 4rem;
+  }
+  @media all and (max-width: 767px){
+    font-size: 3rem;
+  }
 }
 
 @mixin sub-title-36(){
   font-size: 3.6rem;
   font-weight: 350;
   word-wrap: break-word;
-}
 
-@mixin sub-title-25(){
-  font-size: 2.5rem;
-  font-weight: 350;
-  word-wrap: break-word;
+  @media (min-width: 768px) and (max-width: 1023px){
+    font-size: 3.3rem;
+  }
+  @media all and (max-width: 767px){
+    font-size: 3rem;
+  }
 }
 
 @mixin sub-title-30(){
@@ -123,10 +138,30 @@ a{
   word-wrap: break-word;
 }
 
+@mixin sub-title-25(){
+  font-size: 2.5rem;
+  font-weight: 350;
+  word-wrap: break-word;
+
+  @media (min-width: 768px) and (max-width: 1023px){
+    font-size: 2.3rem;
+  }
+  @media all and (max-width: 767px){
+    font-size: 2rem;
+  }
+}
+
 @mixin m-body(){
   font-size: 1.8rem;
   font-weight: 350;
   word-wrap: break-word;
+
+  @media (min-width: 768px) and (max-width: 1023px){
+    font-size: 1.5rem;
+  }
+  @media all and (max-width: 767px){
+    font-size: 1.2rem;
+  }
 }
 
 

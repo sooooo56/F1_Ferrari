@@ -2,16 +2,6 @@ html {
   font-size: 62.5%;
   background-color: #181818;
 }
-@media (max-width: 1023px) {
-  html {
-    font-size: 58%;
-  }
-}
-@media (max-width: 767px) {
-  html {
-    font-size: 37.5%;
-  }
-}
 
 body {
   font-size: 1.6rem;
@@ -19,6 +9,16 @@ body {
   font-weight: 350;
   margin: 0;
   color: #fff;
+}
+@media (min-width: 768px) and (max-width: 1440px) {
+  body {
+    font-size: 1.6rem;
+  }
+}
+@media all and (max-width: 767px) {
+  body {
+    font-size: 2.3rem;
+  }
 }
 
 a {
@@ -32,7 +32,12 @@ a {
   margin: 0 auto;
   box-sizing: border-box;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1520px) and (min-width: 1260px) {
+  .container, #nav .navInner {
+    padding: 0 4rem;
+  }
+}
+@media (max-width: 1250px) {
   .container, #nav .navInner {
     max-width: 1440px;
     padding: 0 3rem;
@@ -74,6 +79,7 @@ a {
 #nav .menu-btn {
   cursor: pointer;
   display: none;
+  font-size: 1.4rem;
 }
 #nav .mobileMenu {
   position: fixed;
@@ -85,7 +91,6 @@ a {
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
-  padding: 2rem;
 }
 #nav .mobileMenu.active {
   transform: translateX(0);
@@ -93,23 +98,28 @@ a {
 #nav .mobileMenu .menuInner {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #aaa;
+  padding: 2rem 3rem;
 }
 #nav .mobileMenu .menuInner .logo {
-  width: 25px;
-  height: 25px;
+  width: 100%;
+  height: 3rem;
 }
 #nav .mobileMenu .close-btn {
-  width: 24px;
-  height: 24px;
+  width: 3rem;
+  height: 3rem;
   background: url("../img/main/close-btn.svg") no-repeat center center/contain;
   cursor: pointer;
 }
 #nav .mobileMenu ul {
   list-style: none;
-  margin-top: 3rem;
+  padding: 3rem;
+  font-size: 1.4rem;
+  font-weight: 350;
 }
 #nav .mobileMenu ul li {
-  margin: 1.5rem 0;
+  margin-bottom: 3.5rem;
 }
 
 @media (max-width: 768px) {

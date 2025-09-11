@@ -9,6 +9,25 @@
   @include v.sub-title-36();
 }
 
+.mobile-br {
+    display: none; // 기본은 안 보임
+
+  @media (max-width: 768px) {
+    display: inline; // 모바일에서만 줄바꿈 적용
+  }
+}
+
+.tablet-br {
+    display: none; // 기본은 안 보임
+    
+  @media (max-width: 1440px) {
+    display: inline; // 모바일에서만 줄바꿈 적용
+  }
+}
+
+
+
+
 /* DISCOVER 버튼 */
   .discover-btn {
     display: inline-flex;
@@ -66,29 +85,27 @@
   }
 
   video {
-    position: absolute;  // 부모 기준 꽉 채우기
+    position: absolute;
     top: 50%;
     left: 50%;
 
     /* 세로 영상 → 가로화면 채우기 */
-    width: 100vh;   // 화면 높이를 기준으로 가로 채움
-    height: 100vw;  // 화면 너비를 기준으로 세로 채움
+    width: 100vh;
+    height: 100vw;
 
     transform: translate(-50%, -50%) rotate(90deg); 
     transform-origin: center center;
 
-    object-fit: cover;   // 잘려도 화면 꽉 채우기
+    object-fit: cover;
     
+    @media (max-width: 767px){
+      width: 100%;
+      height: 100%;
+      transform: translate(-50%, -50%); // rotate 제거
+      object-fit: cover; 
+    }
   }
 
-  @media (max-width: 767px) {
-  .swiper-slide video {
-    width: 100%;
-    height: 100%;
-    transform: translate(-50%, -50%); // rotate 제거
-    object-fit: cover; // 위아래 꽉 차게
-  }
-}
 
   .innerText {
     position: absolute;
@@ -100,6 +117,10 @@
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s ease;
+
+    @media (max-width: 1250px){
+      top: 76%;
+    }
 
     h3 {
       margin-bottom: 2.5rem;
@@ -181,22 +202,35 @@
       @include v.max-title();
       position: absolute;
       top: 15%;
-      left: 25%;
+      right: 10%;
+      text-align: right;
 
     }
 
     .right{
       left: 10%;
+      text-align: left;
     }
     
     img{
       width: 100%;
       height: 100vh;
       object-fit: cover;
+      object-position: center; // 기본값: 중앙
     }
   }
-  
 }
+
+@media (max-width: 767px) {
+  #full {
+    .fullInner{
+      .img-position {
+        object-position: 70% center; // 70%면 오른쪽으로 치우쳐짐
+      }
+    }
+  } 
+}
+
 
 // 드라이버 소개
 #driverContainer{
@@ -237,6 +271,39 @@
 
       .subTitle{
         padding-bottom: 1.6rem;
+      }
+    }
+  }
+}
+
+// driver tablet
+@media (max-width: 1250px) {
+  .driver {
+    height: 50rem;
+
+    .driverCard {
+      height: 50rem;
+      .driverInfo{
+        bottom: 3rem;
+        left: 3rem;
+      }
+    }
+  }
+}
+
+// driver mo
+@media (max-width: 767px) {
+  .driver {
+    flex-direction: column;
+    height: 80rem;
+    .driverCard {
+      // flex: none;
+      // height: auto;
+      // min-height: 40rem;
+
+      .driverInfo{
+        bottom: 2rem;
+        left: 2rem;
       }
     }
   }
@@ -294,8 +361,29 @@
   background: url("../img/SF-25/1.jpg") center/cover no-repeat;
   transition: background-image 0.6s ease-in-out;
   z-index: 1;
+  }
 }
+
+// sf-25 t
+@media (max-width: 1520px) {
+  #SF-25{
+    .sfText{
+      padding: 5rem;
+      gap: 2.5rem;
+    }
+  }
 }
+
+// sf-25 mo
+@media (max-width: 767px) {
+  #SF-25{
+    .sfText{
+      padding: 3rem;
+      gap: 2rem;
+    }
+  }
+}
+
 
 // 레이스 일정
 #race {
@@ -318,6 +406,14 @@
       height: 44.5rem;
       object-fit: cover;
       display: block;
+
+      @media (max-width:1440px){
+        height: 35rem;
+      }
+
+      @media (max-width:767px){
+        height: 21.5rem;
+      }
     }
 
       &::after {

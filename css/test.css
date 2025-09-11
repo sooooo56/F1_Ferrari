@@ -3,16 +3,6 @@ html {
   font-size: 62.5%;
   background-color: #181818;
 }
-@media (max-width: 1440px) {
-  html {
-    font-size: 58%;
-  }
-}
-@media (max-width: 767px) {
-  html {
-    font-size: 37.5%;
-  }
-}
 
 body {
   font-size: 1.6rem;
@@ -43,7 +33,12 @@ a {
   margin: 0 auto;
   box-sizing: border-box;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1520px) and (min-width: 1260px) {
+  .container {
+    padding: 0 4rem;
+  }
+}
+@media (max-width: 1250px) {
   .container {
     max-width: 1440px;
     padding: 0 3rem;
@@ -61,11 +56,49 @@ a {
   font-weight: 350;
   word-wrap: break-word;
 }
+@media (min-width: 768px) and (max-width: 1023px) {
+  .title {
+    font-size: 4rem;
+  }
+}
+@media all and (max-width: 767px) {
+  .title {
+    font-size: 3rem;
+  }
+}
 
 .subTitle {
   font-size: 3.6rem;
   font-weight: 350;
   word-wrap: break-word;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .subTitle {
+    font-size: 3.3rem;
+  }
+}
+@media all and (max-width: 767px) {
+  .subTitle {
+    font-size: 3rem;
+  }
+}
+
+.mobile-br {
+  display: none;
+}
+@media (max-width: 768px) {
+  .mobile-br {
+    display: inline;
+  }
+}
+
+.tablet-br {
+  display: none;
+}
+@media (max-width: 1440px) {
+  .tablet-br {
+    display: inline;
+  }
 }
 
 /* DISCOVER 버튼 */
@@ -77,6 +110,16 @@ a {
   font-size: 1.8rem;
   font-weight: 350;
   word-wrap: break-word;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .discover-btn {
+    font-size: 1.5rem;
+  }
+}
+@media all and (max-width: 767px) {
+  .discover-btn {
+    font-size: 1.2rem;
+  }
 }
 .discover-btn .circle {
   position: relative;
@@ -152,7 +195,7 @@ a {
      object-fit: cover;
 }
 @media (max-width: 767px) {
-  .swiper-slide .swiper-slide video {
+  .swiper-slide video {
     width: 100%;
     height: 100%;
     transform: translate(-50%, -50%);
@@ -169,6 +212,11 @@ a {
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s ease;
+}
+@media (max-width: 1250px) {
+  .swiper-slide .innerText {
+    top: 76%;
+  }
 }
 .swiper-slide .innerText h3 {
   margin-bottom: 2.5rem;
@@ -274,18 +322,38 @@ a {
   word-wrap: break-word;
   position: absolute;
   top: 15%;
-  left: 25%;
+  right: 10%;
+  text-align: right;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  #full .fullInner .fullTitle {
+    font-size: 5rem;
+  }
+}
+@media all and (max-width: 767px) {
+  #full .fullInner .fullTitle {
+    font-size: 3.6rem;
+  }
 }
 #full .fullInner .right {
   left: 10%;
+  text-align: left;
 }
 #full .fullInner img {
   width: 100%;
   height: 100vh;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
+@media (max-width: 767px) {
+  #full .fullInner .img-position {
+    -o-object-position: 70% center;
+       object-position: 70% center;
+  }
+}
 #driverContainer {
   margin: 250px auto;
 }
@@ -344,6 +412,28 @@ a {
   padding-bottom: 1.6rem;
 }
 
+@media (max-width: 1250px) {
+  .driver {
+    height: 50rem;
+  }
+  .driver .driverCard {
+    height: 50rem;
+  }
+  .driver .driverCard .driverInfo {
+    bottom: 3rem;
+    left: 3rem;
+  }
+}
+@media (max-width: 767px) {
+  .driver {
+    flex-direction: column;
+    height: 80rem;
+  }
+  .driver .driverCard .driverInfo {
+    bottom: 2rem;
+    left: 2rem;
+  }
+}
 #SF-25 {
   position: relative;
   width: 100%;
@@ -369,6 +459,16 @@ a {
   font-weight: 350;
   word-wrap: break-word;
 }
+@media (min-width: 768px) and (max-width: 1023px) {
+  #SF-25 .sfText p {
+    font-size: 2.3rem;
+  }
+}
+@media all and (max-width: 767px) {
+  #SF-25 .sfText p {
+    font-size: 2rem;
+  }
+}
 #SF-25 .sfText p::after {
   content: "";
   position: absolute;
@@ -393,6 +493,18 @@ a {
   z-index: 1;
 }
 
+@media (max-width: 1520px) {
+  #SF-25 .sfText {
+    padding: 5rem;
+    gap: 2.5rem;
+  }
+}
+@media (max-width: 767px) {
+  #SF-25 .sfText {
+    padding: 3rem;
+    gap: 2rem;
+  }
+}
 #race {
   margin: 250px auto;
 }
@@ -432,6 +544,16 @@ a {
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
+}
+@media (max-width: 1440px) {
+  #race .race-card img {
+    height: 35rem;
+  }
+}
+@media (max-width: 767px) {
+  #race .race-card img {
+    height: 21.5rem;
+  }
 }
 #race .race-card::after {
   content: "";

@@ -112,8 +112,21 @@ function updateSF25(p) {
 
 // race swiper
 const raceSwiper = new Swiper(".raceSwiper", {
-  slidesPerView: 2.5,
   spaceBetween: 30,
-  loop: true,
 
+  breakpoints :{
+    1024: {
+      slidesPerView: 2.5,
+    },
+    // 태블릿
+    768: {
+      slidesPerView: 2,
+    },
+    // 모바일
+    0: {
+      slidesPerView: 1.3,
+    },
+  },
 });
+
+
