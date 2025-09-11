@@ -3,6 +3,16 @@ html {
   font-size: 62.5%;
   background-color: #181818;
 }
+@media (max-width: 1440px) {
+  html {
+    font-size: 58%;
+  }
+}
+@media (max-width: 767px) {
+  html {
+    font-size: 37.5%;
+  }
+}
 
 body {
   font-size: 1.6rem;
@@ -11,14 +21,14 @@ body {
   margin: 0;
   color: #fff;
 }
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1440px) {
   body {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 }
 @media all and (max-width: 767px) {
   body {
-    font-size: 1.4rem;
+    font-size: 2.3rem;
   }
 }
 
@@ -32,6 +42,18 @@ a {
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
+}
+@media (max-width: 1440px) {
+  .container {
+    max-width: 1440px;
+    padding: 0 3rem;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    max-width: 767px;
+    padding: 0 2rem;
+  }
 }
 
 .title {
@@ -128,6 +150,15 @@ a {
   transform-origin: center center;
   -o-object-fit: cover;
      object-fit: cover;
+}
+@media (max-width: 767px) {
+  .swiper-slide .swiper-slide video {
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
 }
 .swiper-slide .innerText {
   position: absolute;
@@ -258,8 +289,28 @@ a {
 #driverContainer {
   margin: 250px auto;
 }
+@media (min-width: 768px) and (max-width: 1440px) {
+  #driverContainer {
+    margin: 150px auto;
+  }
+}
+@media all and (max-width: 767px) {
+  #driverContainer {
+    margin: 80px auto;
+  }
+}
 #driverContainer .title {
   margin-bottom: 48px;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  #driverContainer .title {
+    margin-bottom: 40px;
+  }
+}
+@media all and (max-width: 767px) {
+  #driverContainer .title {
+    margin-bottom: 30px;
+  }
 }
 
 .driver {
@@ -345,8 +396,28 @@ a {
 #race {
   margin: 250px auto;
 }
+@media (min-width: 768px) and (max-width: 1440px) {
+  #race {
+    margin: 150px auto;
+  }
+}
+@media all and (max-width: 767px) {
+  #race {
+    margin: 80px auto;
+  }
+}
 #race .title {
   margin-bottom: 48px;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  #race .title {
+    margin-bottom: 40px;
+  }
+}
+@media all and (max-width: 767px) {
+  #race .title {
+    margin-bottom: 30px;
+  }
 }
 #race .raceSwiper {
   overflow: hidden;

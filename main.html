@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ferrari</title>
 
-    <!-- reset css -->
-    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+    <!-- css -->
+    <!-- <link rel="stylesheet" href="./css/main.css"> -->
+    <link rel="stylesheet" href="./css/navi.css">
+    <link rel="stylesheet" href="./css/test.css">
 
     <!-- font -->
     <link rel="stylesheet" href="./font/font.scss">
 
-    <!-- css -->
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/navi.css">
-    <!-- <link rel="stylesheet" href="./css/test.css"> -->
+    <!-- reset css -->
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
     
     <!-- Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -25,48 +25,25 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
     <!-- js -->
-    <script src="./js/main.js" defer></script>
-    <script src="./js/navi.js" defer></script>
-    <!-- <script src="./js/test.js" defer></script> -->
+    <script src="./js/test.js" defer></script>
 
 </head>
 <body>
-<!-- navi -->
-  <nav id="nav">
-    <div class="navInner">
-      <!-- 로고 -->
-      <div class="logo"><a href="#"></a></div>
-
-      <!-- PC 메뉴 리스트 -->
-      <div class="menuList">
-        <a href="#">Racing</a>
-        <a href="#">SF-25</a>
-        <a href="#">Team</a>
-        <a href="#">News</a>
-        <a href="#">Partners</a>
-      </div>
-
-      <!-- 모바일 햄버거 버튼 -->
-      <div class="menu-btn">MENU</div>
-    </div>
-
-    <!-- 모바일 오버레이 메뉴 -->
-    <div class="mobileMenu">
-      <div class="close-btn"></div>
-      <ul>
-        <li><a href="#">Racing</a></li>
-        <li><a href="#">SF-25</a></li>
-        <li><a href="#">Team</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="#">Partners</a></li>
-      </ul>
-    </div>
-  </nav>
-
+    <!-- navi -->
+    <nav id="nav">
+        <div class="navInner">
+            <div class="logo"><a href="#"></a></div>
+            <div><a href="#">Racing</a></div>
+            <div><a href="#">SF-25</a></div>
+            <div><a href="#">Team</a></div>
+            <div><a href="#">News</a></div>
+            <div><a href="#">Partners</a></div>
+        </div>
+    </nav>
 
     <!-- Hearo -->
 <section id="hearo">
-  <div class="swiper heroSwiper">
+  <div class="swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
           <div class="innerText">
@@ -155,15 +132,7 @@
       <img src="./img/driver/leclerc.png" alt="leclerc">
       <div class="driverInfo">
         <p class="subTitle">Charles Leclerc</p>
-        <a href="#" class="discover-btn">
-              VIEW MORE
-              <span class="circle">
-                <svg viewBox="0 0 36 36">
-                  <circle class="bg" cx="18" cy="18" r="16"></circle>
-                  <circle class="progress" cx="18" cy="18" r="16"></circle>
-                </svg>
-              </span>
-            </a>
+        <a href="#" class="discover-btn">VIEW MORE</a>
       </div>
     </div>
 
@@ -171,15 +140,7 @@
       <img src="./img/driver/lewis.png" alt="lewis">
       <div class="driverInfo">
         <p class="subTitle">Lewis Hamilton</p>
-        <a href="#" class="discover-btn">
-              VIEW MORE
-              <span class="circle">
-                <svg viewBox="0 0 36 36">
-                  <circle class="bg" cx="18" cy="18" r="16"></circle>
-                  <circle class="progress" cx="18" cy="18" r="16"></circle>
-                </svg>
-              </span>
-            </a>
+        <a href="#" class="discover-btn">VIEW MORE</a>
       </div>
     </div>
   </div>
@@ -249,7 +210,7 @@
 
       <div class="swiper-slide">
         <div class="race-card">
-          <img src="./img/main/race/race_5.jpg" alt="United States">
+          <img src="./img/main/race/race_3.jpg" alt="United States">
           <div class="race-info">
             <p class="country">United States</p>
             <p class="date">17 - 19 OCTP</p>
