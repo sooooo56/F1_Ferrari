@@ -1,0 +1,111 @@
+@use "./var.scss" as v;
+@use "./common.scss";
+
+/* DISCOVER 버튼 */
+  .discover-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    @include v.m-body;
+
+    .circle {
+      position: relative;
+      @include v.circle-progress(40px, 2);
+
+      // + 아이콘
+      &::after {
+        content: "+";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: v.$white;
+        font-size: 2rem;
+        font-weight: 400;
+      }
+    }
+
+    // hover 효과
+    &:hover .progress {
+      stroke-dashoffset: 0;
+    }
+  }
+
+// 드라이버 소개
+#driverContainer{
+  @include v.pc-m();
+
+  .title{
+    @include v.title-mb();
+  }
+}
+
+.driver {
+  display: flex;
+
+  .driverCard {
+    position: relative;
+    flex: 1;
+    height: 65rem;
+    background: linear-gradient(180deg, #8C0000 0%, #070707 100%);
+    overflow: hidden;
+
+    &:last-child {
+      background: linear-gradient(180deg, #770000 0%, #070707 100%);
+    }
+    
+    img {
+      position: absolute;
+      top: 7%;
+      width: 80%;
+      left: 50%;
+      transform: translateX(-50%);
+      object-fit: cover;
+    }
+
+    .driverInfo {
+      position: absolute;
+      bottom: 4rem;
+      left: 4rem;
+
+      .subTitle{
+        padding-bottom: 1.6rem;
+      }
+    }
+  }
+}
+
+// driver tablet
+@media (max-width: 1250px) {
+  .driver {
+    height: 50rem;
+
+    .driverCard {
+      height: 50rem;
+      .driverInfo{
+        bottom: 3rem;
+        left: 3rem;
+      }
+    }
+  }
+}
+
+// driver mo
+@media (max-width: 767px) {
+  .driver {
+    flex-direction: column;
+    height: 80rem;
+    .driverCard {
+      // flex: none;
+      // height: auto;
+      // min-height: 40rem;
+
+      .driverInfo{
+        bottom: 2rem;
+        left: 2rem;
+      }
+    }
+  }
+}
+

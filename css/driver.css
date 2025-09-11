@@ -1,0 +1,240 @@
+@charset "UTF-8";
+html {
+  font-size: 62.5%;
+  background-color: #181818;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Gotham", sans-serif;
+  font-weight: 350;
+  margin: 0;
+  color: #fff;
+}
+@media (min-width: 768px) and (max-width: 1440px) {
+  body {
+    font-size: 1.6rem;
+  }
+}
+@media all and (max-width: 767px) {
+  body {
+    font-size: 2.3rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1530px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+@media (max-width: 1520px) and (min-width: 1260px) {
+  .container {
+    padding: 0 4rem;
+  }
+}
+@media (max-width: 1250px) {
+  .container {
+    max-width: 1440px;
+    padding: 0 3rem;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    max-width: 767px;
+    padding: 0 2rem;
+  }
+}
+
+.title {
+  font-size: 5rem;
+  font-weight: 350;
+  word-wrap: break-word;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .title {
+    font-size: 4rem;
+  }
+}
+@media all and (max-width: 767px) {
+  .title {
+    font-size: 3rem;
+  }
+}
+
+.subTitle {
+  font-size: 3.6rem;
+  font-weight: 350;
+  word-wrap: break-word;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .subTitle {
+    font-size: 3.3rem;
+  }
+}
+@media all and (max-width: 767px) {
+  .subTitle {
+    font-size: 3rem;
+  }
+}
+
+.mobile-br {
+  display: none;
+}
+@media (max-width: 768px) {
+  .mobile-br {
+    display: inline;
+  }
+}
+
+.tablet-br {
+  display: none;
+}
+@media (max-width: 1440px) {
+  .tablet-br {
+    display: inline;
+  }
+}
+
+/* DISCOVER 버튼 */
+.discover-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.8rem;
+  font-weight: 350;
+  word-wrap: break-word;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .discover-btn {
+    font-size: 1.5rem;
+  }
+}
+@media all and (max-width: 767px) {
+  .discover-btn {
+    font-size: 1.2rem;
+  }
+}
+.discover-btn .circle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+.discover-btn .circle svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+.discover-btn .circle .bg {
+  fill: none;
+  stroke: #aaa;
+  stroke-width: 2;
+}
+.discover-btn .circle .progress {
+  fill: none;
+  stroke: #d40000;
+  stroke-width: 2;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.7s linear;
+}
+.discover-btn .circle::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 400;
+}
+.discover-btn:hover .progress {
+  stroke-dashoffset: 0;
+}
+
+#driverContainer {
+  margin: 250px auto;
+}
+@media (min-width: 768px) and (max-width: 1440px) {
+  #driverContainer {
+    margin: 150px auto;
+  }
+}
+@media all and (max-width: 767px) {
+  #driverContainer {
+    margin: 80px auto;
+  }
+}
+#driverContainer .title {
+  margin-bottom: 48px;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  #driverContainer .title {
+    margin-bottom: 40px;
+  }
+}
+@media all and (max-width: 767px) {
+  #driverContainer .title {
+    margin-bottom: 30px;
+  }
+}
+
+.driver {
+  display: flex;
+}
+.driver .driverCard {
+  position: relative;
+  flex: 1;
+  height: 65rem;
+  background: linear-gradient(180deg, #8C0000 0%, #070707 100%);
+  overflow: hidden;
+}
+.driver .driverCard:last-child {
+  background: linear-gradient(180deg, #770000 0%, #070707 100%);
+}
+.driver .driverCard img {
+  position: absolute;
+  top: 7%;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.driver .driverCard .driverInfo {
+  position: absolute;
+  bottom: 4rem;
+  left: 4rem;
+}
+.driver .driverCard .driverInfo .subTitle {
+  padding-bottom: 1.6rem;
+}
+
+@media (max-width: 1250px) {
+  .driver {
+    height: 50rem;
+  }
+  .driver .driverCard {
+    height: 50rem;
+  }
+  .driver .driverCard .driverInfo {
+    bottom: 3rem;
+    left: 3rem;
+  }
+}
+@media (max-width: 767px) {
+  .driver {
+    flex-direction: column;
+    height: 80rem;
+  }
+  .driver .driverCard .driverInfo {
+    bottom: 2rem;
+    left: 2rem;
+  }
+}

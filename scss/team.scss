@@ -1,0 +1,52 @@
+@use "./var.scss" as v;
+@use "./common.scss";
+
+
+#hearo{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  .hearoText{
+    position: absolute;
+    top: 80%;
+    text-align: center;
+    width: 100%;
+
+    .logo{
+      width: 4.5rem;
+      height: 100%;
+      margin-top: 24px;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+
+#Season{
+  .title{
+    @include v.title-mb();
+  }
+  .SeasonL{
+    .innerText{
+      display: flex;
+
+      span{
+        @include v.m-body();
+        color: v.$gray;
+      }
+
+      p{
+        @include v.sub-title-25();
+        padding-top: 2rem;
+      }
+    }
+  }
+  
+}
+
+

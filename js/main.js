@@ -1,10 +1,10 @@
 // main swiper (히어로)
 const mainSwiper = new Swiper(".heroSwiper", {
   loop: true,
-  // autoplay: {
-  //   delay: 7000,
-  //   disableOnInteraction: false,
-  // },
+  autoplay: {
+    delay: 7000,
+    disableOnInteraction: false,
+  },
   
   pagination: {
     el: ".swiper-pagination",

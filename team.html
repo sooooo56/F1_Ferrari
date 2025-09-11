@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferrari</title>
+    
+    <!-- reset css -->
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+
+    <!-- font -->
+    <link rel="stylesheet" href="./font/font.scss">
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/team.css">
+    <link rel="stylesheet" href="./css/driver.css">
+    <link rel="stylesheet" href="./css/navi.css">
+
+</head>
+<body>
+
+  <!-- navi -->
+  <nav id="nav">
+    <div class="navInner container">
+      <!-- 로고 -->
+      <div class="logo"><a href="#"></a></div>
+
+      <!-- PC 메뉴 리스트 -->
+      <ul class="menuList">
+        <li><a href="#">Racing</a></li>
+        <li><a href="#">SF-25</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Partners</a></li>
+      </ul>
+
+      <!-- 모바일 햄버거 버튼 -->
+      <div class="menu-btn">MENU</div>
+    </div>
+
+    <!-- 모바일 오버레이 메뉴 -->
+    <div class="mobileMenu">
+      <div class="menuInner">
+        <!-- <div></div> -->
+        <div class="logo"><a href="#"></a></div>
+        <div class="close-btn"></div>
+      </div>
+      <ul>
+        <li><a href="#">Racing</a></li>
+        <li><a href="#">SF-25</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Partners</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 메인 비쥬얼 -->
+  <section id="hearo">
+      <div class="hearoText">
+        <h3 class="title">UNITED IN RED. DRIVEN TO WIN.</h3>
+        <a href="#"><img src="./img/ferrari-logo.svg" alt="ferrari-logo" class="logo"></a>
+      </div>
+
+      <img src="./img/team/team_main.jpg" alt="main">
+  </section>
+
+  <!-- 드라이버 소개 -->
+  <section id="driverContainer" class="container">
+    <h3 class="title" data-aos="fade-up">DRIVER</h3>
+
+    <div class="driver">
+      <div class="driverCard" data-aos="fade-up" data-aos-delay="0">
+        <img src="./img/driver/leclerc.png" alt="leclerc">
+        <div class="driverInfo">
+          <p class="subTitle">Charles Leclerc</p>
+          <a href="#" class="discover-btn">
+                VIEW MORE
+                <span class="circle">
+                  <svg viewBox="0 0 36 36">
+                    <circle class="bg" cx="18" cy="18" r="16"></circle>
+                    <circle class="progress" cx="18" cy="18" r="16"></circle>
+                  </svg>
+                </span>
+              </a>
+        </div>
+      </div>
+
+      <div class="driverCard" data-aos="fade-up" data-aos-delay="200">
+        <img src="./img/driver/lewis.png" alt="lewis">
+        <div class="driverInfo">
+          <p class="subTitle">Lewis Hamilton</p>
+          <a href="#" class="discover-btn">
+                VIEW MORE
+                <span class="circle">
+                  <svg viewBox="0 0 36 36">
+                    <circle class="bg" cx="18" cy="18" r="16"></circle>
+                    <circle class="progress" cx="18" cy="18" r="16"></circle>
+                  </svg>
+                </span>
+              </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="Season" class="container">
+    <h3 class="title">2025 SEASON</h3>
+    <div class="SeasonL">
+      <h4 class="subTitle">STATISTICS</h4>
+
+      <div class="innerText">
+        <div>
+          <span>Season Position</span>
+          <p>2nd</p>
+        </div>
+  
+        <div>
+          <span>Season Position</span>
+          <p>2nd</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+</body>
+</html>

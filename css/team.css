@@ -1,0 +1,189 @@
+html {
+  font-size: 62.5%;
+  background-color: #181818;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Gotham", sans-serif;
+  font-weight: 350;
+  margin: 0;
+  color: #fff;
+}
+@media (min-width: 768px) and (max-width: 1440px) {
+  body {
+    font-size: 1.6rem;
+  }
+}
+@media all and (max-width: 767px) {
+  body {
+    font-size: 2.3rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1530px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+@media (max-width: 1520px) and (min-width: 1260px) {
+  .container {
+    padding: 0 4rem;
+  }
+}
+@media (max-width: 1250px) {
+  .container {
+    max-width: 1440px;
+    padding: 0 3rem;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    max-width: 767px;
+    padding: 0 2rem;
+  }
+}
+
+.title {
+  font-size: 5rem;
+  font-weight: 350;
+  word-wrap: break-word;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .title {
+    font-size: 4rem;
+  }
+}
+@media all and (max-width: 767px) {
+  .title {
+    font-size: 3rem;
+  }
+}
+
+.subTitle {
+  font-size: 3.6rem;
+  font-weight: 350;
+  word-wrap: break-word;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .subTitle {
+    font-size: 3.3rem;
+  }
+}
+@media all and (max-width: 767px) {
+  .subTitle {
+    font-size: 3rem;
+  }
+}
+
+.subTitle-25 {
+  font-size: 2.5rem;
+  font-weight: 350;
+  word-wrap: break-word;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .subTitle-25 {
+    font-size: 2.3rem;
+  }
+}
+@media all and (max-width: 767px) {
+  .subTitle-25 {
+    font-size: 2rem;
+  }
+}
+
+.mobile-br {
+  display: none;
+}
+@media (max-width: 768px) {
+  .mobile-br {
+    display: inline;
+  }
+}
+
+.tablet-br {
+  display: none;
+}
+@media (max-width: 1440px) {
+  .tablet-br {
+    display: inline;
+  }
+}
+
+#hearo {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+#hearo .hearoText {
+  position: absolute;
+  top: 80%;
+  text-align: center;
+  width: 100%;
+}
+#hearo .hearoText .logo {
+  width: 4.5rem;
+  height: 100%;
+  margin-top: 24px;
+}
+#hearo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#Season .title {
+  margin-bottom: 48px;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  #Season .title {
+    margin-bottom: 40px;
+  }
+}
+@media all and (max-width: 767px) {
+  #Season .title {
+    margin-bottom: 30px;
+  }
+}
+#Season .SeasonL .innerText {
+  display: flex;
+}
+#Season .SeasonL .innerText span {
+  font-size: 1.8rem;
+  font-weight: 350;
+  word-wrap: break-word;
+  color: #aaa;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  #Season .SeasonL .innerText span {
+    font-size: 1.5rem;
+  }
+}
+@media all and (max-width: 767px) {
+  #Season .SeasonL .innerText span {
+    font-size: 1.2rem;
+  }
+}
+#Season .SeasonL .innerText p {
+  font-size: 2.5rem;
+  font-weight: 350;
+  word-wrap: break-word;
+  padding-top: 2rem;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  #Season .SeasonL .innerText p {
+    font-size: 2.3rem;
+  }
+}
+@media all and (max-width: 767px) {
+  #Season .SeasonL .innerText p {
+    font-size: 2rem;
+  }
+}

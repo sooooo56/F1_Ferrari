@@ -1,31 +1,5 @@
 @use "./var.scss" as v;
-
-// 공통 타이틀 스타일
-.title{
-  @include v.title();
-}
-
-.subTitle{
-  @include v.sub-title-36();
-}
-
-.mobile-br {
-    display: none; // 기본은 안 보임
-
-  @media (max-width: 768px) {
-    display: inline; // 모바일에서만 줄바꿈 적용
-  }
-}
-
-.tablet-br {
-    display: none; // 기본은 안 보임
-    
-  @media (max-width: 1440px) {
-    display: inline; // 모바일에서만 줄바꿈 적용
-  }
-}
-
-
+@use "./common.scss";
 
 
 /* DISCOVER 버튼 */
@@ -236,82 +210,7 @@
 }
 
 
-// 드라이버 소개
-#driverContainer{
-  @include v.pc-m();
 
-  .title{
-    @include v.title-mb();
-  }
-}
-
-.driver {
-  display: flex;
-
-  .driverCard {
-    position: relative;
-    flex: 1;
-    height: 65rem;
-    background: linear-gradient(180deg, #8C0000 0%, #070707 100%);
-    overflow: hidden;
-
-    &:last-child {
-      background: linear-gradient(180deg, #770000 0%, #070707 100%);
-    }
-    
-    img {
-      position: absolute;
-      top: 7%;
-      width: 80%;
-      left: 50%;
-      transform: translateX(-50%);
-      object-fit: cover;
-    }
-
-    .driverInfo {
-      position: absolute;
-      bottom: 4rem;
-      left: 4rem;
-
-      .subTitle{
-        padding-bottom: 1.6rem;
-      }
-    }
-  }
-}
-
-// driver tablet
-@media (max-width: 1250px) {
-  .driver {
-    height: 50rem;
-
-    .driverCard {
-      height: 50rem;
-      .driverInfo{
-        bottom: 3rem;
-        left: 3rem;
-      }
-    }
-  }
-}
-
-// driver mo
-@media (max-width: 767px) {
-  .driver {
-    flex-direction: column;
-    height: 80rem;
-    .driverCard {
-      // flex: none;
-      // height: auto;
-      // min-height: 40rem;
-
-      .driverInfo{
-        bottom: 2rem;
-        left: 2rem;
-      }
-    }
-  }
-}
 
 // SF-25 풀 컨텐츠
 #SF-25 {
