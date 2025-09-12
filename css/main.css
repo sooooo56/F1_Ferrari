@@ -83,6 +83,22 @@ a {
   }
 }
 
+.subTitle-25 {
+  font-size: 2.5rem;
+  font-weight: 350;
+  word-wrap: break-word;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .subTitle-25 {
+    font-size: 2.3rem;
+  }
+}
+@media all and (max-width: 767px) {
+  .subTitle-25 {
+    font-size: 2rem;
+  }
+}
+
 .mobile-br {
   display: none;
 }
@@ -505,51 +521,4 @@ a {
 }
 #race .race-card .race-info .date {
   font-size: 2rem;
-}
-
-footer {
-  background-color: #303030;
-}
-footer .footerInner {
-  padding: 4.9rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.5rem;
-}
-footer .footerInner .ftLogo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-footer .footerInner .ftLogo .line {
-  width: 1px;
-  height: 2rem;
-  background: #fff;
-}
-footer .footerInner .ftLogo img {
-  width: 3rem;
-  height: 100%;
-}
-footer .footerInner .snsLogo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8rem;
-}
-footer .footerInner .snsLogo img {
-  width: 2.4rem;
-  height: 100%;
-}
-footer .footerInner .ftText {
-  text-align: center;
-  color: #aaa;
-  font-size: 1.2rem;
-  font-weight: 325;
-  color: #aaa;
-  line-height: 1.3rem;
-}
-footer .footerInner .ftText p {
-  padding-top: 1.2rem;
 }

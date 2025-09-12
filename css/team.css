@@ -116,10 +116,61 @@ a {
   }
 }
 
+.title {
+  margin-bottom: 48px;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .title {
+    margin-bottom: 40px;
+  }
+}
+@media all and (max-width: 767px) {
+  .title {
+    margin-bottom: 30px;
+  }
+}
+
+span {
+  font-size: 1.8rem;
+  font-weight: 350;
+  word-wrap: break-word;
+  color: #aaa;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  span {
+    font-size: 1.5rem;
+  }
+}
+@media all and (max-width: 767px) {
+  span {
+    font-size: 1.2rem;
+  }
+}
+
+p {
+  font-size: 2.5rem;
+  font-weight: 350;
+  word-wrap: break-word;
+  padding-top: 2rem;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  p {
+    font-size: 2.3rem;
+  }
+}
+@media all and (max-width: 767px) {
+  p {
+    font-size: 2rem;
+  }
+}
+
 #hearo {
   position: relative;
   width: 100%;
   height: 100vh;
+}
+#hearo .title {
+  margin: 0 auto;
 }
 #hearo .hearoText {
   position: absolute;
@@ -139,51 +190,142 @@ a {
      object-fit: cover;
 }
 
-#Season .title {
-  margin-bottom: 48px;
+#Season {
+  margin: 0 auto 250px auto;
 }
-@media (min-width: 768px) and (max-width: 1023px) {
-  #Season .title {
-    margin-bottom: 40px;
+@media (min-width: 768px) and (max-width: 1440px) {
+  #Season {
+    margin: 0 auto 150px auto;
   }
 }
 @media all and (max-width: 767px) {
-  #Season .title {
-    margin-bottom: 30px;
+  #Season {
+    margin: 0 auto 80px auto;
   }
 }
-#Season .SeasonL .innerText {
+#Season .seasonInner {
   display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
 }
-#Season .SeasonL .innerText span {
-  font-size: 1.8rem;
-  font-weight: 350;
-  word-wrap: break-word;
-  color: #aaa;
+@media (max-width: 767px) {
+  #Season .seasonInner {
+    gap: 4rem;
+  }
 }
-@media (min-width: 768px) and (max-width: 1023px) {
-  #Season .SeasonL .innerText span {
-    font-size: 1.5rem;
+
+.SeasonL {
+  flex: 1;
+}
+.SeasonL ul .innerText {
+  display: flex;
+  padding-top: 2.4rem;
+}
+.SeasonL ul .innerText:first-child, .SeasonL ul .innerText:nth-child(5), .SeasonL ul .innerText:last-child {
+  padding: 2.4rem 0;
+  border-bottom: 1px solid #747474;
+}
+.SeasonL ul .innerText div:first-child {
+  width: 50%;
+}
+
+.SeasonR {
+  background-color: #303030;
+  padding: 4.8rem;
+  border-radius: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: stretch;
+}
+.SeasonR ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #747474;
+}
+.SeasonR ul li p {
+  padding: 3rem 0;
+}
+
+#profile {
+  margin: 0 auto 250px auto;
+}
+@media (min-width: 768px) and (max-width: 1440px) {
+  #profile {
+    margin: 0 auto 150px auto;
   }
 }
 @media all and (max-width: 767px) {
-  #Season .SeasonL .innerText span {
-    font-size: 1.2rem;
+  #profile {
+    margin: 0 auto 80px auto;
   }
 }
-#Season .SeasonL .innerText p {
-  font-size: 2.5rem;
-  font-weight: 350;
-  word-wrap: break-word;
-  padding-top: 2rem;
+#profile .profileInner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-@media (min-width: 768px) and (max-width: 1023px) {
-  #Season .SeasonL .innerText p {
-    font-size: 2.3rem;
+#profile ul {
+  flex: 1;
+}
+#profile ul li {
+  display: flex;
+  padding-top: 24px;
+}
+#profile ul li div {
+  width: 50%;
+}
+@media (max-width: 767px) {
+  #profile ul li:nth-child(2n) {
+    border-bottom: 1px solid #747474;
+    padding: 28px 0;
+  }
+}
+
+.tt {
+  text-align: center;
+  margin: 0 auto 250px auto;
+}
+@media (min-width: 768px) and (max-width: 1440px) {
+  .tt {
+    margin: 0 auto 150px auto;
   }
 }
 @media all and (max-width: 767px) {
-  #Season .SeasonL .innerText p {
-    font-size: 2rem;
+  .tt {
+    margin: 0 auto 80px auto;
+  }
+}
+
+#gallery {
+  margin: 0 auto 250px auto;
+}
+@media (min-width: 768px) and (max-width: 1440px) {
+  #gallery {
+    margin: 0 auto 150px auto;
+  }
+}
+@media all and (max-width: 767px) {
+  #gallery {
+    margin: 0 auto 80px auto;
+  }
+}
+#gallery img {
+  width: 100vw;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#gallery .teamSwiper img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 60rem;
+}
+@media (max-width: 767px) {
+  #gallery .teamSwiper img {
+    height: 30rem;
   }
 }

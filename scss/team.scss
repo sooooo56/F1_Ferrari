@@ -2,7 +2,26 @@
 @use "./common.scss";
 
 
+// 텍스트 공통 스타일
+  .title{
+    @include v.title-mb();
+  }
+
+  span{
+    @include v.m-body();
+    color: v.$gray;
+  }
+
+  p{
+    @include v.sub-title-25();
+    padding-top: 2rem;
+  }
+
+
 #hearo{
+  .title{
+    margin: 0 auto;
+  }
   position: relative;
   width: 100%;
   height: 100vh;
@@ -27,26 +46,116 @@
 }
 
 
+// 2025 시즌 
 #Season{
-  .title{
-    @include v.title-mb();
+  @include v.pc-mb();
+  .seasonInner{
+    display: flex;
+    
+    flex-wrap: wrap;
+    gap: 28px;
+
+    @media(max-width:767px){
+      gap: 4rem;
+    }
   }
-  .SeasonL{
-    .innerText{
-      display: flex;
+}
 
-      span{
-        @include v.m-body();
-        color: v.$gray;
-      }
+.SeasonL{
+    flex: 1;
+    ul {
+      .innerText{
+        display: flex;
+        padding-top: 2.4rem;
 
-      p{
-        @include v.sub-title-25();
-        padding-top: 2rem;
+        &:first-child,&:nth-child(5),&:last-child {
+          padding: 2.4rem 0;
+          border-bottom: 1px solid v.$gray2;
+        }
+
+        div{
+          &:first-child{
+            width: 50%;
+          }
+        }
       }
     }
   }
   
+.SeasonR{
+  background-color: v.$black2;
+  padding: 4.8rem;
+  border-radius: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: stretch;
+  ul{
+    li{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid v.$gray2;
+      p{
+        padding: 3rem 0;
+      }
+    }
+  }
 }
 
+// team profile
+#profile{
+  @include v.pc-mb();
+  .profileInner{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
 
+  ul{
+    flex: 1;
+    li{
+      display: flex;
+      padding-top: 24px;
+      div{
+        width: 50%;
+      }
+
+      @media(max-width:767px){
+        &:nth-child(2n){
+          border-bottom: 1px solid v.$gray2;
+          padding: 28px 0;
+        }
+      }
+    }
+  }
+}
+
+//문구
+.tt{
+  text-align: center;
+  @include v.pc-mb();
+}
+
+// gallery
+#gallery{
+  @include v.pc-mb();
+  img{
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  .teamSwiper{
+    img{
+      object-fit: cover;
+      width: 100%;
+      height: 60rem;
+
+      @media(max-width:767px){
+        height: 30rem;
+      }
+    }
+  }
+}

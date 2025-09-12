@@ -1,4 +1,5 @@
-@use 'var' as v;
+@use "./var.scss" as v;
+@use "./common.scss";
 
 #nav {
   background-color: v.$black2;
@@ -94,6 +95,62 @@
     }
     .menu-btn {
       display: block; // 모바일에서 보이게
+    }
+  }
+}
+
+
+// footer
+footer{
+  background-color: v.$black2;
+  
+  .footerInner{
+    padding: 4.9rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+
+    .ftLogo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    .line{
+      width: 1px;
+      height: 2rem;
+      background: v.$white;
+    }
+    
+    img{
+      width: 3rem;
+      height: 100%;
+    }
+  }
+
+  .snsLogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    img{
+      width: 2.4rem;
+      height: 100%;
+    }
+  }
+
+    .ftText{
+      text-align: center;
+      color: v.$gray;
+      font-weight: 325;
+      color: v.$gray;
+      line-height: 1.3rem;
+
+      p{
+        font-size: 1.2rem;
+        padding-top: 1.2rem;
+      }
     }
   }
 }

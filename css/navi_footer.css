@@ -1,0 +1,244 @@
+html {
+  font-size: 62.5%;
+  background-color: #181818;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Gotham", sans-serif;
+  font-weight: 350;
+  margin: 0;
+  color: #fff;
+}
+@media (min-width: 768px) and (max-width: 1440px) {
+  body {
+    font-size: 1.6rem;
+  }
+}
+@media all and (max-width: 767px) {
+  body {
+    font-size: 2.3rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container, #nav .navInner {
+  max-width: 1530px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+@media (max-width: 1520px) and (min-width: 1260px) {
+  .container, #nav .navInner {
+    padding: 0 4rem;
+  }
+}
+@media (max-width: 1250px) {
+  .container, #nav .navInner {
+    max-width: 1440px;
+    padding: 0 3rem;
+  }
+}
+@media (max-width: 767px) {
+  .container, #nav .navInner {
+    max-width: 767px;
+    padding: 0 2rem;
+  }
+}
+
+.title {
+  font-size: 5rem;
+  font-weight: 350;
+  word-wrap: break-word;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .title {
+    font-size: 4rem;
+  }
+}
+@media all and (max-width: 767px) {
+  .title {
+    font-size: 3rem;
+  }
+}
+
+.subTitle {
+  font-size: 3.6rem;
+  font-weight: 350;
+  word-wrap: break-word;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .subTitle {
+    font-size: 3.3rem;
+  }
+}
+@media all and (max-width: 767px) {
+  .subTitle {
+    font-size: 3rem;
+  }
+}
+
+.subTitle-25 {
+  font-size: 2.5rem;
+  font-weight: 350;
+  word-wrap: break-word;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .subTitle-25 {
+    font-size: 2.3rem;
+  }
+}
+@media all and (max-width: 767px) {
+  .subTitle-25 {
+    font-size: 2rem;
+  }
+}
+
+.mobile-br {
+  display: none;
+}
+@media (max-width: 768px) {
+  .mobile-br {
+    display: inline;
+  }
+}
+
+.tablet-br {
+  display: none;
+}
+@media (max-width: 1440px) {
+  .tablet-br {
+    display: inline;
+  }
+}
+
+#nav {
+  background-color: #303030;
+  height: 4rem;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+#nav .navInner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+#nav .logo {
+  background: url("../img/logo-w.svg") no-repeat center center;
+  width: 18px;
+  height: 100%;
+}
+#nav .menuList {
+  display: flex;
+  gap: 3rem;
+}
+#nav .menuList a {
+  padding: 1rem;
+  text-decoration: none;
+}
+#nav .menu-btn {
+  cursor: pointer;
+  display: none;
+  font-size: 1.4rem;
+}
+#nav .mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #303030;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+#nav .mobileMenu.active {
+  transform: translateX(0);
+}
+#nav .mobileMenu .menuInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #aaa;
+  padding: 2rem 3rem;
+}
+#nav .mobileMenu .menuInner .logo {
+  width: 100%;
+  height: 3rem;
+}
+#nav .mobileMenu .close-btn {
+  width: 3rem;
+  height: 3rem;
+  background: url("../img/main/close-btn.svg") no-repeat center center/contain;
+  cursor: pointer;
+}
+#nav .mobileMenu ul {
+  list-style: none;
+  padding: 3rem;
+  font-size: 1.4rem;
+  font-weight: 350;
+}
+#nav .mobileMenu ul li {
+  margin-bottom: 3.5rem;
+}
+
+@media (max-width: 768px) {
+  #nav .menuList {
+    display: none;
+  }
+  #nav .menu-btn {
+    display: block;
+  }
+}
+footer {
+  background-color: #303030;
+}
+footer .footerInner {
+  padding: 4.9rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+footer .footerInner .ftLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+footer .footerInner .ftLogo .line {
+  width: 1px;
+  height: 2rem;
+  background: #fff;
+}
+footer .footerInner .ftLogo img {
+  width: 3rem;
+  height: 100%;
+}
+footer .footerInner .snsLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
+}
+footer .footerInner .snsLogo img {
+  width: 2.4rem;
+  height: 100%;
+}
+footer .footerInner .ftText {
+  text-align: center;
+  color: #aaa;
+  font-weight: 325;
+  color: #aaa;
+  line-height: 1.3rem;
+}
+footer .footerInner .ftText p {
+  font-size: 1.2rem;
+  padding-top: 1.2rem;
+}
