@@ -45,7 +45,43 @@
   }
 }
 
+// 감독 & 메카닉
 
+#driverContainer{
+  .Principal{
+    @media(max-width:767px){
+        height: 47rem;
+      }
+  }
+  .driver{
+    #card{
+      background: inherit;
+      width: 100%;
+      height: 57rem;
+      position: relative;
+      flex: 1;
+
+      .cardImg{
+        left: auto;
+        transform: none;
+        @media(max-width:767px){
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      img{
+        position: absolute;
+        width: auto;
+        top: auto;
+      }
+    }
+  }
+}
+
+.mt{
+  margin-top: 6rem
+}
 // 2025 시즌 
 #Season{
   @include v.pc-mb();

@@ -190,6 +190,38 @@ p {
      object-fit: cover;
 }
 
+@media (max-width: 767px) {
+  #driverContainer .Principal {
+    height: 47rem;
+  }
+}
+#driverContainer .driver #card {
+  background: inherit;
+  width: 100%;
+  height: 57rem;
+  position: relative;
+  flex: 1;
+}
+#driverContainer .driver #card .cardImg {
+  left: auto;
+  transform: none;
+}
+@media (max-width: 767px) {
+  #driverContainer .driver #card .cardImg {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+#driverContainer .driver #card img {
+  position: absolute;
+  width: auto;
+  top: auto;
+}
+
+.mt {
+  margin-top: 6rem;
+}
+
 #Season {
   margin: 0 auto 250px auto;
 }
