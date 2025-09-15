@@ -98,6 +98,21 @@ a {
   }
 }
 
+.bodyG {
+  font-weight: 300;
+  color: #aaa;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .bodyG {
+    font-size: 1.4rem;
+  }
+}
+@media all and (max-width: 767px) {
+  .bodyG {
+    font-size: 1.2rem;
+  }
+}
+
 .mobile-br {
   display: none;
 }
@@ -313,51 +328,5 @@ p {
   #profile ul li:nth-child(2n) {
     border-bottom: 1px solid #747474;
     padding: 28px 0;
-  }
-}
-
-.tt {
-  text-align: center;
-  margin: 0 auto 250px auto;
-}
-@media (min-width: 768px) and (max-width: 1440px) {
-  .tt {
-    margin: 0 auto 150px auto;
-  }
-}
-@media all and (max-width: 767px) {
-  .tt {
-    margin: 0 auto 80px auto;
-  }
-}
-
-#gallery {
-  margin: 0 auto 250px auto;
-}
-@media (min-width: 768px) and (max-width: 1440px) {
-  #gallery {
-    margin: 0 auto 150px auto;
-  }
-}
-@media all and (max-width: 767px) {
-  #gallery {
-    margin: 0 auto 80px auto;
-  }
-}
-#gallery img {
-  width: 100vw;
-  height: 100vh;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-#gallery .teamSwiper img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-  height: 60rem;
-}
-@media (max-width: 767px) {
-  #gallery .teamSwiper img {
-    height: 30rem;
   }
 }

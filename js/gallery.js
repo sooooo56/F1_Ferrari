@@ -1,4 +1,4 @@
-const teamSwiper = new Swiper(".teamSwiper", {
+const gallerySwiper = new Swiper(".gallerySwiper", {
 
   breakpoints :{
     1024: {

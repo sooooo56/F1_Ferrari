@@ -99,6 +99,21 @@ a {
   }
 }
 
+.bodyG {
+  font-weight: 300;
+  color: #aaa;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .bodyG {
+    font-size: 1.4rem;
+  }
+}
+@media all and (max-width: 767px) {
+  .bodyG {
+    font-size: 1.2rem;
+  }
+}
+
 .mobile-br {
   display: none;
 }
@@ -185,6 +200,7 @@ a {
 #info .infoInner {
   display: flex;
   gap: 96px;
+  flex-wrap: wrap;
   justify-content: center;
 }
 #info .infoInner li {
@@ -193,4 +209,150 @@ a {
 #info .infoInner p {
   font-size: 8rem;
   padding-bottom: 1.6rem;
+}
+
+#profile {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+#profile img {
+  width: 70rem;
+  height: 83rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#profile .profileR .profileInfo {
+  display: flex;
+  gap: 4.8rem;
+  padding: 2.4rem 0;
+}
+#profile .profileR .profileInfo p {
+  margin-bottom: 8px;
+}
+#profile .profileR .profileInfo span {
+  font-size: 14px;
+  color: #aaa;
+}
+#profile .profileR .podiums {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+#profile .profileR .podiums li {
+  border-bottom: 2px solid #d40000;
+  width: 50%;
+  padding-bottom: 1.6rem;
+  margin: 4.8rem 0;
+}
+#profile .profileR .podiums p {
+  margin-bottom: 1.8rem;
+}
+#profile .profileR .podiums span {
+  font-size: 14px;
+  font-weight: 300;
+  color: #aaa;
+}
+
+.chart {
+  padding: 2rem;
+}
+.chart .box {
+  display: flex;
+  padding-bottom: 3rem;
+  gap: 2rem;
+}
+.chart .box p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.chart .box p::before {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  background-color: #aaa;
+}
+.chart .box p:last-child::before {
+  background-color: #d40000;
+}
+.chart .chartItem {
+  margin-bottom: 2rem;
+}
+.chart .chartItem .value {
+  display: flex;
+  justify-content: space-between;
+}
+.chart .chartItem .value p:last-child {
+  font-size: 12px;
+}
+.chart .chartItem .bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chart .chartItem .bar .bar-fill {
+  display: block;
+  height: 2.5rem;
+  flex: 1;
+  max-width: calc(var(--value) * 10%);
+  transition: max-width 0.6s ease;
+}
+.chart .chartItem .bar .count {
+  font-size: 2rem;
+  width: 2rem;
+  text-align: right;
+}
+.chart .chartItem .barG {
+  padding-top: 2rem;
+  padding-bottom: 8px;
+}
+.chart .chartItem .barG .bar-fill {
+  max-width: calc(var(--value) * 1%);
+  background: #aaa;
+}
+.chart .chartItem .barR .bar-fill {
+  background: linear-gradient(90deg, #680000, #D40000);
+}
+
+.valueList {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.valueList li {
+  text-align: center;
+  border-bottom: 1px solid #d40000;
+  width: 100%;
+  padding-bottom: 1.6rem;
+}
+.valueList li p {
+  margin-bottom: 8px;
+}
+.valueList li span {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.fullImg {
+  margin: 250px auto;
+}
+@media (min-width: 768px) and (max-width: 1440px) {
+  .fullImg {
+    margin: 150px auto;
+  }
+}
+@media all and (max-width: 767px) {
+  .fullImg {
+    margin: 80px auto;
+  }
+}
+.fullImg img {
+  width: 100vw;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
 }

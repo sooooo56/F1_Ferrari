@@ -116,6 +116,18 @@ $point-color: #d40000;
   }
 }
 
+@mixin g-body(){
+  font-weight: 300;
+  color: $gray;
+
+  @media (min-width: 768px) and (max-width: 1023px){
+    font-size: 1.4rem;
+  }
+  @media all and (max-width: 767px){
+    font-size: 1.2rem;
+  }
+}
+
 
 // _circle.scss
 @mixin circle-progress($size: 36px, $stroke: 2, $color: $point-color, $bg: $gray, $duration: 0.7s) {

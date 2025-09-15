@@ -66,6 +66,10 @@ a{
   @include v.sub-title-25();
 }
 
+.bodyG{
+  @include v.g-body();
+}
+
 .mobile-br {
     display: none; // 기본은 안 보임
 

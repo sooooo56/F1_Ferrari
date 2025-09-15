@@ -80,6 +80,7 @@
   .infoInner{
     display: flex;
     gap: 96px;
+    flex-wrap: wrap;
     justify-content: center;
 
     li{
@@ -93,4 +94,168 @@
   }
 }
 
+
+// profile
+#profile{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4rem;
+
+    img{
+      width: 70rem;
+      height: 83rem;
+      object-fit: cover;
+    }
+
+  .profileR{
+    .profileInfo{
+      display: flex;
+      gap: 4.8rem;
+      padding: 2.4rem 0;
+
+      p{
+        margin-bottom: 8px;
+      }
+
+      span{
+        font-size: 14px;
+        color: v.$gray;
+      }
+    }
+
+    .podiums{
+      display: flex;
+      text-align: center;
+      justify-content: space-between;
+      gap: 10px;
+
+      li{
+        border-bottom: 2px solid v.$point-color;
+        width: 50%;
+        padding-bottom: 1.6rem;
+        margin: 4.8rem 0;
+      }
+
+      p{
+        margin-bottom: 1.8rem;
+      }
+
+      span{
+        font-size: 14px;
+        font-weight: 300;
+        color: v.$gray;
+      }
+    }
+  }
+}
+
+.chart {
+  padding: 2rem;
+
+  .box{
+    display: flex;
+    padding-bottom: 3rem;
+    gap: 2rem;
+
+    p{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      &::before{
+        content: '';
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        background-color: v.$gray;
+      }
+
+      &:last-child::before{
+        background-color: v.$point-color;
+      }
+    }
+  }
+    
+    
+  .chartItem {
+    margin-bottom: 2rem;
+
+    .value{
+      display: flex;
+      justify-content: space-between;
+
+      p{
+        &:last-child{
+          font-size: 12px;
+        }
+      }
+    }
+    // 선형 그래프 공통
+    .bar{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .bar-fill {
+        display: block;
+        height: 2.5rem;
+        flex: 1;
+        max-width: calc(var(--value) * 10%); // 값 크기에 따라 가변
+        transition: max-width 0.6s ease;
+      }
+
+      .count {
+        font-size: 2rem;
+        width: 2rem;
+        text-align: right;
+      }
+    }
+
+    .barG {
+      padding-top: 2rem;
+      padding-bottom: 8px;
+      .bar-fill {
+        max-width: calc(var(--value) * 1%); // 값 크기에 따라 가변
+        background: v.$gray;
+      }
+    }
+
+    .barR {
+      .bar-fill {
+        background: linear-gradient(90deg, #680000, #D40000);
+      }
+    }
+  }
+}
+
+.valueList{
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  li{
+    text-align: center;
+    border-bottom: 1px solid v.$point-color;
+    width: 100%;
+    padding-bottom: 1.6rem;
+
+    p{
+      margin-bottom: 8px;
+    }
+    span{
+      font-size: 14px;
+      color: v.$gray;
+    }
+  }
+}
+
+.fullImg{
+  @include v.pc-m();
+  img{
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+}
 
