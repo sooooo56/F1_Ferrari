@@ -152,11 +152,16 @@ a {
 /* 텍스트 */
 .nameText {
   position: absolute;
-  top: 5%;
+  top: 10%;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
   z-index: 1;
+}
+@media (max-width: 767px) {
+  .nameText {
+    top: 15%;
+  }
 }
 .nameText h1 {
   font-size: clamp(6rem, 10vw, 20rem);
@@ -217,6 +222,11 @@ a {
   flex-wrap: wrap;
   gap: 4rem;
 }
+@media (max-width: 1380px) {
+  #profile {
+    justify-content: center;
+  }
+}
 #profile img {
   width: 70rem;
   height: 83rem;
@@ -225,6 +235,7 @@ a {
 }
 #profile .profileR .profileInfo {
   display: flex;
+  flex-wrap: wrap;
   gap: 4.8rem;
   padding: 2.4rem 0;
 }
@@ -256,6 +267,11 @@ a {
   color: #aaa;
 }
 
+@media (max-width: 767px) {
+  .profileR .profileInfo li {
+    width: 100%;
+  }
+}
 .chart {
   padding: 2rem;
 }
@@ -323,11 +339,21 @@ a {
   justify-content: space-between;
   gap: 1rem;
 }
+@media (max-width: 767px) {
+  .valueList {
+    flex-wrap: wrap;
+  }
+}
 .valueList li {
   text-align: center;
   border-bottom: 1px solid #d40000;
   width: 100%;
   padding-bottom: 1.6rem;
+}
+@media (max-width: 767px) {
+  .valueList li {
+    width: 48%;
+  }
 }
 .valueList li p {
   margin-bottom: 8px;
