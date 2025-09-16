@@ -130,3 +130,59 @@ a {
     display: inline;
   }
 }
+
+#mainVideo {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+#mainVideo .videoWrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+#mainVideo .videoWrap iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+#mainVideo .mainInner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  top: 80%;
+  text-align: center;
+}
+
+#info {
+  margin: 8rem auto 10rem auto;
+}
+#info .infoInner {
+  display: flex;
+  gap: 96px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#info .infoInner li {
+  text-align: center;
+}
+#info .infoInner li .bodyG {
+  font-weight: 350;
+}
+#info .infoInner p {
+  font-size: 8rem;
+  padding-bottom: 1.6rem;
+}
+#info .infoInner p span {
+  font-size: 4rem;
+}

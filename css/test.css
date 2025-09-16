@@ -1,4 +1,55 @@
-@charset "UTF-8";
+html {
+  font-size: 62.5%;
+  background-color: #181818;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Gotham", sans-serif;
+  font-weight: 350;
+  margin: 0;
+  color: #fff;
+}
+@media (min-width: 768px) and (max-width: 1440px) {
+  body {
+    font-size: 1.6rem;
+  }
+}
+@media all and (max-width: 767px) {
+  body {
+    font-size: 2.3rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1530px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+@media (max-width: 1520px) and (min-width: 1260px) {
+  .container {
+    padding: 0 4rem;
+  }
+}
+@media (max-width: 1250px) {
+  .container {
+    max-width: 1440px;
+    padding: 0 3rem;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    max-width: 767px;
+    padding: 0 2rem;
+  }
+}
+
 .title {
   font-size: 5rem;
   font-weight: 350;
@@ -31,6 +82,37 @@
   }
 }
 
+.subTitle-25 {
+  font-size: 2.5rem;
+  font-weight: 350;
+  word-wrap: break-word;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .subTitle-25 {
+    font-size: 2.3rem;
+  }
+}
+@media all and (max-width: 767px) {
+  .subTitle-25 {
+    font-size: 2rem;
+  }
+}
+
+.bodyG {
+  font-weight: 300;
+  color: #aaa;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .bodyG {
+    font-size: 1.4rem;
+  }
+}
+@media all and (max-width: 767px) {
+  .bodyG {
+    font-size: 1.2rem;
+  }
+}
+
 .mobile-br {
   display: none;
 }
@@ -49,527 +131,165 @@
   }
 }
 
-/* DISCOVER 버튼 */
-.discover-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  font-size: 1.8rem;
-  font-weight: 350;
-  word-wrap: break-word;
-}
-@media (min-width: 768px) and (max-width: 1023px) {
-  .discover-btn {
-    font-size: 1.5rem;
-  }
-}
-@media all and (max-width: 767px) {
-  .discover-btn {
-    font-size: 1.2rem;
-  }
-}
-.discover-btn .circle {
-  position: relative;
-  width: 40px;
-  height: 40px;
-}
-.discover-btn .circle svg {
-  width: 100%;
-  height: 100%;
-  transform: rotate(-90deg);
-}
-.discover-btn .circle .bg {
-  fill: none;
-  stroke: #aaa;
-  stroke-width: 2;
-}
-.discover-btn .circle .progress {
-  fill: none;
-  stroke: #d40000;
-  stroke-width: 2;
-  stroke-dasharray: 100;
-  stroke-dashoffset: 100;
-  transition: stroke-dashoffset 0.7s linear;
-}
-.discover-btn .circle::after {
-  content: "+";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  font-size: 2rem;
-  font-weight: 400;
-}
-.discover-btn:hover .progress {
-  stroke-dashoffset: 0;
-}
-
-/* Hero 영역 */
-#hearo {
+#mainVideo {
   position: relative;
   width: 100%;
   height: 100vh;
-}
-
-.heroSwiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  position: relative;
-  width: 100%;
-  height: 100%;
   overflow: hidden;
 }
-.swiper-slide img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.swiper-slide video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  /* 세로 영상 → 가로화면 채우기 */
-  width: 100vh;
-  height: 100vw;
-  transform: translate(-50%, -50%) rotate(90deg);
-  transform-origin: center center;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-@media (max-width: 767px) {
-  .swiper-slide video {
-    width: 100%;
-    height: 100%;
-    transform: translate(-50%, -50%);
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-}
-.swiper-slide .innerText {
-  position: absolute;
-  top: 80%;
-  z-index: 2;
-  text-align: center;
-  width: 100%;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease;
-}
-@media (max-width: 1250px) {
-  .swiper-slide .innerText {
-    top: 76%;
-  }
-}
-.swiper-slide .innerText h3 {
-  margin-bottom: 2.5rem;
-  opacity: 0;
-  transform: translateY(2rem);
-  transition: all 0.8s ease;
-}
-.swiper-slide .innerText .discover-btn {
-  opacity: 0;
-  transform: translateY(2rem);
-  transition: all 0.8s ease 0.3s;
-}
-.swiper-slide .innerText.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-.swiper-slide .innerText.animate h3 {
-  opacity: 1;
-  transform: translateY(0);
-}
-.swiper-slide .innerText.animate .discover-btn {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Swiper 페이지네이션 */
-.swiper-pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 2.5rem 0;
-}
-
-.swiper-pagination-clickable .swiper-pagination-bullet {
-  position: relative;
-  background: #fff !important;
-  opacity: 1 !important;
-  width: 100%;
-  width: 1rem;
-  height: 1rem;
-}
-.swiper-pagination-clickable .swiper-pagination-bullet svg {
+#mainVideo .videoWrap {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 0;
+}
+#mainVideo .videoWrap iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
   pointer-events: none;
 }
-.swiper-pagination-clickable .swiper-pagination-bullet svg {
-  width: 100%;
-  height: 100%;
-  transform: rotate(-90deg);
-}
-.swiper-pagination-clickable .swiper-pagination-bullet .bg {
-  fill: none;
-  stroke: #aaa;
-  stroke-width: 3;
-}
-.swiper-pagination-clickable .swiper-pagination-bullet .progress {
-  fill: none;
-  stroke: #d40000;
-  stroke-width: 3;
-  stroke-dasharray: 100;
-  stroke-dashoffset: 100;
-  transition: stroke-dashoffset 0.7s linear;
-}
-.swiper-pagination-clickable .swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background: transparent !important;
-  width: 2.2rem;
-  height: 2.2rem;
-}
-.swiper-pagination-clickable .swiper-pagination-bullet.swiper-pagination-bullet-active svg {
-  width: 100%;
-  height: 100%;
-  transform: rotate(-90deg);
-}
-.swiper-pagination-clickable .swiper-pagination-bullet.swiper-pagination-bullet-active .bg {
-  fill: none;
-  stroke: #aaa;
-  stroke-width: 3;
-}
-.swiper-pagination-clickable .swiper-pagination-bullet.swiper-pagination-bullet-active .progress {
-  fill: none;
-  stroke: #d40000;
-  stroke-width: 3;
-  stroke-dasharray: 100;
-  stroke-dashoffset: 100;
-  transition: stroke-dashoffset 0.7s linear;
-}
-
-#full {
-  width: 100%;
-  height: 100%;
-}
-#full .fullInner {
+#mainVideo .mainInner {
   position: relative;
-}
-#full .fullInner .fullTitle {
-  font-size: 7rem;
-  font-weight: 350;
-  word-wrap: break-word;
-  position: absolute;
-  top: 15%;
-  right: 10%;
-  text-align: right;
-}
-@media (min-width: 768px) and (max-width: 1023px) {
-  #full .fullInner .fullTitle {
-    font-size: 5rem;
-  }
-}
-@media all and (max-width: 767px) {
-  #full .fullInner .fullTitle {
-    font-size: 3.6rem;
-  }
-}
-#full .fullInner .right {
-  left: 10%;
-  text-align: left;
-}
-#full .fullInner img {
-  width: 100%;
-  height: 100vh;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  z-index: 1;
+  text-align: center;
+  top: 80%;
+  text-align: center;
 }
 
-@media (max-width: 767px) {
-  #full .fullInner .img-position {
-    -o-object-position: 70% center;
-       object-position: 70% center;
-  }
+#info {
+  margin: 8rem auto 10rem auto;
 }
-#driverContainer {
-  margin: 250px auto;
-}
-@media (min-width: 768px) and (max-width: 1440px) {
-  #driverContainer {
-    margin: 150px auto;
-  }
-}
-@media all and (max-width: 767px) {
-  #driverContainer {
-    margin: 80px auto;
-  }
-}
-#driverContainer .title {
-  margin-bottom: 48px;
-}
-@media (min-width: 768px) and (max-width: 1023px) {
-  #driverContainer .title {
-    margin-bottom: 40px;
-  }
-}
-@media all and (max-width: 767px) {
-  #driverContainer .title {
-    margin-bottom: 30px;
-  }
-}
-
-.driver {
+#info .infoInner {
   display: flex;
+  gap: 96px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.driver .driverCard {
-  position: relative;
-  flex: 1;
-  height: 65rem;
-  background: linear-gradient(180deg, #8C0000 0%, #070707 100%);
-  overflow: hidden;
+#info .infoInner li {
+  text-align: center;
 }
-.driver .driverCard:last-child {
-  background: linear-gradient(180deg, #770000 0%, #070707 100%);
+#info .infoInner li .bodyG {
+  font-weight: 350;
 }
-.driver .driverCard img {
-  position: absolute;
-  top: 7%;
-  width: 80%;
-  left: 50%;
-  transform: translateX(-50%);
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.driver .driverCard .driverInfo {
-  position: absolute;
-  bottom: 4rem;
-  left: 4rem;
-}
-.driver .driverCard .driverInfo .subTitle {
+#info .infoInner p {
+  font-size: 8rem;
   padding-bottom: 1.6rem;
 }
+#info .infoInner p span {
+  font-size: 4rem;
+}
 
-@media (max-width: 1250px) {
-  .driver {
-    height: 50rem;
-  }
-  .driver .driverCard {
-    height: 50rem;
-  }
-  .driver .driverCard .driverInfo {
-    bottom: 3rem;
-    left: 3rem;
-  }
-}
-@media (max-width: 767px) {
-  .driver {
-    flex-direction: column;
-    height: 80rem;
-  }
-  .driver .driverCard .driverInfo {
-    bottom: 2rem;
-    left: 2rem;
-  }
-}
 #SF-25 {
+  background: radial-gradient(circle at center, #7a0c0c 0%, #000 80%);
   position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  overflow: hidden;
+  padding: 5rem 0;
 }
-#SF-25 .sfText {
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  padding: 10rem 0;
-  gap: 3.5rem;
-  width: 1520px;
-  align-items: flex-end;
+#SF-25 .sf25-wrap {
+  position: relative;
+  max-width: 1200px;
   margin: 0 auto;
 }
-#SF-25 .sfText p {
+#SF-25 .sf25-img {
+  width: 100%;
+  display: block;
+}
+#SF-25 .sf25-point {
+  position: absolute;
+  font-size: 1.6rem;
+  color: #fff;
+  font-weight: 600;
+}
+#SF-25 .sf25-point .lineWrap {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+#SF-25 .sf25-point figcaption {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s;
+  max-width: 280px;
+  line-height: 1.4;
+}
+#SF-25 .sf25-point .line {
   position: relative;
-  cursor: pointer;
-  font-size: 2.5rem;
-  font-weight: 350;
-  word-wrap: break-word;
+  width: 220px;
+  height: 1px;
+  background: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s ease-out;
 }
-@media (min-width: 768px) and (max-width: 1023px) {
-  #SF-25 .sfText p {
-    font-size: 2.3rem;
-  }
-}
-@media all and (max-width: 767px) {
-  #SF-25 .sfText p {
-    font-size: 2rem;
-  }
-}
-#SF-25 .sfText p::after {
+#SF-25 .sf25-point .line::before {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -5px;
-  width: 0%;
-  height: 2px;
-  background: #d40000;
-  transition: width 0.4s ease;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+  background: transparent;
 }
-#SF-25 .sfText p:hover, #SF-25 .sfText p.active {
-  color: #d40000;
-}
-#SF-25 .sfText p:hover::after, #SF-25 .sfText p.active::after {
-  width: 100%;
-}
-#SF-25 .sfImage {
-  position: absolute;
-  inset: 0;
-  background: url("../img/SF-25/1.jpg") center/cover no-repeat;
-  transition: background-image 0.6s ease-in-out;
-  z-index: 1;
-}
-
-@media (max-width: 1520px) {
-  #SF-25 .sfText {
-    padding: 5rem;
-    gap: 2.5rem;
-  }
-}
-@media (max-width: 767px) {
-  #SF-25 .sfText {
-    padding: 3rem;
-    gap: 2rem;
-  }
-}
-#race {
-  margin: 250px auto;
-}
-@media (min-width: 768px) and (max-width: 1440px) {
-  #race {
-    margin: 150px auto;
-  }
-}
-@media all and (max-width: 767px) {
-  #race {
-    margin: 80px auto;
-  }
-}
-#race .title {
-  margin-bottom: 48px;
-}
-@media (min-width: 768px) and (max-width: 1023px) {
-  #race .title {
-    margin-bottom: 40px;
-  }
-}
-@media all and (max-width: 767px) {
-  #race .title {
-    margin-bottom: 30px;
-  }
-}
-#race .raceSwiper {
-  overflow: hidden;
-}
-#race .race-card {
-  position: relative;
-  overflow: hidden;
-}
-#race .race-card img {
-  width: 100%;
-  height: 44.5rem;
-  -o-object-fit: cover;
-     object-fit: cover;
-  display: block;
-}
-@media (max-width: 1440px) {
-  #race .race-card img {
-    height: 35rem;
-  }
-}
-@media (max-width: 767px) {
-  #race .race-card img {
-    height: 21.5rem;
-  }
-}
-#race .race-card::after {
+#SF-25 .sf25-point .line::after {
   content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 40%);
-  z-index: 1;
-}
-#race .race-card .race-info {
-  position: absolute;
-  bottom: 3rem;
-  left: 3rem;
-  font-size: 1.4rem;
-  z-index: 2;
-}
-#race .race-card .race-info .country {
-  font-size: 3rem;
-  font-weight: 350;
-  word-wrap: break-word;
-  padding-bottom: 8px;
-}
-#race .race-card .race-info .date {
-  font-size: 2rem;
-}
-
-footer {
-  background-color: #303030;
-}
-footer .footerInner {
-  padding: 4.9rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.5rem;
-}
-footer .footerInner .ftLogo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-footer .footerInner .ftLogo .line {
-  width: 1px;
-  height: 2rem;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
   background: #fff;
+  border-radius: 50%;
 }
-footer .footerInner .ftLogo img {
-  width: 3rem;
-  height: 100%;
+#SF-25 .sf25-point.active .line {
+  transform: scaleX(1);
 }
-footer .footerInner .snsLogo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8rem;
+#SF-25 .sf25-point.active figcaption {
+  opacity: 1;
+  transform: translateY(0);
 }
-footer .footerInner .snsLogo img {
-  width: 2.4rem;
-  height: 100%;
+#SF-25 .sf25-point.right {
+  text-align: left;
 }
-footer .footerInner .ftText {
-  text-align: center;
-  color: #aaa;
-  font-size: 1.2rem;
-  font-weight: 325;
-  color: #aaa;
-  line-height: 1.3rem;
+#SF-25 .sf25-point.right .lineWrap {
+  flex-direction: row;
 }
-footer .footerInner .ftText p {
-  padding-top: 1.2rem;
+#SF-25 .sf25-point.right .line {
+  transform-origin: left;
+}
+#SF-25 .sf25-point.left {
+  text-align: right;
+}
+#SF-25 .sf25-point.left .lineWrap {
+  flex-direction: row-reverse;
+}
+#SF-25 .sf25-point.left .line {
+  transform-origin: right;
+}
+#SF-25 .sf25-point:nth-child(2) {
+  top: 15%;
+  right: 5%;
+}
+#SF-25 .sf25-point:nth-child(3) {
+  top: 30%;
+  left: 5%;
+}
+#SF-25 .sf25-point:nth-child(4) {
+  top: 55%;
+  right: 5%;
+}
+#SF-25 .sf25-point:nth-child(5) {
+  bottom: 15%;
+  left: 8%;
 }

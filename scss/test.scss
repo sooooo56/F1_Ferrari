@@ -1,503 +1,183 @@
 @use "./var.scss" as v;
+@use "./common.scss";
 
-// 공통 타이틀 스타일
-.title{
-  @include v.title();
-}
-
-.subTitle{
-  @include v.sub-title-36();
-}
-
-.mobile-br {
-    display: none; // 기본은 안 보임
-
-  @media (max-width: 768px) {
-    display: inline; // 모바일에서만 줄바꿈 적용
-  }
-}
-
-.tablet-br {
-    display: none; // 기본은 안 보임
-    
-  @media (max-width: 1440px) {
-    display: inline; // 모바일에서만 줄바꿈 적용
-  }
-}
-
-
-
-
-/* DISCOVER 버튼 */
-  .discover-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    @include v.m-body;
-
-    .circle {
-      position: relative;
-      @include v.circle-progress(40px, 2);
-
-      // + 아이콘
-      &::after {
-        content: "+";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: v.$white;
-        font-size: 2rem;
-        font-weight: 400;
-      }
-    }
-
-    // hover 효과
-    &:hover .progress {
-      stroke-dashoffset: 0;
-    }
-  }
-
-
-/* Hero 영역 */
-#hearo {
+#mainVideo {
   position: relative;
   width: 100%;
-  height: 100vh;
-}
-
-.heroSwiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  height: 100vh; // 화면 꽉 차게
   overflow: hidden;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    /* 세로 영상 → 가로화면 채우기 */
-    width: 100vh;
-    height: 100vw;
-
-    transform: translate(-50%, -50%) rotate(90deg); 
-    transform-origin: center center;
-
-    object-fit: cover;
-    
-    @media (max-width: 767px){
-      width: 100%;
-      height: 100%;
-      transform: translate(-50%, -50%); // rotate 제거
-      object-fit: cover; 
-    }
-  }
-
-
-  .innerText {
-    position: absolute;
-    top: 80%;
-    z-index: 2;
-    text-align: center;
-    width: 100%;
-
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-
-    @media (max-width: 1250px){
-      top: 76%;
-    }
-
-    h3 {
-      margin-bottom: 2.5rem;
-
-      opacity: 0;
-      transform: translateY(2rem);
-      transition: all 0.8s ease;
-    }
-    .discover-btn {
-      opacity: 0;
-      transform: translateY(2rem);
-      transition: all 0.8s ease 0.3s; // 버튼은 약간 지연
-    }
-
-    &.animate {
-    opacity: 1;
-    transform: translateY(0);
-
-      h3 {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .discover-btn {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  }
-}
-
-/* Swiper 페이지네이션 */
-.swiper-pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .5rem;
-  padding: 2.5rem 0;
-}
-
-.swiper-pagination-clickable{
-
-  .swiper-pagination-bullet {
-  position: relative;
-  background: v.$white !important; // 비활성 흰색
-  opacity: 1 !important;
-  width: 100%;
-
-
-  svg {
+  .videoWrap {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
-  }
+    z-index: 0;
 
-  // 공통 원형 mixin 재사용
-  @include v.circle-progress(1rem, 3);
-
-    &.swiper-pagination-bullet-active {
-      background: transparent !important;
-      @include v.circle-progress(2.2rem, 3);
-    }
-  }
-}
-
-
-// full
-#full{
-  width: 100%;
-  height: 100%;
-
-  .fullInner{
-    position: relative;
-
-    .fullTitle{
-      @include v.max-title();
+    iframe {
       position: absolute;
-      top: 15%;
-      right: 10%;
-      text-align: right;
-
-    }
-
-    .right{
-      left: 10%;
-      text-align: left;
-    }
-    
-    img{
-      width: 100%;
-      height: 100vh;
-      object-fit: cover;
-      object-position: center; // 기본값: 중앙
-    }
-  }
-}
-
-@media (max-width: 767px) {
-  #full {
-    .fullInner{
-      .img-position {
-        object-position: 70% center; // 70%면 오른쪽으로 치우쳐짐
-      }
-    }
-  } 
-}
-
-
-// 드라이버 소개
-#driverContainer{
-  @include v.pc-m();
-
-  .title{
-    @include v.title-mb();
-  }
-}
-
-.driver {
-  display: flex;
-
-  .driverCard {
-    position: relative;
-    flex: 1;
-    height: 65rem;
-    background: linear-gradient(180deg, #8C0000 0%, #070707 100%);
-    overflow: hidden;
-
-    &:last-child {
-      background: linear-gradient(180deg, #770000 0%, #070707 100%);
-    }
-    
-    img {
-      position: absolute;
-      top: 7%;
-      width: 80%;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
-      object-fit: cover;
-    }
-
-    .driverInfo {
-      position: absolute;
-      bottom: 4rem;
-      left: 4rem;
-
-      .subTitle{
-        padding-bottom: 1.6rem;
-      }
-    }
-  }
-}
-
-// driver tablet
-@media (max-width: 1250px) {
-  .driver {
-    height: 50rem;
-
-    .driverCard {
-      height: 50rem;
-      .driverInfo{
-        bottom: 3rem;
-        left: 3rem;
-      }
-    }
-  }
-}
-
-// driver mo
-@media (max-width: 767px) {
-  .driver {
-    flex-direction: column;
-    height: 80rem;
-    .driverCard {
-      // flex: none;
-      // height: auto;
-      // min-height: 40rem;
-
-      .driverInfo{
-        bottom: 2rem;
-        left: 2rem;
-      }
-    }
-  }
-}
-
-// SF-25 풀 컨텐츠
-#SF-25 {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-
-  .sfText {
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    padding: 10rem 0;
-    gap: 3.5rem;
-    width: 1520px;
-    align-items: flex-end;
-    margin: 0 auto;
-
-    p {
-      position: relative;
-      cursor: pointer;
-      @include v.sub-title-25();
-
-      // 밑줄 애니메이션
-      &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -5px;
-        width: 0%;
-        height: 2px;
-        background: v.$point-color;
-        transition: width 0.4s ease;
-      }
-
-      &:hover, &.active {
-        color: v.$point-color;
-
-        &::after {
-          width: 100%;
-        }
-      }
+      width: 100vw;
+      height: 56.25vw; // 16:9 비율 유지
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      pointer-events: none; // 클릭 안 되게
     }
   }
 
-.sfImage {
-  position: absolute;
-  inset: 0;
-  background: url("../img/SF-25/1.jpg") center/cover no-repeat;
-  transition: background-image 0.6s ease-in-out;
-  z-index: 1;
-  }
-}
-
-// sf-25 t
-@media (max-width: 1520px) {
-  #SF-25{
-    .sfText{
-      padding: 5rem;
-      gap: 2.5rem;
-    }
-  }
-}
-
-// sf-25 mo
-@media (max-width: 767px) {
-  #SF-25{
-    .sfText{
-      padding: 3rem;
-      gap: 2rem;
-    }
-  }
-}
-
-
-// 레이스 일정
-#race {
-  @include v.pc-m();
-
-  .title{
-    @include v.title-mb();
-  }
-
-  .raceSwiper {
-    overflow: hidden;
-  }
-
-  .race-card {
+  .mainInner {
     position: relative;
-    overflow: hidden;
+    z-index: 1;
+    text-align: center;
+    top: 80%;
+    text-align: center;
+    // width: 100%;
+  }
+}
 
-    img {
-      width: 100%;
-      height: 44.5rem;
-      object-fit: cover;
-      display: block;
+// info
+#info{
+  margin: 8rem auto 10rem auto;
+  .infoInner{
+    display: flex;
+    gap: 96px;
+    flex-wrap: wrap;
+    justify-content: center;
 
-      @media (max-width:1440px){
-        height: 35rem;
-      }
+    li{
+      text-align: center;
 
-      @media (max-width:767px){
-        height: 21.5rem;
+      .bodyG{
+        font-weight: 350;
       }
     }
 
-      &::after {
+    p{
+      font-size: 8rem;
+      padding-bottom: 1.6rem;
+
+      span{
+        font-size: 4rem;
+      }
+    }
+  }
+}
+
+
+#SF-25 {
+  background: radial-gradient(circle at center, #7a0c0c 0%, #000 80%);
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0;
+
+  .sf25-wrap {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .sf25-img {
+    width: 100%;
+    display: block;
+  }
+
+.sf25-point {
+  position: absolute;
+  font-size: 1.6rem;
+  color: #fff;
+  font-weight: 600;
+
+  .lineWrap {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  figcaption {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s;
+    max-width: 280px;
+    line-height: 1.4;
+  }
+
+  .line {
+    position: relative;
+    width: 220px;
+    height: 1px;
+    background: #fff;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s ease-out;
+
+    &::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to top, 
-        rgba(0, 0, 0, 0.6) 0%,  /* 하단은 진한 검정 */
-        rgba(0, 0, 0, 0) 40%    /* 위로 갈수록 투명 */
-      );
-      z-index: 1;
+      left: 0;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid #fff;
+      border-radius: 50%;
+      background: transparent;
     }
 
-    .race-info {
+    &::after {
+      content: "";
       position: absolute;
-      bottom: 3rem;
-      left: 3rem;
-      font-size: 1.4rem;
-      z-index: 2;
+      left: 0;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 6px;
+      height: 6px;
+      background: #fff;
+      border-radius: 50%;
+    }
+  }
 
-      .country {
-        @include v.sub-title-30();
-        padding-bottom: 8px;
-      }
-      .date {
-        font-size: 2rem;
-      }
+  &.active .line {
+    transform: scaleX(1);
+  }
+  &.active figcaption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  // 오른쪽 포인트: 머신 → 선 → 텍스트
+  &.right {
+    text-align: left;
+    .lineWrap {
+      flex-direction: row;
+    }
+    .line {
+      transform-origin: left;
+    }
+  }
+
+  // 왼쪽 포인트: 텍스트 → 선 → 머신
+  &.left {
+    text-align: right;
+    .lineWrap {
+      flex-direction: row-reverse; // 바깥쪽 텍스트 → 안쪽 선 → 머신
+    }
+    .line {
+      transform-origin: right;
     }
   }
 }
 
-// footer
-footer{
-  background-color: v.$black2;
-  
-  .footerInner{
-    padding: 4.9rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2.5rem;
 
-    .ftLogo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-
-    .line{
-      width: 1px;
-      height: 2rem;
-      background: v.$white;
-    }
-    
-    img{
-      width: 3rem;
-      height: 100%;
-    }
-  }
-
-  .snsLogo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8rem;
-    img{
-      width: 2.4rem;
-      height: 100%;
-    }
-  }
-
-    .ftText{
-      text-align: center;
-      color: v.$gray;
-      font-size: 1.2rem;
-      font-weight: 325;
-      color: v.$gray;
-      line-height: 1.3rem;
-
-      p{
-        padding-top: 1.2rem;
-      }
-    }
-  }
+  // 포인트별 위치 (예시)
+  .sf25-point:nth-child(2) { top: 15%; right: 5%; }
+  .sf25-point:nth-child(3) { top: 30%; left: 5%; }
+  .sf25-point:nth-child(4) { top: 55%; right: 5%; }
+  .sf25-point:nth-child(5) { bottom: 15%; left: 8%; }
 }
+
+
+
 
