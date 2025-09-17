@@ -40,7 +40,7 @@
 
 // info
 #info{
-  margin: 8rem auto 10rem auto;
+  margin: 8rem auto 25rem auto;
   .infoInner{
     display: flex;
     gap: 96px;
@@ -66,7 +66,7 @@
   }
 }
 
-
+// 머신 소개 SF-25
 #SF-25 {
   background: radial-gradient(circle at center, #7a0c0c 0%, #000 80%);
   position: relative;
@@ -84,100 +84,111 @@
     display: block;
   }
 
-.sf25-point {
-  position: absolute;
-  font-size: 1.6rem;
-  color: #fff;
-  font-weight: 600;
+  .sf25-point {
+    position: absolute;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: v.$white;
 
-  .lineWrap {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-  }
-
-  figcaption {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s;
-    max-width: 280px;
-    line-height: 1.4;
-  }
-
-  .line {
-    position: relative;
-    width: 220px;
-    height: 1px;
-    background: #fff;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.6s ease-out;
-
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 14px;
-      height: 14px;
-      border: 1.5px solid #fff;
-      border-radius: 50%;
-      background: transparent;
+    &:nth-child(2),&:nth-child(4){
+      .line{
+        &::before,&::after{
+          transform: translate(-50%, -50%);
+        }
+      }
     }
 
-    &::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 6px;
-      height: 6px;
-      background: #fff;
-      border-radius: 50%;
-    }
-  }
 
-  &.active .line {
-    transform: scaleX(1);
-  }
-  &.active figcaption {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  // 오른쪽 포인트: 머신 → 선 → 텍스트
-  &.right {
-    text-align: left;
+    // 라인 + 텍스트 기본 구조
     .lineWrap {
-      flex-direction: row;
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 1.2rem;
     }
+
     .line {
-      transform-origin: left;
+      position: relative;
+      width: 60rem;
+      height: 1px;
+      background: v.$white;
+      transform: scaleX(0);
+      transition: transform 0.6s ease-out;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translate(50%,-50%);
+        border-radius: 50%;
+      }
+
+
+      &::before {
+        width: 14px;
+        height: 14px;
+        border: 1.5px solid v.$white;
+        background: transparent;
+      }
+
+      &::after {
+        width: 6px;
+        height: 6px;
+        background: v.$white;
+      }
+    }
+
+    figcaption {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s;
+      line-height: 1.5;
+    }
+
+    &.active {
+      .line {
+        transform: scaleX(1);
+      }
+      figcaption {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    // 오른쪽 포인트 (머신쪽 = 왼쪽 끝)
+    &.right {
+      text-align: right;
+      .lineWrap {
+        align-items: flex-end;
+      }
+      .line {
+        transform-origin: left;
+        &::before,
+        &::after {
+          left: 0;
+        }
+      }
+    }
+
+    // 왼쪽 포인트 (머신쪽 = 오른쪽 끝)
+    &.left {
+      text-align: left;
+      .lineWrap {
+        align-items: flex-start;
+      }
+      .line {
+        transform-origin: right;
+        &::before,
+        &::after {
+          right: 0;
+        }
+      }
     }
   }
-
-  // 왼쪽 포인트: 텍스트 → 선 → 머신
-  &.left {
-    text-align: right;
-    .lineWrap {
-      flex-direction: row-reverse; // 바깥쪽 텍스트 → 안쪽 선 → 머신
-    }
-    .line {
-      transform-origin: right;
-    }
-  }
-}
-
 
   // 포인트별 위치 (예시)
-  .sf25-point:nth-child(2) { top: 15%; right: 5%; }
-  .sf25-point:nth-child(3) { top: 30%; left: 5%; }
-  .sf25-point:nth-child(4) { top: 55%; right: 5%; }
-  .sf25-point:nth-child(5) { bottom: 15%; left: 8%; }
+  .sf25-point:nth-child(2) { top: 10%; right: -10%; }
+  .sf25-point:nth-child(3) { top: 30%; left: -10%; }
+  .sf25-point:nth-child(4) { top: 52%; right: -10%; }
+  .sf25-point:nth-child(5) { bottom: 20%; left: -10%; }
 }
-
-
-
-

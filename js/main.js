@@ -79,13 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 ///////////////
 
-// full 섹션 텍스트 애니메이션 (스크롤 감지)
-  AOS.init({
-    duration: 1000, // 애니메이션 시간 (ms)
-    once: false,
-  });
-
-
 // sf-25 이미지 변경 + active 표시
 const sfTexts = document.querySelectorAll("#SF-25 .sfText p");
 const sfImage = document.querySelector("#SF-25 .sfImage");

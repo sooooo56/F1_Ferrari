@@ -1,6 +1,7 @@
 @use "./var.scss" as v;
 @use "./common.scss";
 
+// 메인 영상
 #mainVideo {
   position: relative;
   width: 100%;
@@ -19,12 +20,22 @@
       position: absolute;
       top: 50%;
       left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      object-fit: cover;
+      // pc 기본
       width: 100vw;
       height: 56.25vw; // 16:9 비율 유지
       min-width: 100%;
       min-height: 100%;
-      transform: translate(-50%, -50%);
-      pointer-events: none; // 클릭 안 되게
+    }
+
+    // 모바일
+    @media (max-width: 768px) {
+      width: auto;
+      height: 100vh;
+      min-width: 100%;
+      min-height: 100%;
     }
   }
 
@@ -40,12 +51,22 @@
 
 // info
 #info{
-  margin: 8rem auto 10rem auto;
+  @include v.pc-m();
+
+  @media (max-width: 768px) {
+      margin: 96px auto;
+    }
+
   .infoInner{
     display: flex;
     gap: 96px;
     flex-wrap: wrap;
     justify-content: center;
+
+    @media (max-width: 768px) {
+      justify-content: space-evenly;
+      gap: 4rem;
+    }
 
     li{
       text-align: center;
@@ -59,11 +80,222 @@
       font-size: 8rem;
       padding-bottom: 1.6rem;
 
+    @media (max-width: 768px) {
+      font-size: 3.6rem;
+    }
+
       span{
         font-size: 4rem;
+        @media (max-width: 768px) {
+          font-size: 2.5rem;
+        }
       }
     }
   }
 }
 
+// 머신 소개 SF-25
+#SF-25-mobile {
+  display: none;
+}
 
+#SF-25 {
+  background: radial-gradient(circle at center, #7a0c0c 0%, #000 80%);
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0;
+
+  .sf25-wrap {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .sf25-img {
+    width: 100%;
+    display: block;
+  }
+
+  .sf25-point {
+    position: absolute;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: v.$white;
+
+    &:nth-child(2),&:nth-child(4){
+      .line{
+        &::before,&::after{
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+
+
+    // 라인 + 텍스트 기본 구조
+    .lineWrap {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 1.2rem;
+    }
+
+    .line {
+      position: relative;
+      width: 60rem;
+      height: 1px;
+      background: v.$white;
+      transform: scaleX(0);
+      transition: transform 0.6s ease-out;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translate(50%,-50%);
+        border-radius: 50%;
+      }
+
+
+      &::before {
+        width: 14px;
+        height: 14px;
+        border: 1.5px solid v.$white;
+        background: transparent;
+      }
+
+      &::after {
+        width: 6px;
+        height: 6px;
+        background: v.$white;
+      }
+    }
+
+    figcaption {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s;
+      line-height: 1.5;
+    }
+
+    &.active {
+      .line {
+        transform: scaleX(1);
+      }
+      figcaption {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    // 오른쪽 포인트 (머신쪽 = 왼쪽 끝)
+    &.right {
+      text-align: right;
+      .lineWrap {
+        align-items: flex-end;
+      }
+      .line {
+        transform-origin: left;
+        &::before,
+        &::after {
+          left: 0;
+        }
+      }
+    }
+
+    // 왼쪽 포인트 (머신쪽 = 오른쪽 끝)
+    &.left {
+      text-align: left;
+      .lineWrap {
+        align-items: flex-start;
+      }
+      .line {
+        transform-origin: right;
+        &::before,
+        &::after {
+          right: 0;
+        }
+      }
+    }
+  }
+
+  // 포인트별 위치 (예시)
+  .sf25-point:nth-child(2) { top: 10%; right: -10%; }
+  .sf25-point:nth-child(3) { top: 30%; left: -10%; }
+  .sf25-point:nth-child(4) { top: 52%; right: -10%; }
+  .sf25-point:nth-child(5) { bottom: 20%; left: -10%; }
+}
+
+
+// SF-25 모바일
+@media (max-width: 767px) {
+  #SF-25 {
+    display: none;
+  }
+
+  #SF-25-mobile {
+    display: block;
+    background: radial-gradient(circle at center, #7a0c0c 0%, #000 80%);
+    // position: relative;
+
+    .sf25-wrap {
+      position: relative;
+      height: 100vh; // 뷰포트 고정
+      overflow: hidden;
+
+      .sf25-img-wrap {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+      img {
+        width: 100%;
+        height: 60%;
+        object-fit: cover;
+        // z-index: 1;
+      }
+
+      /* 어두운 오버레이 */
+      .highlight {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+
+        mask-image: radial-gradient(circle at center, transparent 25%, black 60%);
+        mask-repeat: no-repeat;
+        mask-size: 20% 20%;
+
+        -webkit-mask-image: radial-gradient(circle at center, transparent 25%, black 60%);
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-size: 20% 20%;
+      }
+    }
+
+
+      .sf25-text {
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: 90%;
+        font-size: 1.4rem;
+        font-weight: 600;
+        z-index: 5;
+
+          p {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+
+            &.active {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+    }
+  }

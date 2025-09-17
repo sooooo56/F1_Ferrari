@@ -58,6 +58,10 @@ a{
   @include v.title();
 }
 
+.title2{
+  @include v.title2();
+}
+
 .subTitle{
   @include v.sub-title-36();
 }

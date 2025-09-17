@@ -71,6 +71,19 @@ $point-color: #d40000;
   }
 }
 
+@mixin title2(){
+  font-size: 5rem;
+  font-weight: 350;
+  word-wrap: break-word;
+
+  @media (min-width: 768px) and (max-width: 1023px){
+    font-size: 4rem;
+  }
+  @media all and (max-width: 767px){
+    font-size: 2.5rem;
+  }
+}
+
 @mixin sub-title-36(){
   font-size: 3.6rem;
   font-weight: 350;

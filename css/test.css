@@ -165,7 +165,7 @@ a {
 }
 
 #info {
-  margin: 8rem auto 10rem auto;
+  margin: 8rem auto 25rem auto;
 }
 #info .infoInner {
   display: flex;
@@ -205,52 +205,48 @@ a {
 #SF-25 .sf25-point {
   position: absolute;
   font-size: 1.6rem;
-  color: #fff;
   font-weight: 600;
+  color: #fff;
+}
+#SF-25 .sf25-point:nth-child(2) .line::before, #SF-25 .sf25-point:nth-child(2) .line::after, #SF-25 .sf25-point:nth-child(4) .line::before, #SF-25 .sf25-point:nth-child(4) .line::after {
+  transform: translate(-50%, -50%);
 }
 #SF-25 .sf25-point .lineWrap {
   display: flex;
-  align-items: center;
+  flex-direction: column-reverse;
   gap: 1.2rem;
+}
+#SF-25 .sf25-point .line {
+  position: relative;
+  width: 60rem;
+  height: 1px;
+  background: #fff;
+  transform: scaleX(0);
+  transition: transform 0.6s ease-out;
+}
+#SF-25 .sf25-point .line::before, #SF-25 .sf25-point .line::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translate(50%, -50%);
+  border-radius: 50%;
+}
+#SF-25 .sf25-point .line::before {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid #fff;
+  background: transparent;
+}
+#SF-25 .sf25-point .line::after {
+  width: 6px;
+  height: 6px;
+  background: #fff;
 }
 #SF-25 .sf25-point figcaption {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s;
-  max-width: 280px;
-  line-height: 1.4;
-}
-#SF-25 .sf25-point .line {
-  position: relative;
-  width: 220px;
-  height: 1px;
-  background: #fff;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.6s ease-out;
-}
-#SF-25 .sf25-point .line::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 14px;
-  height: 14px;
-  border: 1.5px solid #fff;
-  border-radius: 50%;
-  background: transparent;
-}
-#SF-25 .sf25-point .line::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 6px;
-  height: 6px;
-  background: #fff;
-  border-radius: 50%;
+  line-height: 1.5;
 }
 #SF-25 .sf25-point.active .line {
   transform: scaleX(1);
@@ -260,36 +256,42 @@ a {
   transform: translateY(0);
 }
 #SF-25 .sf25-point.right {
-  text-align: left;
+  text-align: right;
 }
 #SF-25 .sf25-point.right .lineWrap {
-  flex-direction: row;
+  align-items: flex-end;
 }
 #SF-25 .sf25-point.right .line {
   transform-origin: left;
 }
+#SF-25 .sf25-point.right .line::before, #SF-25 .sf25-point.right .line::after {
+  left: 0;
+}
 #SF-25 .sf25-point.left {
-  text-align: right;
+  text-align: left;
 }
 #SF-25 .sf25-point.left .lineWrap {
-  flex-direction: row-reverse;
+  align-items: flex-start;
 }
 #SF-25 .sf25-point.left .line {
   transform-origin: right;
 }
+#SF-25 .sf25-point.left .line::before, #SF-25 .sf25-point.left .line::after {
+  right: 0;
+}
 #SF-25 .sf25-point:nth-child(2) {
-  top: 15%;
-  right: 5%;
+  top: 10%;
+  right: -10%;
 }
 #SF-25 .sf25-point:nth-child(3) {
   top: 30%;
-  left: 5%;
+  left: -10%;
 }
 #SF-25 .sf25-point:nth-child(4) {
-  top: 55%;
-  right: 5%;
+  top: 52%;
+  right: -10%;
 }
 #SF-25 .sf25-point:nth-child(5) {
-  bottom: 15%;
-  left: 8%;
+  bottom: 20%;
+  left: -10%;
 }
