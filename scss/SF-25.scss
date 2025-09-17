@@ -63,6 +63,11 @@
     flex-wrap: wrap;
     justify-content: center;
 
+    @media (max-width: 1024px) {
+      justify-content: space-evenly;
+      gap: 15rem;
+    }
+
     @media (max-width: 768px) {
       justify-content: space-evenly;
       gap: 4rem;
@@ -227,7 +232,7 @@
 
 
 // SF-25 모바일
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   #SF-25 {
     display: none;
   }
@@ -252,9 +257,8 @@
 
       img {
         width: 100%;
-        height: 60%;
-        object-fit: cover;
-        // z-index: 1;
+        height: 85%;
+        object-fit: contain;
       }
 
       /* 어두운 오버레이 */
@@ -285,8 +289,7 @@
         transform: translateX(-50%);
         text-align: center;
         width: 90%;
-        font-size: 1.4rem;
-        font-weight: 600;
+        // font-size: 1.4rem;
         z-index: 5;
 
           p {
@@ -303,3 +306,16 @@
       }
     }
   }
+
+  @media(max-width:767px){
+
+  #SF-25-mobile {
+      .sf25-text {
+        p{
+          font-size: 1.4rem;
+        }
+    }
+  }
+}
+
+

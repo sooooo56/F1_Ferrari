@@ -130,6 +130,15 @@ a {
   }
 }
 
+.pc-br {
+  display: block;
+}
+@media (max-width: 768px) {
+  .pc-br {
+    display: none;
+  }
+}
+
 .mobile-br {
   display: none;
 }
@@ -194,12 +203,20 @@ a {
 .driverImg {
   position: relative;
   z-index: 2;
-  height: 175vh;
-  width: 1725px;
+  height: 135vh;
+  width: 1355px;
   margin: 0 auto;
-  background: url("../img/driver/Leclerc2.png") no-repeat center center;
   background-size: contain;
   transform: translateY(10%);
+}
+@media (max-width: 767px) {
+  .driverImg {
+    height: 195vh;
+    width: 1005px;
+  }
+}
+.driverImg img {
+  width: 100%;
 }
 
 /* 하단 블랙→투명 오버레이 */
@@ -248,6 +265,11 @@ a {
   height: 83rem;
   -o-object-fit: cover;
      object-fit: cover;
+}
+@media (max-width: 1024px) {
+  #profile img {
+    width: 100%;
+  }
 }
 #profile .profileR .profileInfo {
   display: flex;
@@ -343,7 +365,6 @@ a {
   padding-bottom: 8px;
 }
 .chart .chartItem .barG .bar-fill {
-  max-width: calc(var(--value) * 1%);
   background: #aaa;
 }
 .chart .chartItem .barR .bar-fill {

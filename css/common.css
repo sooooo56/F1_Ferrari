@@ -129,6 +129,15 @@ a {
   }
 }
 
+.pc-br {
+  display: block;
+}
+@media (max-width: 768px) {
+  .pc-br {
+    display: none;
+  }
+}
+
 .mobile-br {
   display: none;
 }

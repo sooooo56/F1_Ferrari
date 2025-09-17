@@ -74,6 +74,14 @@ a{
   @include v.g-body();
 }
 
+.pc-br {
+    display: block;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
 .mobile-br {
     display: none; // 기본은 안 보임
 

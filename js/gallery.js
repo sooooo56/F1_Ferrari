@@ -1,4 +1,8 @@
 const gallerySwiper = new Swiper(".gallerySwiper", {
+  // autoplay: {
+    
+  //   disableOnInteraction: false,
+  // },
 
   breakpoints :{
     1024: {
@@ -13,5 +17,6 @@ const gallerySwiper = new Swiper(".gallerySwiper", {
       slidesPerView: 1.2,
     },
   },
+  
 });
 

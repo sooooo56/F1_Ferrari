@@ -50,15 +50,22 @@
 .driverImg {
   position: relative;
   z-index: 2; // 텍스트 위
-  height: 175vh; // 상반신까지만 보이도록
-  width: 1725px;
+  height: 135vh; // 상반신까지만 보이도록
+  width: 1355px;
   margin: 0 auto;
-
-  background: url("../img/driver/Leclerc2.png") no-repeat center center;
   background-size: contain;
 
   // 필요하다면 미세 조정
-  transform: translateY(10%); // 이미지를 조금 내려서 박스 중간쯤 배치
+  transform: translateY(10%);
+
+  @media(max-width:767px){
+    height: 195vh; // 상반신까지만 보이도록
+    width: 1005px;
+  }
+
+  img{
+    width: 100%;
+  }
 }
 
 /* 하단 블랙→투명 오버레이 */
@@ -114,6 +121,10 @@
       width: 70rem;
       height: 83rem;
       object-fit: cover;
+
+      @media(max-width:1024px){
+        width: 100%;
+      }
     }
 
   .profileR{
@@ -235,7 +246,7 @@
       padding-top: 2rem;
       padding-bottom: 8px;
       .bar-fill {
-        max-width: calc(var(--value) * 1%); // 값 크기에 따라 가변
+        // max-width: calc(var(--value) * 1%); // 값 크기에 따라 가변
         background: v.$gray;
       }
     }
