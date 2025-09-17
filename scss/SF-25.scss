@@ -5,7 +5,7 @@
 #mainVideo {
   position: relative;
   width: 100%;
-  height: 100vh; // 화면 꽉 차게
+  height: 100vh;
   overflow: hidden;
 
   .videoWrap {
@@ -15,6 +15,10 @@
     width: 100%;
     height: 100%;
     z-index: 0;
+    /* 추가: flexbox를 사용하여 iframe 중앙 정렬 */
+    display: flex; 
+    align-items: center;
+    justify-content: center;
 
     iframe {
       position: absolute;
@@ -23,29 +27,25 @@
       transform: translate(-50%, -50%);
       pointer-events: none;
       object-fit: cover;
-      // pc 기본
-      width: 100vw;
-      height: 56.25vw; // 16:9 비율 유지
-      min-width: 100%;
-      min-height: 100%;
-    }
 
-    // 모바일
-    @media (max-width: 768px) {
-      width: auto;
-      height: 100vh;
+      /* PC, 모바일 공통으로 적용될 반응형 코드 */
+      width: 100vw;
+      height: 56.25vw;
       min-width: 100%;
       min-height: 100%;
+
+      @media(max-width:1440px){
+        width: 177.7778vh; /* 100vh * (16/9) */
+        height: 100vh;
+      }
     }
   }
-
   .mainInner {
     position: relative;
     z-index: 1;
     text-align: center;
     top: 80%;
     text-align: center;
-    // width: 100%;
   }
 }
 
@@ -261,16 +261,20 @@
       .highlight {
         position: absolute;
         inset: 0;
-        background: rgba(0, 0, 0, 0.7);
+        background: rgba(0, 0, 0, 0.85);
 
-        mask-image: radial-gradient(circle at center, transparent 25%, black 60%);
-        mask-repeat: no-repeat;
-        mask-size: 20% 20%;
-
-        -webkit-mask-image: radial-gradient(circle at center, transparent 25%, black 60%);
+        /* 중앙 원이 뚫려서 보이는 효과 (소프트 엣지) */
+        -webkit-mask-image: radial-gradient(circle at 50% 50%, transparent 0%, transparent 5%, black 25%);
         -webkit-mask-repeat: no-repeat;
-        -webkit-mask-size: 20% 20%;
+        -webkit-mask-size: cover;
+
+        mask-image: radial-gradient(circle at 50% 50%, transparent 0%, transparent 5%, black 25%);
+        mask-repeat: no-repeat;
+        mask-size: cover;
+
+        transition: -webkit-mask-image 0.4s ease, mask-image 0.4s ease;
       }
+
     }
 
 

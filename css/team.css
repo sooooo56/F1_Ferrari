@@ -66,6 +66,22 @@ a {
   }
 }
 
+.title2 {
+  font-size: 5rem;
+  font-weight: 350;
+  word-wrap: break-word;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .title2 {
+    font-size: 4rem;
+  }
+}
+@media all and (max-width: 767px) {
+  .title2 {
+    font-size: 2.5rem;
+  }
+}
+
 .subTitle {
   font-size: 3.6rem;
   font-weight: 350;

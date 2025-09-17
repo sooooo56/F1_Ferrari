@@ -161,6 +161,10 @@ a {
   width: 100%;
   height: 100%;
   z-index: 0;
+  /* 추가: flexbox를 사용하여 iframe 중앙 정렬 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #mainVideo .videoWrap iframe {
   position: absolute;
@@ -170,17 +174,16 @@ a {
   pointer-events: none;
   -o-object-fit: cover;
      object-fit: cover;
+  /* PC, 모바일 공통으로 적용될 반응형 코드 */
   width: 100vw;
   height: 56.25vw;
   min-width: 100%;
   min-height: 100%;
 }
-@media (max-width: 768px) {
-  #mainVideo .videoWrap {
-    width: auto;
+@media (max-width: 1440px) {
+  #mainVideo .videoWrap iframe {
+    width: 177.7778vh; /* 100vh * (16/9) */
     height: 100vh;
-    min-width: 100%;
-    min-height: 100%;
   }
 }
 #mainVideo .mainInner {
@@ -389,13 +392,15 @@ a {
   #SF-25-mobile .sf25-wrap .sf25-img-wrap .highlight {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.7);
-    mask-image: radial-gradient(circle at center, transparent 25%, black 60%);
-    mask-repeat: no-repeat;
-    mask-size: 20% 20%;
-    -webkit-mask-image: radial-gradient(circle at center, transparent 25%, black 60%);
+    background: rgba(0, 0, 0, 0.85);
+    /* 중앙 원이 뚫려서 보이는 효과 (소프트 엣지) */
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, transparent 0%, transparent 5%, black 25%);
     -webkit-mask-repeat: no-repeat;
-    -webkit-mask-size: 20% 20%;
+    -webkit-mask-size: cover;
+    mask-image: radial-gradient(circle at 50% 50%, transparent 0%, transparent 5%, black 25%);
+    mask-repeat: no-repeat;
+    mask-size: cover;
+    transition: -webkit-mask-image 0.4s ease, mask-image 0.4s ease;
   }
   #SF-25-mobile .sf25-wrap .sf25-text {
     position: absolute;

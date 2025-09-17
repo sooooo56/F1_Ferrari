@@ -17,54 +17,64 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// sf-25 모바일 스크롤 효과
+// gsap.registerPlugin(ScrollTrigger);
+
 // document.addEventListener("DOMContentLoaded", () => {
-//   gsap.registerPlugin(ScrollTrigger);
-
-//   const texts = gsap.utils.toArray("#SF-25-mobile .sf25-text p");
 //   const highlight = document.querySelector("#SF-25-mobile .highlight");
+//   const texts = document.querySelectorAll("#SF-25-mobile .sf25-text p");
 
-//   // ScrollTrigger pinning (섹션 고정)
+//   // 하이라이트가 이동할 좌표 (이미지 위치 기준 %, 필요시 조정)
+//   const positions = [
+//     { x: "50%", y: "15%" }, // 노즈
+//     { x: "50%", y: "40%" }, // 중간
+//     { x: "50%", y: "60%" }, // 운전석
+//     { x: "50%", y: "85%" }  // 타이어/후방
+//   ];
+
 //   ScrollTrigger.create({
 //     trigger: "#SF-25-mobile",
 //     start: "top top",
-//     end: "+=400%",
+//     end: "+=400%",   // 스크롤 길이
 //     pin: true,
 //     scrub: true,
 //     onUpdate: (self) => {
-//       let progress = self.progress;
+//       const progress = self.progress * (positions.length - 1);
+//       const index = Math.floor(progress);
+//       const nextIndex = Math.min(index + 1, positions.length - 1);
+//       const ratio = progress - index;
 
-//       // 방사형 크기 조정 (0% → 250%)
-//       const size = 50 + progress * 200;
-//       document.querySelector(".highlight").style.webkitMaskSize = `${size}% ${size}%`;
-//       document.querySelector(".highlight").style.maskSize = `${size}% ${size}%`;
+//       // 좌표 보간 (GSAP 없이 수동)
+//       const x = gsap.utils.interpolate(positions[index].x, positions[nextIndex].x, ratio);
+//       const y = gsap.utils.interpolate(positions[index].y, positions[nextIndex].y, ratio);
 
-//       // 텍스트 전환 (4등분)
-//       let index = Math.floor(progress * texts.length);
+//       highlight.style.webkitMaskPosition = `${x} ${y}`;
+//       highlight.style.maskPosition = `${x} ${y}`;
+
+//       // 텍스트 표시
 //       texts.forEach((p, i) => p.classList.toggle("active", i === index));
 //     }
 //   });
 // });
 
-
 gsap.registerPlugin(ScrollTrigger);
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const highlight = document.querySelector("#SF-25-mobile .highlight");
   const texts = document.querySelectorAll("#SF-25-mobile .sf25-text p");
 
-  // 하이라이트가 이동할 좌표 (이미지 위치 기준 %, 필요시 조정)
+  // 포인트 좌표 (이미지 기준 %)
   const positions = [
-    { x: "50%", y: "15%" }, // 노즈
-    { x: "50%", y: "40%" }, // 중간
-    { x: "50%", y: "60%" }, // 운전석
-    { x: "50%", y: "85%" }  // 타이어/후방
+    { x: 50, y: 15 }, // 노즈
+    { x: 50, y: 40 }, // 차체 중간
+    { x: 50, y: 60 }, // 운전석
+    { x: 50, y: 85 }  // 타이어/후방
   ];
 
   ScrollTrigger.create({
     trigger: "#SF-25-mobile",
     start: "top top",
-    end: "+=400%",   // 스크롤 길이
+    end: "+=400%",
     pin: true,
     scrub: true,
     onUpdate: (self) => {
@@ -73,14 +83,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const nextIndex = Math.min(index + 1, positions.length - 1);
       const ratio = progress - index;
 
-      // 좌표 보간 (GSAP 없이 수동)
+      // 좌표 보간 (부드럽게 이동)
       const x = gsap.utils.interpolate(positions[index].x, positions[nextIndex].x, ratio);
       const y = gsap.utils.interpolate(positions[index].y, positions[nextIndex].y, ratio);
 
-      highlight.style.webkitMaskPosition = `${x} ${y}`;
-      highlight.style.maskPosition = `${x} ${y}`;
+      // 작은 원형 마스크 적용 (세부 포인트 강조)
+      const mask = `radial-gradient(circle at ${x}% ${y}%, transparent 0%, transparent 5%, black 25%)`;
+      highlight.style.webkitMaskImage = mask;
+      highlight.style.maskImage = mask;
 
-      // 텍스트 표시
+      // 텍스트 전환
       texts.forEach((p, i) => p.classList.toggle("active", i === index));
     }
   });
